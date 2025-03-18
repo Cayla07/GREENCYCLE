@@ -37,10 +37,8 @@ namespace GREENCYCLE
 
                 if (selectedUserType == "Application Users")
                 {
-                    Form3 form3 = new Form3();
-                    Form4 form4 = new Form4();
-                    form3.Show();
-                    form4.Show();
+                    UserFunctionality UserFunctionality = new UserFunctionality();
+                    UserFunctionality.Show();
                     this.Hide();
                 }
 
