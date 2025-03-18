@@ -38,12 +38,42 @@ namespace GREENCYCLE
                 if (selectedUserType == "Application Users")
                 {
                     Form3 form3 = new Form3();
+                    Form4 form4 = new Form4();
                     form3.Show();
+                    form4.Show();
                     this.Hide();
                 }
 
             }
+            else
+            {
+                MessageBox.Show("Empty user type!");
+            }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal; 
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized; 
+            }
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
     }
 }
 

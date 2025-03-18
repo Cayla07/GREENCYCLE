@@ -33,12 +33,13 @@
             btnExit = new Button();
             linkLabel1 = new LinkLabel();
             button1 = new Button();
-            button2 = new Button();
+            btnMin = new Button();
             btnStart = new Button();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label1.AutoSize = true;
             label1.BackColor = Color.PaleGreen;
             label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -62,6 +63,7 @@
             btnExit.Size = new Size(27, 25);
             btnExit.TabIndex = 2;
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // linkLabel1
             // 
@@ -84,29 +86,34 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(1248, 9);
+            button1.Location = new Point(1257, 9);
             button1.Name = "button1";
             button1.Size = new Size(29, 30);
             button1.TabIndex = 7;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += btnMax_Click;
             // 
-            // button2
+            // btnMin
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.PaleGreen;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(1204, 7);
-            button2.Name = "button2";
-            button2.Size = new Size(38, 34);
-            button2.TabIndex = 8;
-            button2.UseVisualStyleBackColor = false;
+            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMin.BackColor = Color.PaleGreen;
+            btnMin.BackgroundImageLayout = ImageLayout.Center;
+            btnMin.FlatAppearance.BorderSize = 0;
+            btnMin.FlatStyle = FlatStyle.Flat;
+            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
+            btnMin.Location = new Point(1213, 7);
+            btnMin.Name = "btnMin";
+            btnMin.Size = new Size(38, 34);
+            btnMin.TabIndex = 8;
+            btnMin.UseVisualStyleBackColor = false;
+            btnMin.Click += btnMin_Click;
             // 
             // btnStart
             // 
+            btnStart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             btnStart.FlatAppearance.BorderSize = 0;
+            btnStart.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnStart.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnStart.FlatStyle = FlatStyle.Flat;
             btnStart.Image = (Image)resources.GetObject("btnStart.Image");
             btnStart.Location = new Point(416, 309);
@@ -114,6 +121,7 @@
             btnStart.Size = new Size(490, 341);
             btnStart.TabIndex = 9;
             btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click_1;
             // 
             // CoverPage
             // 
@@ -123,7 +131,7 @@
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1331, 783);
             Controls.Add(btnStart);
-            Controls.Add(button2);
+            Controls.Add(btnMin);
             Controls.Add(button1);
             Controls.Add(linkLabel1);
             Controls.Add(btnExit);
@@ -141,7 +149,7 @@
         private Button btnExit;
         private LinkLabel linkLabel1;
         private Button button1;
-        private Button button2;
+        private Button btnMin;
         private Button btnStart;
     }
 }

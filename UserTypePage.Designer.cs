@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserTypePage));
             label1 = new Label();
-            button2 = new Button();
-            button1 = new Button();
+            btnMin = new Button();
+            btnMax = new Button();
             btnExit = new Button();
             panel1 = new Panel();
             btnProceed = new Button();
@@ -44,6 +44,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label1.AutoSize = true;
             label1.BackColor = Color.PaleGreen;
             label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -54,34 +55,39 @@
             label1.TabIndex = 2;
             label1.Text = "WELCOME";
             // 
-            // button2
+            // btnMin
             // 
-            button2.BackColor = Color.PaleGreen;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(1186, 7);
-            button2.Name = "button2";
-            button2.Size = new Size(38, 34);
-            button2.TabIndex = 11;
-            button2.UseVisualStyleBackColor = false;
+            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMin.BackColor = Color.PaleGreen;
+            btnMin.BackgroundImageLayout = ImageLayout.Center;
+            btnMin.FlatAppearance.BorderSize = 0;
+            btnMin.FlatStyle = FlatStyle.Flat;
+            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
+            btnMin.Location = new Point(1195, 7);
+            btnMin.Name = "btnMin";
+            btnMin.Size = new Size(38, 34);
+            btnMin.TabIndex = 11;
+            btnMin.UseVisualStyleBackColor = false;
+            btnMin.Click += btnMin_Click;
             // 
-            // button1
+            // btnMax
             // 
-            button1.BackColor = Color.PaleGreen;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(1230, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(29, 30);
-            button1.TabIndex = 10;
-            button1.UseVisualStyleBackColor = false;
+            btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMax.BackColor = Color.PaleGreen;
+            btnMax.BackgroundImageLayout = ImageLayout.Center;
+            btnMax.FlatAppearance.BorderSize = 0;
+            btnMax.FlatStyle = FlatStyle.Flat;
+            btnMax.Image = (Image)resources.GetObject("btnMax.Image");
+            btnMax.Location = new Point(1239, 9);
+            btnMax.Name = "btnMax";
+            btnMax.Size = new Size(29, 30);
+            btnMax.TabIndex = 10;
+            btnMax.UseVisualStyleBackColor = false;
+            btnMax.Click += btnMax_Click;
             // 
             // btnExit
             // 
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnExit.BackColor = Color.PaleGreen;
             btnExit.BackgroundImageLayout = ImageLayout.Center;
             btnExit.FlatAppearance.BorderSize = 0;
@@ -92,9 +98,11 @@
             btnExit.Size = new Size(27, 25);
             btnExit.TabIndex = 9;
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel1.BackColor = Color.DarkSalmon;
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(cmbType);
@@ -140,6 +148,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label3.AutoSize = true;
             label3.BackColor = Color.PaleGreen;
             label3.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -152,6 +161,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             label4.AutoSize = true;
             label4.BackColor = Color.PaleGreen;
             label4.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -171,8 +181,8 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnMin);
+            Controls.Add(btnMax);
             Controls.Add(btnExit);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -189,8 +199,8 @@
         #endregion
 
         private Label label1;
-        private Button button2;
-        private Button button1;
+        private Button btnMin;
+        private Button btnMax;
         private Button btnExit;
         private Panel panel1;
         private Label label2;
