@@ -52,5 +52,28 @@ namespace GREENCYCLE
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
+        {
+            tbxAdminPass.UseSystemPasswordChar = !cbShowPassA.Checked;
+        }
+
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            string adminEmail = "admin";
+            string adminPassword = "admin123";
+
+            if (tbxAdminEmail.Text == adminEmail && tbxAdminPass.Text == adminPassword)
+            {
+                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                UserDashboard dashboard = new UserDashboard();
+                dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Email or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -119,6 +119,7 @@
             cbShowPassA.TabIndex = 40;
             cbShowPassA.Text = "Show Password";
             cbShowPassA.UseVisualStyleBackColor = true;
+            cbShowPassA.CheckedChanged += cbShowPassA_CheckedChanged;
             // 
             // pictureBox5
             // 
@@ -153,6 +154,7 @@
             btnLogIn.TabIndex = 36;
             btnLogIn.Text = "LOG IN";
             btnLogIn.UseVisualStyleBackColor = false;
+            btnLogIn.Click += btnLogIn_Click;
             // 
             // label13
             // 
