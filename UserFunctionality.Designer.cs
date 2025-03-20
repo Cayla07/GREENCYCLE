@@ -372,7 +372,7 @@
             btnLogIn.ForeColor = Color.Lime;
             btnLogIn.Location = new Point(233, 454);
             btnLogIn.Name = "btnLogIn";
-            btnLogIn.Size = new Size(128, 41);
+            btnLogIn.Size = new Size(128, 53);
             btnLogIn.TabIndex = 25;
             btnLogIn.Text = "LOG IN";
             btnLogIn.UseVisualStyleBackColor = false;

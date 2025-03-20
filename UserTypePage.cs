@@ -41,6 +41,12 @@ namespace GREENCYCLE
                     UserFunctionality.Show();
                     this.Hide();
                 }
+                else
+                {
+                    Admin Admin = new Admin();
+                    Admin.Show();
+                    this.Hide();
+                }
 
             }
             else

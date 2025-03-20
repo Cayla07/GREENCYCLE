@@ -106,20 +106,19 @@ namespace GREENCYCLE
 
         private void linkShowPassC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            tbxPassC.PasswordChar = '\0'; // Show password
-            linkShowPassC.Text = "Hide";   // Change text to "Hide"
+            tbxPassC.PasswordChar = '\0'; 
+            linkShowPassC.Text = "Hide";   
 
-            // Start the timer to hide the password after 2 seconds
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            tbxPassC.PasswordChar = '*';  // Hide password again
+            tbxPassC.PasswordChar = '*'; 
             tbxPassL.PasswordChar = '*';
             linkShowPassC.Text = "Show";
-            linkShowPassL.Text = "Show";   // Change text back to "Show"
-            timer1.Stop();  // Stop the timer to avoid repeating
+            linkShowPassL.Text = "Show";   
+            timer1.Stop();  
         }
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
@@ -127,7 +126,6 @@ namespace GREENCYCLE
             if (tbxPassC.Text == tbxConPass.Text)
             {
                 MessageBox.Show("Created Successful!");
-                // Proceed with saving the user details
             }
             else
             {
@@ -137,8 +135,6 @@ namespace GREENCYCLE
 
         private void linkUserLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            panelInfo.Visible = false;
-            panelCreate.Visible = false;
             panelUserLogIn.Visible = true;
         }
 
@@ -146,15 +142,14 @@ namespace GREENCYCLE
         {
             panelCreate.Visible = true;
             panelInfo.Visible = false;
-            panelUserLogIn.Visible = false;
+            panelCreate.Visible = false;
         }
 
         private void linkShowPassL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            tbxPassL.PasswordChar = '\0'; // Show password
-            linkShowPassL.Text = "Hide";   // Change text to "Hide"
+            tbxPassL.PasswordChar = '\0'; 
+            linkShowPassL.Text = "Hide";   
 
-            // Start the timer to hide the password after 2 seconds
             timer1.Start();
         }
 
