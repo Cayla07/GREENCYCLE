@@ -44,7 +44,7 @@
             label1.BackColor = Color.PaleGreen;
             label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGreen;
-            label1.Location = new Point(416, 186);
+            label1.Location = new Point(416, 172);
             label1.Name = "label1";
             label1.Size = new Size(490, 85);
             label1.TabIndex = 1;
@@ -115,11 +115,16 @@
             btnStart.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnStart.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnStart.FlatStyle = FlatStyle.Flat;
+            btnStart.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = Color.DarkGreen;
             btnStart.Image = (Image)resources.GetObject("btnStart.Image");
-            btnStart.Location = new Point(416, 309);
+            btnStart.ImageAlign = ContentAlignment.TopCenter;
+            btnStart.Location = new Point(416, 283);
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(490, 341);
+            btnStart.Size = new Size(490, 398);
             btnStart.TabIndex = 9;
+            btnStart.Text = "C l i c k    t o    c o n t i n u e";
+            btnStart.TextAlign = ContentAlignment.BottomCenter;
             btnStart.UseVisualStyleBackColor = true;
             btnStart.Click += btnStart_Click_1;
             // 

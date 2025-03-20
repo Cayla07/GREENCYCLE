@@ -142,7 +142,7 @@ namespace GREENCYCLE
         {
             panelCreate.Visible = true;
             panelInfo.Visible = false;
-            panelCreate.Visible = false;
+            
         }
 
         private void linkShowPassL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
