@@ -43,10 +43,26 @@
             btnMin = new Button();
             btnMax = new Button();
             btnExit = new Button();
-            panel2 = new Panel();
+            panelAdminDB = new Panel();
+            pictureBox1 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            panel3 = new Panel();
+            panel4 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
             panelMenu.SuspendLayout();
+            panelAdminDB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -283,12 +299,122 @@
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
             // 
-            // panel2
+            // panelAdminDB
             // 
-            panel2.Location = new Point(298, 43);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1154, 722);
-            panel2.TabIndex = 27;
+            panelAdminDB.Controls.Add(panel4);
+            panelAdminDB.Controls.Add(panel3);
+            panelAdminDB.Controls.Add(pictureBox1);
+            panelAdminDB.Controls.Add(pictureBox5);
+            panelAdminDB.Controls.Add(button4);
+            panelAdminDB.Controls.Add(button3);
+            panelAdminDB.Controls.Add(button2);
+            panelAdminDB.Controls.Add(pictureBox4);
+            panelAdminDB.Controls.Add(pictureBox3);
+            panelAdminDB.Controls.Add(pictureBox2);
+            panelAdminDB.Location = new Point(298, 43);
+            panelAdminDB.Name = "panelAdminDB";
+            panelAdminDB.Size = new Size(1154, 722);
+            panelAdminDB.TabIndex = 27;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(28, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(251, 227);
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox5.Location = new Point(28, 13);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(251, 227);
+            pictureBox5.TabIndex = 26;
+            pictureBox5.TabStop = false;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.White;
+            button4.BackgroundImageLayout = ImageLayout.Center;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.Location = new Point(877, 13);
+            button4.Name = "button4";
+            button4.Size = new Size(251, 227);
+            button4.TabIndex = 25;
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.White;
+            button3.BackgroundImageLayout = ImageLayout.Center;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.Location = new Point(596, 13);
+            button3.Name = "button3";
+            button3.Size = new Size(251, 227);
+            button3.TabIndex = 24;
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.BackgroundImageLayout = ImageLayout.Center;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(312, 13);
+            button2.Name = "button2";
+            button2.Size = new Size(251, 227);
+            button2.TabIndex = 23;
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox4.Location = new Point(877, 13);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(251, 227);
+            pictureBox4.TabIndex = 22;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox3.Location = new Point(596, 13);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(251, 227);
+            pictureBox3.TabIndex = 21;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox2.Location = new Point(312, 13);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(251, 227);
+            pictureBox2.TabIndex = 20;
+            pictureBox2.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.BackgroundImageLayout = ImageLayout.Center;
+            panel3.Location = new Point(28, 246);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(418, 312);
+            panel3.TabIndex = 27;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
+            panel4.BackgroundImageLayout = ImageLayout.Center;
+            panel4.Location = new Point(452, 246);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(676, 312);
+            panel4.TabIndex = 28;
             // 
             // AdminDashboard
             // 
@@ -296,7 +422,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1452, 765);
-            Controls.Add(panel2);
+            Controls.Add(panelAdminDB);
             Controls.Add(panelMenu);
             Controls.Add(btnMin);
             Controls.Add(btnMax);
@@ -309,6 +435,12 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).EndInit();
             panelMenu.ResumeLayout(false);
+            panelAdminDB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -328,6 +460,16 @@
         private Button btnMin;
         private Button btnMax;
         private Button btnExit;
-        private Panel panel2;
+        private Panel panelAdminDB;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox5;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private Panel panel4;
+        private Panel panel3;
     }
 }

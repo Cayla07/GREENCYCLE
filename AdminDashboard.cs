@@ -15,6 +15,7 @@ namespace GREENCYCLE
         public AdminDashboard()
         {
             InitializeComponent();
+            btnDashboard.BackColor = Color.Lime;
         }
 
         private void DisableButton()
@@ -63,6 +64,7 @@ namespace GREENCYCLE
         {
             DisableButton();
             btnDashboard.BackColor = Color.Lime;
+            panelAdminDB.Visible = true;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
