@@ -15,9 +15,6 @@ namespace GREENCYCLE
         public UserFunctionality()
         {
             InitializeComponent();
-            timer1.Interval = 2000;
-            timer1.Enabled = false;
-            timer1.Tick += timer1_Tick;
         }
 
         private void UserFunctionality_Load(object sender, EventArgs e)
@@ -104,34 +101,30 @@ namespace GREENCYCLE
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void linkShowPassC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            tbxPassC.PasswordChar = '\0'; 
-            linkShowPassC.Text = "Hide";   
-
-            timer1.Start();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            tbxPassC.PasswordChar = '*'; 
-            tbxPassL.PasswordChar = '*';
-            linkShowPassC.Text = "Show";
-            linkShowPassL.Text = "Show";   
-            timer1.Stop();  
-        }
-
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
-            if (tbxPassC.Text == tbxConPass.Text)
+            string email = tbxEmailC.Text;
+            string password = tbxPassC.Text;
+            string confirmPassword = tbxConPass.Text;
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
             {
-                MessageBox.Show("Created Successful!");
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (password != confirmPassword)
             {
-                MessageBox.Show("Passwords do not match. Please try again.");
+                MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            UserDashboard userDashboard = new UserDashboard();
+            userDashboard.Show();
+            this.Hide();
         }
+
 
         private void linkUserLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -142,20 +135,14 @@ namespace GREENCYCLE
         {
             panelCreate.Visible = true;
             panelInfo.Visible = false;
-            
-        }
 
-        private void linkShowPassL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            tbxPassL.PasswordChar = '\0'; 
-            linkShowPassL.Text = "Hide";   
-
-            timer1.Start();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-
+            UserDashboard userDashboard = new UserDashboard();
+            userDashboard.Show();
+            this.Hide();
         }
 
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -164,6 +151,30 @@ namespace GREENCYCLE
             panelCreate.Visible = false;
             panelUserLogIn.Visible = false;
 
+        }
+
+        private void cbxShowPassL_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxShowPassL.Checked)
+            {
+                tbxPassL.UseSystemPasswordChar = true; 
+            }
+            else
+            {
+                tbxPassL.UseSystemPasswordChar = false; 
+            }
+        }
+
+        private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPassA.Checked)
+            {
+                tbxPassC.UseSystemPasswordChar = true; 
+            }
+            else
+            {
+                tbxPassC.UseSystemPasswordChar = false; 
+            }
         }
     }
 }

@@ -28,35 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFunctionality));
             btnMin = new Button();
             btnMax = new Button();
             btnExit = new Button();
             panelCreate = new Panel();
+            cbShowPassA = new CheckBox();
             pictureBox3 = new PictureBox();
             tbxConPass = new TextBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            linkShowPassC = new LinkLabel();
             btnCreateAcc = new Button();
             label3 = new Label();
             tbxPassC = new TextBox();
             tbxEmailC = new TextBox();
-            timer1 = new System.Windows.Forms.Timer(components);
             panelInfo = new Panel();
-            panelUserLogIn = new Panel();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            linkSignUp = new LinkLabel();
-            label12 = new Label();
-            linkShowPassL = new LinkLabel();
-            btnLogIn = new Button();
-            label13 = new Label();
-            label14 = new Label();
-            tbxPassL = new TextBox();
-            linkLabel1 = new LinkLabel();
-            tbxEmailL = new TextBox();
             cbxBarangay = new ComboBox();
             label11 = new Label();
             cbxMunicipality = new ComboBox();
@@ -76,6 +62,18 @@
             label2 = new Label();
             tbxFullName = new TextBox();
             label6 = new Label();
+            panelUserLogIn = new Panel();
+            cbxShowPassL = new CheckBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            linkSignUp = new LinkLabel();
+            label12 = new Label();
+            btnLogIn = new Button();
+            label13 = new Label();
+            label14 = new Label();
+            tbxPassL = new TextBox();
+            linkLabel1 = new LinkLabel();
+            tbxEmailL = new TextBox();
             panelCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -135,25 +133,38 @@
             // 
             panelCreate.Anchor = AnchorStyles.None;
             panelCreate.BackColor = Color.LightSalmon;
+            panelCreate.Controls.Add(cbShowPassA);
             panelCreate.Controls.Add(pictureBox3);
             panelCreate.Controls.Add(tbxConPass);
             panelCreate.Controls.Add(pictureBox2);
             panelCreate.Controls.Add(pictureBox1);
-            panelCreate.Controls.Add(linkShowPassC);
             panelCreate.Controls.Add(btnCreateAcc);
             panelCreate.Controls.Add(label3);
             panelCreate.Controls.Add(tbxPassC);
             panelCreate.Controls.Add(tbxEmailC);
-            panelCreate.Location = new Point(370, 76);
+            panelCreate.Location = new Point(393, 76);
             panelCreate.Name = "panelCreate";
             panelCreate.Size = new Size(559, 601);
             panelCreate.TabIndex = 15;
+            // 
+            // cbShowPassA
+            // 
+            cbShowPassA.Anchor = AnchorStyles.None;
+            cbShowPassA.AutoSize = true;
+            cbShowPassA.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbShowPassA.Location = new Point(312, 317);
+            cbShowPassA.Name = "cbShowPassA";
+            cbShowPassA.Size = new Size(147, 23);
+            cbShowPassA.TabIndex = 41;
+            cbShowPassA.Text = "Show Password";
+            cbShowPassA.UseVisualStyleBackColor = true;
+            cbShowPassA.CheckedChanged += cbShowPassA_CheckedChanged;
             // 
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(75, 348);
+            pictureBox3.Location = new Point(75, 365);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(37, 31);
             pictureBox3.TabIndex = 32;
@@ -162,7 +173,7 @@
             // tbxConPass
             // 
             tbxConPass.Anchor = AnchorStyles.Right;
-            tbxConPass.Location = new Point(118, 348);
+            tbxConPass.Location = new Point(118, 365);
             tbxConPass.Multiline = true;
             tbxConPass.Name = "tbxConPass";
             tbxConPass.PlaceholderText = "Confirm Password";
@@ -188,23 +199,6 @@
             pictureBox1.Size = new Size(37, 31);
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
-            // 
-            // linkShowPassC
-            // 
-            linkShowPassC.ActiveLinkColor = Color.Lime;
-            linkShowPassC.Anchor = AnchorStyles.Right;
-            linkShowPassC.AutoSize = true;
-            linkShowPassC.BackColor = Color.White;
-            linkShowPassC.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkShowPassC.ForeColor = Color.Black;
-            linkShowPassC.LinkColor = Color.Black;
-            linkShowPassC.Location = new Point(404, 282);
-            linkShowPassC.Name = "linkShowPassC";
-            linkShowPassC.Size = new Size(49, 19);
-            linkShowPassC.TabIndex = 26;
-            linkShowPassC.TabStop = true;
-            linkShowPassC.Text = "Show";
-            linkShowPassC.LinkClicked += linkShowPassC_LinkClicked;
             // 
             // btnCreateAcc
             // 
@@ -236,6 +230,7 @@
             tbxPassC.Location = new Point(118, 277);
             tbxPassC.Multiline = true;
             tbxPassC.Name = "tbxPassC";
+            tbxPassC.PasswordChar = '*';
             tbxPassC.PlaceholderText = "Password";
             tbxPassC.Size = new Size(341, 34);
             tbxPassC.TabIndex = 22;
@@ -251,16 +246,10 @@
             tbxEmailC.TabIndex = 19;
             tbxEmailC.TabStop = false;
             // 
-            // timer1
-            // 
-            timer1.Interval = 2000;
-            timer1.Tick += timer1_Tick;
-            // 
             // panelInfo
             // 
             panelInfo.Anchor = AnchorStyles.None;
             panelInfo.BackColor = Color.LightSalmon;
-            panelInfo.Controls.Add(panelUserLogIn);
             panelInfo.Controls.Add(cbxBarangay);
             panelInfo.Controls.Add(label11);
             panelInfo.Controls.Add(cbxMunicipality);
@@ -280,158 +269,10 @@
             panelInfo.Controls.Add(label2);
             panelInfo.Controls.Add(tbxFullName);
             panelInfo.Controls.Add(label6);
-            panelInfo.Location = new Point(352, 61);
+            panelInfo.Location = new Point(370, 76);
             panelInfo.Name = "panelInfo";
             panelInfo.Size = new Size(607, 616);
             panelInfo.TabIndex = 16;
-            // 
-            // panelUserLogIn
-            // 
-            panelUserLogIn.BackColor = Color.LightSalmon;
-            panelUserLogIn.Controls.Add(pictureBox5);
-            panelUserLogIn.Controls.Add(pictureBox4);
-            panelUserLogIn.Controls.Add(linkSignUp);
-            panelUserLogIn.Controls.Add(label12);
-            panelUserLogIn.Controls.Add(linkShowPassL);
-            panelUserLogIn.Controls.Add(btnLogIn);
-            panelUserLogIn.Controls.Add(label13);
-            panelUserLogIn.Controls.Add(label14);
-            panelUserLogIn.Controls.Add(tbxPassL);
-            panelUserLogIn.Controls.Add(linkLabel1);
-            panelUserLogIn.Controls.Add(tbxEmailL);
-            panelUserLogIn.Location = new Point(0, 0);
-            panelUserLogIn.Name = "panelUserLogIn";
-            panelUserLogIn.Size = new Size(607, 616);
-            panelUserLogIn.TabIndex = 39;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(103, 316);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(31, 32);
-            pictureBox5.TabIndex = 30;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(103, 224);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(31, 32);
-            pictureBox4.TabIndex = 29;
-            pictureBox4.TabStop = false;
-            // 
-            // linkSignUp
-            // 
-            linkSignUp.ActiveLinkColor = Color.Lime;
-            linkSignUp.Anchor = AnchorStyles.Right;
-            linkSignUp.AutoSize = true;
-            linkSignUp.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkSignUp.LinkColor = Color.Black;
-            linkSignUp.Location = new Point(360, 541);
-            linkSignUp.Name = "linkSignUp";
-            linkSignUp.Size = new Size(67, 19);
-            linkSignUp.TabIndex = 28;
-            linkSignUp.TabStop = true;
-            linkSignUp.Text = "Sign Up";
-            linkSignUp.LinkClicked += linkSignUp_LinkClicked;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(163, 541);
-            label12.Name = "label12";
-            label12.Size = new Size(198, 21);
-            label12.TabIndex = 27;
-            label12.Text = "Don't have an account?";
-            // 
-            // linkShowPassL
-            // 
-            linkShowPassL.ActiveLinkColor = Color.Lime;
-            linkShowPassL.Anchor = AnchorStyles.Right;
-            linkShowPassL.AutoSize = true;
-            linkShowPassL.BackColor = Color.White;
-            linkShowPassL.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkShowPassL.ForeColor = Color.Black;
-            linkShowPassL.LinkColor = Color.Black;
-            linkShowPassL.Location = new Point(426, 325);
-            linkShowPassL.Name = "linkShowPassL";
-            linkShowPassL.Size = new Size(49, 19);
-            linkShowPassL.TabIndex = 26;
-            linkShowPassL.TabStop = true;
-            linkShowPassL.Text = "Show";
-            linkShowPassL.LinkClicked += linkShowPassL_LinkClicked;
-            // 
-            // btnLogIn
-            // 
-            btnLogIn.BackColor = Color.DarkGreen;
-            btnLogIn.BackgroundImageLayout = ImageLayout.Center;
-            btnLogIn.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogIn.ForeColor = Color.Lime;
-            btnLogIn.Location = new Point(233, 454);
-            btnLogIn.Name = "btnLogIn";
-            btnLogIn.Size = new Size(128, 53);
-            btnLogIn.TabIndex = 25;
-            btnLogIn.Text = "LOG IN";
-            btnLogIn.UseVisualStyleBackColor = false;
-            btnLogIn.Click += btnLogIn_Click;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(140, 129);
-            label13.Name = "label13";
-            label13.Size = new Size(306, 23);
-            label13.TabIndex = 24;
-            label13.Text = "Log-in to your account to continue";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Arial Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(233, 73);
-            label14.Name = "label14";
-            label14.Size = new Size(150, 56);
-            label14.TabIndex = 23;
-            label14.Text = "Hello!";
-            // 
-            // tbxPassL
-            // 
-            tbxPassL.Anchor = AnchorStyles.Right;
-            tbxPassL.Location = new Point(140, 316);
-            tbxPassL.Multiline = true;
-            tbxPassL.Name = "tbxPassL";
-            tbxPassL.PlaceholderText = "Password";
-            tbxPassL.Size = new Size(341, 34);
-            tbxPassL.TabIndex = 22;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.ActiveLinkColor = Color.Lime;
-            linkLabel1.Anchor = AnchorStyles.Right;
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(353, 361);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(128, 17);
-            linkLabel1.TabIndex = 20;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forgot Password?";
-            // 
-            // tbxEmailL
-            // 
-            tbxEmailL.Anchor = AnchorStyles.Right;
-            tbxEmailL.Location = new Point(140, 222);
-            tbxEmailL.Multiline = true;
-            tbxEmailL.Name = "tbxEmailL";
-            tbxEmailL.PlaceholderText = "Email";
-            tbxEmailL.Size = new Size(341, 34);
-            tbxEmailL.TabIndex = 19;
-            tbxEmailL.TabStop = false;
             // 
             // cbxBarangay
             // 
@@ -630,14 +471,161 @@
             label6.TabIndex = 18;
             label6.Text = "Full Name:";
             // 
+            // panelUserLogIn
+            // 
+            panelUserLogIn.Anchor = AnchorStyles.None;
+            panelUserLogIn.BackColor = Color.LightSalmon;
+            panelUserLogIn.Controls.Add(cbxShowPassL);
+            panelUserLogIn.Controls.Add(pictureBox5);
+            panelUserLogIn.Controls.Add(pictureBox4);
+            panelUserLogIn.Controls.Add(linkSignUp);
+            panelUserLogIn.Controls.Add(label12);
+            panelUserLogIn.Controls.Add(btnLogIn);
+            panelUserLogIn.Controls.Add(label13);
+            panelUserLogIn.Controls.Add(label14);
+            panelUserLogIn.Controls.Add(tbxPassL);
+            panelUserLogIn.Controls.Add(linkLabel1);
+            panelUserLogIn.Controls.Add(tbxEmailL);
+            panelUserLogIn.Location = new Point(370, 76);
+            panelUserLogIn.Name = "panelUserLogIn";
+            panelUserLogIn.Size = new Size(607, 616);
+            panelUserLogIn.TabIndex = 39;
+            // 
+            // cbxShowPassL
+            // 
+            cbxShowPassL.Anchor = AnchorStyles.None;
+            cbxShowPassL.AutoSize = true;
+            cbxShowPassL.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxShowPassL.Location = new Point(334, 359);
+            cbxShowPassL.Name = "cbxShowPassL";
+            cbxShowPassL.Size = new Size(147, 23);
+            cbxShowPassL.TabIndex = 42;
+            cbxShowPassL.Text = "Show Password";
+            cbxShowPassL.UseVisualStyleBackColor = true;
+            cbxShowPassL.CheckedChanged += cbxShowPassL_CheckedChanged;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(103, 316);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(31, 32);
+            pictureBox5.TabIndex = 30;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(103, 224);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(31, 32);
+            pictureBox4.TabIndex = 29;
+            pictureBox4.TabStop = false;
+            // 
+            // linkSignUp
+            // 
+            linkSignUp.ActiveLinkColor = Color.Lime;
+            linkSignUp.Anchor = AnchorStyles.Right;
+            linkSignUp.AutoSize = true;
+            linkSignUp.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            linkSignUp.LinkColor = Color.Black;
+            linkSignUp.Location = new Point(360, 562);
+            linkSignUp.Name = "linkSignUp";
+            linkSignUp.Size = new Size(67, 19);
+            linkSignUp.TabIndex = 28;
+            linkSignUp.TabStop = true;
+            linkSignUp.Text = "Sign Up";
+            linkSignUp.LinkClicked += linkSignUp_LinkClicked;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(163, 562);
+            label12.Name = "label12";
+            label12.Size = new Size(198, 21);
+            label12.TabIndex = 27;
+            label12.Text = "Don't have an account?";
+            // 
+            // btnLogIn
+            // 
+            btnLogIn.BackColor = Color.DarkGreen;
+            btnLogIn.BackgroundImageLayout = ImageLayout.Center;
+            btnLogIn.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogIn.ForeColor = Color.Lime;
+            btnLogIn.Location = new Point(233, 436);
+            btnLogIn.Name = "btnLogIn";
+            btnLogIn.Size = new Size(128, 53);
+            btnLogIn.TabIndex = 25;
+            btnLogIn.Text = "LOG IN";
+            btnLogIn.UseVisualStyleBackColor = false;
+            btnLogIn.Click += btnLogIn_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(140, 129);
+            label13.Name = "label13";
+            label13.Size = new Size(306, 23);
+            label13.TabIndex = 24;
+            label13.Text = "Log-in to your account to continue";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Arial Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Location = new Point(233, 73);
+            label14.Name = "label14";
+            label14.Size = new Size(150, 56);
+            label14.TabIndex = 23;
+            label14.Text = "Hello!";
+            // 
+            // tbxPassL
+            // 
+            tbxPassL.Anchor = AnchorStyles.Right;
+            tbxPassL.Location = new Point(140, 316);
+            tbxPassL.Multiline = true;
+            tbxPassL.Name = "tbxPassL";
+            tbxPassL.PasswordChar = '*';
+            tbxPassL.PlaceholderText = "Password";
+            tbxPassL.Size = new Size(341, 34);
+            tbxPassL.TabIndex = 22;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.ActiveLinkColor = Color.Lime;
+            linkLabel1.Anchor = AnchorStyles.Right;
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(233, 527);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(128, 17);
+            linkLabel1.TabIndex = 20;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Forgot Password?";
+            // 
+            // tbxEmailL
+            // 
+            tbxEmailL.Anchor = AnchorStyles.Right;
+            tbxEmailL.Location = new Point(140, 222);
+            tbxEmailL.Multiline = true;
+            tbxEmailL.Name = "tbxEmailL";
+            tbxEmailL.PlaceholderText = "Email";
+            tbxEmailL.Size = new Size(341, 34);
+            tbxEmailL.TabIndex = 19;
+            tbxEmailL.TabStop = false;
+            // 
             // UserFunctionality
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1313, 736);
-            Controls.Add(panelInfo);
+            Controls.Add(panelUserLogIn);
             Controls.Add(panelCreate);
+            Controls.Add(panelInfo);
             Controls.Add(btnMin);
             Controls.Add(btnMax);
             Controls.Add(btnExit);
@@ -670,12 +658,10 @@
         private TextBox tbxConPass;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private LinkLabel linkShowPassC;
         private Button btnCreateAcc;
         private Label label3;
         private TextBox tbxPassC;
         private TextBox tbxEmailC;
-        private System.Windows.Forms.Timer timer1;
         private Panel panelInfo;
         private LinkLabel linkUserLog;
         private Label label5;
@@ -699,7 +685,6 @@
         private Panel panelUserLogIn;
         private LinkLabel linkSignUp;
         private Label label12;
-        private LinkLabel linkShowPassL;
         private Button btnLogIn;
         private Label label13;
         private Label label14;
@@ -708,5 +693,7 @@
         private TextBox tbxEmailL;
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
+        private CheckBox cbShowPassA;
+        private CheckBox cbxShowPassL;
     }
 }

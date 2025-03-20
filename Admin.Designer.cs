@@ -184,6 +184,7 @@
             tbxAdminPass.Location = new Point(141, 337);
             tbxAdminPass.Multiline = true;
             tbxAdminPass.Name = "tbxAdminPass";
+            tbxAdminPass.PasswordChar = '*';
             tbxAdminPass.PlaceholderText = "Password";
             tbxAdminPass.Size = new Size(341, 34);
             tbxAdminPass.TabIndex = 33;

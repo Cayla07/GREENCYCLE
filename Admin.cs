@@ -55,7 +55,7 @@ namespace GREENCYCLE
 
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
         {
-            tbxAdminPass.UseSystemPasswordChar = !cbShowPassA.Checked;
+            tbxAdminPass.UseSystemPasswordChar = cbShowPassA.Checked;
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)

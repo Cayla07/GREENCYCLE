@@ -102,7 +102,7 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.DarkSalmon;
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(cmbType);
