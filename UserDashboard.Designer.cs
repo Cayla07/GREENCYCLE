@@ -32,7 +32,15 @@
             btnMin = new Button();
             btnMax = new Button();
             btnExit = new Button();
+            panelMenu = new Panel();
             panel1 = new Panel();
+            btnDashboard = new Button();
+            btnRecycle = new Button();
+            btnTransaction = new Button();
+            btnHistory = new Button();
+            btnWallet = new Button();
+            panel2 = new Panel();
+            panelMenu.SuspendLayout();
             SuspendLayout();
             // 
             // btnMin
@@ -77,13 +85,125 @@
             btnExit.TabIndex = 18;
             btnExit.UseVisualStyleBackColor = false;
             // 
+            // panelMenu
+            // 
+            panelMenu.BackColor = Color.Green;
+            panelMenu.Controls.Add(btnWallet);
+            panelMenu.Controls.Add(btnHistory);
+            panelMenu.Controls.Add(btnTransaction);
+            panelMenu.Controls.Add(btnRecycle);
+            panelMenu.Controls.Add(btnDashboard);
+            panelMenu.Controls.Add(panel1);
+            panelMenu.Dock = DockStyle.Left;
+            panelMenu.ForeColor = Color.ForestGreen;
+            panelMenu.Location = new Point(0, 0);
+            panelMenu.Name = "panelMenu";
+            panelMenu.Size = new Size(299, 765);
+            panelMenu.TabIndex = 21;
+            // 
             // panel1
             // 
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 765);
-            panel1.TabIndex = 21;
+            panel1.Size = new Size(299, 185);
+            panel1.TabIndex = 22;
+            // 
+            // btnDashboard
+            // 
+            btnDashboard.BackColor = Color.Transparent;
+            btnDashboard.BackgroundImageLayout = ImageLayout.None;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
+            btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.Location = new Point(3, 185);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Padding = new Padding(10, 0, 0, 0);
+            btnDashboard.Size = new Size(307, 65);
+            btnDashboard.TabIndex = 22;
+            btnDashboard.Text = "DASHBOARD";
+            btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDashboard.UseVisualStyleBackColor = false;
+            // 
+            // btnRecycle
+            // 
+            btnRecycle.BackColor = Color.Transparent;
+            btnRecycle.BackgroundImageLayout = ImageLayout.None;
+            btnRecycle.FlatStyle = FlatStyle.Flat;
+            btnRecycle.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRecycle.ForeColor = Color.White;
+            btnRecycle.Image = (Image)resources.GetObject("btnRecycle.Image");
+            btnRecycle.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRecycle.Location = new Point(3, 256);
+            btnRecycle.Name = "btnRecycle";
+            btnRecycle.Padding = new Padding(10, 0, 0, 0);
+            btnRecycle.Size = new Size(307, 65);
+            btnRecycle.TabIndex = 23;
+            btnRecycle.Text = " RECYCLE";
+            btnRecycle.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRecycle.UseVisualStyleBackColor = false;
+            // 
+            // btnTransaction
+            // 
+            btnTransaction.BackColor = Color.Transparent;
+            btnTransaction.BackgroundImageLayout = ImageLayout.None;
+            btnTransaction.FlatStyle = FlatStyle.Flat;
+            btnTransaction.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTransaction.ForeColor = Color.White;
+            btnTransaction.Image = (Image)resources.GetObject("btnTransaction.Image");
+            btnTransaction.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTransaction.Location = new Point(3, 398);
+            btnTransaction.Name = "btnTransaction";
+            btnTransaction.Padding = new Padding(10, 0, 0, 0);
+            btnTransaction.Size = new Size(307, 65);
+            btnTransaction.TabIndex = 24;
+            btnTransaction.Text = "TRANSACTION";
+            btnTransaction.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTransaction.UseVisualStyleBackColor = false;
+            // 
+            // btnHistory
+            // 
+            btnHistory.BackColor = Color.Transparent;
+            btnHistory.BackgroundImageLayout = ImageLayout.None;
+            btnHistory.FlatStyle = FlatStyle.Flat;
+            btnHistory.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHistory.ForeColor = Color.White;
+            btnHistory.Image = (Image)resources.GetObject("btnHistory.Image");
+            btnHistory.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHistory.Location = new Point(3, 469);
+            btnHistory.Name = "btnHistory";
+            btnHistory.Padding = new Padding(10, 0, 0, 0);
+            btnHistory.Size = new Size(307, 65);
+            btnHistory.TabIndex = 25;
+            btnHistory.Text = "HISTORY";
+            btnHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHistory.UseVisualStyleBackColor = false;
+            // 
+            // btnWallet
+            // 
+            btnWallet.BackColor = Color.Transparent;
+            btnWallet.BackgroundImageLayout = ImageLayout.None;
+            btnWallet.FlatStyle = FlatStyle.Flat;
+            btnWallet.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnWallet.ForeColor = Color.White;
+            btnWallet.Image = (Image)resources.GetObject("btnWallet.Image");
+            btnWallet.ImageAlign = ContentAlignment.MiddleLeft;
+            btnWallet.Location = new Point(3, 327);
+            btnWallet.Name = "btnWallet";
+            btnWallet.Padding = new Padding(10, 0, 0, 0);
+            btnWallet.Size = new Size(307, 65);
+            btnWallet.TabIndex = 26;
+            btnWallet.Text = " MY WALLET";
+            btnWallet.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnWallet.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(298, 43);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1154, 45);
+            panel2.TabIndex = 22;
             // 
             // UserDashboard
             // 
@@ -91,14 +211,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1452, 765);
-            Controls.Add(panel1);
+            Controls.Add(panel2);
+            Controls.Add(panelMenu);
             Controls.Add(btnMin);
             Controls.Add(btnMax);
             Controls.Add(btnExit);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserDashboard";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            panelMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -106,6 +229,13 @@
         private Button btnMin;
         private Button btnMax;
         private Button btnExit;
+        private Panel panelMenu;
         private Panel panel1;
+        private Button btnDashboard;
+        private Button btnRecycle;
+        private Button btnWallet;
+        private Button btnHistory;
+        private Button btnTransaction;
+        private Panel panel2;
     }
 }
