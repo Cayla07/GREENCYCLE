@@ -15,10 +15,12 @@ namespace GREENCYCLE
         public UserDashboard()
         {
             InitializeComponent();
+            btnDashboard.BackColor = Color.Lime;
         }
 
         private void DisableButton()
         {
+
             btnDashboard.BackColor = Color.Transparent;
             btnRecycle.BackColor = Color.Transparent;
             btnWallet.BackColor = Color.Transparent;
@@ -32,6 +34,7 @@ namespace GREENCYCLE
         {
             DisableButton();
             btnDashboard.BackColor = Color.Lime;
+            paneldisplayDB.Visible = true;
         }
 
         private void btnRecycle_Click(object sender, EventArgs e)
