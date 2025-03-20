@@ -67,8 +67,8 @@ namespace GREENCYCLE
             {
                 MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                UserDashboard dashboard = new UserDashboard();
-                dashboard.Show();
+                AdminDashboard admindashboard = new AdminDashboard();
+                admindashboard.Show();
             }
             else
             {

@@ -114,6 +114,7 @@
             // 
             // btnOut
             // 
+            btnOut.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnOut.BackColor = Color.Transparent;
             btnOut.BackgroundImageLayout = ImageLayout.None;
             btnOut.FlatStyle = FlatStyle.Flat;
@@ -133,6 +134,7 @@
             // 
             // btnSettings
             // 
+            btnSettings.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnSettings.BackColor = Color.Transparent;
             btnSettings.BackgroundImageLayout = ImageLayout.None;
             btnSettings.FlatStyle = FlatStyle.Flat;
@@ -152,6 +154,7 @@
             // 
             // btnWallet
             // 
+            btnWallet.Anchor = AnchorStyles.Left;
             btnWallet.BackColor = Color.Transparent;
             btnWallet.BackgroundImageLayout = ImageLayout.None;
             btnWallet.FlatStyle = FlatStyle.Flat;
@@ -171,6 +174,7 @@
             // 
             // btnHistory
             // 
+            btnHistory.Anchor = AnchorStyles.Left;
             btnHistory.BackColor = Color.Transparent;
             btnHistory.BackgroundImageLayout = ImageLayout.None;
             btnHistory.FlatStyle = FlatStyle.Flat;
@@ -190,6 +194,7 @@
             // 
             // btnTransaction
             // 
+            btnTransaction.Anchor = AnchorStyles.Left;
             btnTransaction.BackColor = Color.Transparent;
             btnTransaction.BackgroundImageLayout = ImageLayout.None;
             btnTransaction.FlatStyle = FlatStyle.Flat;
@@ -209,6 +214,7 @@
             // 
             // btnRecycle
             // 
+            btnRecycle.Anchor = AnchorStyles.Left;
             btnRecycle.BackColor = Color.Transparent;
             btnRecycle.BackgroundImageLayout = ImageLayout.None;
             btnRecycle.FlatStyle = FlatStyle.Flat;
@@ -228,6 +234,7 @@
             // 
             // btnDashboard
             // 
+            btnDashboard.Anchor = AnchorStyles.Left;
             btnDashboard.BackColor = Color.Transparent;
             btnDashboard.BackgroundImageLayout = ImageLayout.None;
             btnDashboard.FlatStyle = FlatStyle.Flat;

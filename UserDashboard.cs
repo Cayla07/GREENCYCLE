@@ -25,6 +25,7 @@ namespace GREENCYCLE
             btnTransaction.BackColor = Color.Transparent;
             btnHistory.BackColor = Color.Transparent;
             btnSettings.BackColor = Color.Transparent;
+            btnOut.BackColor = Color.Transparent;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
