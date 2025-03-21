@@ -44,6 +44,18 @@
             btnMax = new Button();
             btnExit = new Button();
             panelAdminDB = new Panel();
+            panelStats = new Panel();
+            comboBox1 = new ComboBox();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            panel5 = new Panel();
+            panel6 = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            panel4 = new Panel();
+            panel3 = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox5 = new PictureBox();
             button4 = new Button();
@@ -52,17 +64,20 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            panel3 = new Panel();
-            panel4 = new Panel();
+            panelUsers = new Panel();
+            label8 = new Label();
+            panel7 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
             panelMenu.SuspendLayout();
             panelAdminDB.SuspendLayout();
+            panelStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelUsers.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -301,6 +316,10 @@
             // 
             // panelAdminDB
             // 
+            panelAdminDB.Controls.Add(panelStats);
+            panelAdminDB.Controls.Add(label4);
+            panelAdminDB.Controls.Add(label3);
+            panelAdminDB.Controls.Add(label2);
             panelAdminDB.Controls.Add(panel4);
             panelAdminDB.Controls.Add(panel3);
             panelAdminDB.Controls.Add(pictureBox1);
@@ -316,12 +335,139 @@
             panelAdminDB.Size = new Size(1154, 722);
             panelAdminDB.TabIndex = 27;
             // 
+            // panelStats
+            // 
+            panelStats.Controls.Add(panelUsers);
+            panelStats.Controls.Add(comboBox1);
+            panelStats.Controls.Add(label5);
+            panelStats.Controls.Add(label6);
+            panelStats.Controls.Add(label7);
+            panelStats.Controls.Add(panel5);
+            panelStats.Controls.Add(panel6);
+            panelStats.Location = new Point(0, 0);
+            panelStats.Name = "panelStats";
+            panelStats.Size = new Size(1154, 722);
+            panelStats.TabIndex = 32;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Monthly", "Yearly" });
+            comboBox1.Location = new Point(958, 34);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 32;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.DarkGreen;
+            label5.Location = new Point(28, 34);
+            label5.Name = "label5";
+            label5.Size = new Size(390, 48);
+            label5.TabIndex = 31;
+            label5.Text = "Recycling Statistics";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.DarkGreen;
+            label6.Location = new Point(436, 219);
+            label6.Name = "label6";
+            label6.Size = new Size(230, 28);
+            label6.TabIndex = 30;
+            label6.Text = "Waste Recycle Rate";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.DarkGreen;
+            label7.Location = new Point(27, 219);
+            label7.Name = "label7";
+            label7.Size = new Size(184, 28);
+            label7.TabIndex = 29;
+            label7.Text = "Waste Outcome";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Center;
+            panel5.Location = new Point(433, 251);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(676, 312);
+            panel5.TabIndex = 28;
+            // 
+            // panel6
+            // 
+            panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
+            panel6.BackgroundImageLayout = ImageLayout.Center;
+            panel6.Location = new Point(27, 259);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(383, 304);
+            panel6.TabIndex = 27;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial Black", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.DarkGreen;
+            label4.Location = new Point(28, 25);
+            label4.Name = "label4";
+            label4.Size = new Size(194, 32);
+            label4.TabIndex = 31;
+            label4.Text = "Waste Tracker";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial Black", 10.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.DarkGreen;
+            label3.Location = new Point(456, 323);
+            label3.Name = "label3";
+            label3.Size = new Size(107, 26);
+            label3.TabIndex = 30;
+            label3.Text = "Statistics";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Black", 10.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.DarkGreen;
+            label2.Location = new Point(28, 323);
+            label2.Name = "label2";
+            label2.Size = new Size(101, 26);
+            label2.TabIndex = 29;
+            label2.Text = "User List";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
+            panel4.BackgroundImageLayout = ImageLayout.Center;
+            panel4.Location = new Point(452, 355);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(676, 312);
+            panel4.TabIndex = 28;
+            // 
+            // panel3
+            // 
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.BackgroundImageLayout = ImageLayout.Center;
+            panel3.Location = new Point(28, 355);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(418, 312);
+            panel3.TabIndex = 27;
+            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(28, 13);
+            pictureBox1.Location = new Point(28, 60);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(251, 227);
             pictureBox1.TabIndex = 19;
@@ -331,7 +477,7 @@
             // 
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox5.Location = new Point(28, 13);
+            pictureBox5.Location = new Point(28, 60);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(251, 227);
             pictureBox5.TabIndex = 26;
@@ -342,7 +488,7 @@
             button4.BackColor = Color.White;
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(877, 13);
+            button4.Location = new Point(877, 60);
             button4.Name = "button4";
             button4.Size = new Size(251, 227);
             button4.TabIndex = 25;
@@ -353,7 +499,7 @@
             button3.BackColor = Color.White;
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(596, 13);
+            button3.Location = new Point(596, 60);
             button3.Name = "button3";
             button3.Size = new Size(251, 227);
             button3.TabIndex = 24;
@@ -364,7 +510,7 @@
             button2.BackColor = Color.White;
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(312, 13);
+            button2.Location = new Point(312, 60);
             button2.Name = "button2";
             button2.Size = new Size(251, 227);
             button2.TabIndex = 23;
@@ -373,7 +519,7 @@
             // pictureBox4
             // 
             pictureBox4.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox4.Location = new Point(877, 13);
+            pictureBox4.Location = new Point(877, 60);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(251, 227);
             pictureBox4.TabIndex = 22;
@@ -382,7 +528,7 @@
             // pictureBox3
             // 
             pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.Location = new Point(596, 13);
+            pictureBox3.Location = new Point(596, 60);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(251, 227);
             pictureBox3.TabIndex = 21;
@@ -391,30 +537,41 @@
             // pictureBox2
             // 
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(312, 13);
+            pictureBox2.Location = new Point(312, 60);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(251, 227);
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
             // 
-            // panel3
+            // panelUsers
             // 
-            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
-            panel3.BackgroundImageLayout = ImageLayout.Center;
-            panel3.Location = new Point(28, 246);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(418, 312);
-            panel3.TabIndex = 27;
+            panelUsers.Controls.Add(label8);
+            panelUsers.Controls.Add(panel7);
+            panelUsers.Location = new Point(7, 15);
+            panelUsers.Name = "panelUsers";
+            panelUsers.Size = new Size(1154, 722);
+            panelUsers.TabIndex = 33;
             // 
-            // panel4
+            // label8
             // 
-            panel4.BackColor = Color.White;
-            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
-            panel4.BackgroundImageLayout = ImageLayout.Center;
-            panel4.Location = new Point(452, 246);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(676, 312);
-            panel4.TabIndex = 28;
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.DarkGreen;
+            label8.Location = new Point(27, 37);
+            label8.Name = "label8";
+            label8.Size = new Size(188, 48);
+            label8.TabIndex = 31;
+            label8.Text = "User List";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
+            panel7.BackgroundImageLayout = ImageLayout.Zoom;
+            panel7.Location = new Point(20, 110);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1097, 475);
+            panel7.TabIndex = 28;
             // 
             // AdminDashboard
             // 
@@ -436,11 +593,16 @@
             ((System.ComponentModel.ISupportInitialize)UserProfile).EndInit();
             panelMenu.ResumeLayout(false);
             panelAdminDB.ResumeLayout(false);
+            panelAdminDB.PerformLayout();
+            panelStats.ResumeLayout(false);
+            panelStats.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelUsers.ResumeLayout(false);
+            panelUsers.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -471,5 +633,18 @@
         private PictureBox pictureBox2;
         private Panel panel4;
         private Panel panel3;
+        private Label label2;
+        private Label label4;
+        private Label label3;
+        private Panel panelStats;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Panel panel5;
+        private Panel panel6;
+        private ComboBox comboBox1;
+        private Panel panelUsers;
+        private Label label8;
+        private Panel panel7;
     }
 }

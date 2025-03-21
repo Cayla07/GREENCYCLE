@@ -16,6 +16,7 @@ namespace GREENCYCLE
         {
             InitializeComponent();
             btnDashboard.BackColor = Color.Lime;
+            panelStats.Visible = false;
         }
 
         private void DisableButton()
@@ -71,6 +72,7 @@ namespace GREENCYCLE
         {
             DisableButton();
             btnUsers.BackColor = Color.Lime;
+            panelUsers.Visible = true;
         }
 
         private void btnEditRates_Click(object sender, EventArgs e)
@@ -89,6 +91,7 @@ namespace GREENCYCLE
         {
             DisableButton();
             btnStatistics.BackColor = Color.Lime;
+            panelStats.Visible = true;
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

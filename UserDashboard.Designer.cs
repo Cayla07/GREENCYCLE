@@ -55,6 +55,7 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label3 = new Label();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
@@ -303,6 +304,7 @@
             // paneldisplayDB
             // 
             paneldisplayDB.Anchor = AnchorStyles.None;
+            paneldisplayDB.Controls.Add(label3);
             paneldisplayDB.Controls.Add(panel3);
             paneldisplayDB.Controls.Add(panel2);
             paneldisplayDB.Controls.Add(panel4);
@@ -325,9 +327,9 @@
             panel3.BackColor = Color.White;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Center;
-            panel3.Location = new Point(703, 451);
+            panel3.Location = new Point(652, 485);
             panel3.Name = "panel3";
-            panel3.Size = new Size(424, 259);
+            panel3.Size = new Size(475, 225);
             panel3.TabIndex = 20;
             // 
             // panel2
@@ -335,9 +337,9 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(27, 245);
+            panel2.Location = new Point(27, 284);
             panel2.Name = "panel2";
-            panel2.Size = new Size(670, 465);
+            panel2.Size = new Size(619, 426);
             panel2.TabIndex = 21;
             // 
             // panel4
@@ -346,9 +348,9 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Zoom;
-            panel4.Location = new Point(703, 245);
+            panel4.Location = new Point(652, 284);
             panel4.Name = "panel4";
-            panel4.Size = new Size(424, 200);
+            panel4.Size = new Size(475, 195);
             panel4.TabIndex = 19;
             // 
             // pictureBox1
@@ -357,7 +359,7 @@
             pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(27, 12);
+            pictureBox1.Location = new Point(27, 51);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(251, 227);
             pictureBox1.TabIndex = 11;
@@ -368,7 +370,7 @@
             pictureBox5.Anchor = AnchorStyles.None;
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox5.Location = new Point(27, 12);
+            pictureBox5.Location = new Point(27, 51);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(251, 227);
             pictureBox5.TabIndex = 18;
@@ -380,7 +382,7 @@
             button4.BackColor = Color.White;
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(876, 12);
+            button4.Location = new Point(876, 51);
             button4.Name = "button4";
             button4.Size = new Size(251, 227);
             button4.TabIndex = 17;
@@ -392,7 +394,7 @@
             button3.BackColor = Color.White;
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(595, 12);
+            button3.Location = new Point(595, 51);
             button3.Name = "button3";
             button3.Size = new Size(251, 227);
             button3.TabIndex = 16;
@@ -404,7 +406,7 @@
             button2.BackColor = Color.White;
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(311, 12);
+            button2.Location = new Point(311, 51);
             button2.Name = "button2";
             button2.Size = new Size(251, 227);
             button2.TabIndex = 15;
@@ -414,7 +416,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.None;
             pictureBox4.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox4.Location = new Point(876, 12);
+            pictureBox4.Location = new Point(876, 51);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(251, 227);
             pictureBox4.TabIndex = 14;
@@ -424,7 +426,7 @@
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.Location = new Point(595, 12);
+            pictureBox3.Location = new Point(595, 51);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(251, 227);
             pictureBox3.TabIndex = 13;
@@ -434,11 +436,23 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(311, 12);
+            pictureBox2.Location = new Point(311, 51);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(251, 227);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Green;
+            label3.Location = new Point(27, 11);
+            label3.Name = "label3";
+            label3.Size = new Size(168, 28);
+            label3.TabIndex = 33;
+            label3.Text = "Waste Tracker";
             // 
             // UserDashboard
             // 
@@ -461,6 +475,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).EndInit();
             paneldisplayDB.ResumeLayout(false);
+            paneldisplayDB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -496,5 +511,6 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
+        private Label label3;
     }
 }
