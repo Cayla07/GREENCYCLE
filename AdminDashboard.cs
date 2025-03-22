@@ -16,7 +16,9 @@ namespace GREENCYCLE
         {
             InitializeComponent();
             btnDashboard.BackColor = Color.Lime;
+            panelUsers.Visible = true;
             panelStats.Visible = false;
+            panelUsers.Visible = false;
         }
 
         private void DisableButton()
@@ -66,6 +68,7 @@ namespace GREENCYCLE
             DisableButton();
             btnDashboard.BackColor = Color.Lime;
             panelAdminDB.Visible = true;
+            panelUsers.Visible = false;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -92,6 +95,7 @@ namespace GREENCYCLE
             DisableButton();
             btnStatistics.BackColor = Color.Lime;
             panelStats.Visible = true;
+            panelUsers.Visible = false;
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

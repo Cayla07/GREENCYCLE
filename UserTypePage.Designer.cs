@@ -49,7 +49,7 @@
             label1.BackColor = Color.PaleGreen;
             label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGreen;
-            label1.Location = new Point(473, 115);
+            label1.Location = new Point(482, 115);
             label1.Name = "label1";
             label1.Size = new Size(376, 85);
             label1.TabIndex = 2;
@@ -63,7 +63,7 @@
             btnMin.FlatAppearance.BorderSize = 0;
             btnMin.FlatStyle = FlatStyle.Flat;
             btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1195, 7);
+            btnMin.Location = new Point(1213, 7);
             btnMin.Name = "btnMin";
             btnMin.Size = new Size(38, 34);
             btnMin.TabIndex = 11;
@@ -78,7 +78,7 @@
             btnMax.FlatAppearance.BorderSize = 0;
             btnMax.FlatStyle = FlatStyle.Flat;
             btnMax.Image = (Image)resources.GetObject("btnMax.Image");
-            btnMax.Location = new Point(1239, 9);
+            btnMax.Location = new Point(1257, 9);
             btnMax.Name = "btnMax";
             btnMax.Size = new Size(29, 30);
             btnMax.TabIndex = 10;
@@ -93,7 +93,7 @@
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(1274, 12);
+            btnExit.Location = new Point(1292, 12);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(27, 25);
             btnExit.TabIndex = 9;
@@ -107,7 +107,7 @@
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(cmbType);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(423, 454);
+            panel1.Location = new Point(432, 477);
             panel1.Name = "panel1";
             panel1.Size = new Size(490, 194);
             panel1.TabIndex = 12;
@@ -153,7 +153,7 @@
             label3.BackColor = Color.PaleGreen;
             label3.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkGreen;
-            label3.Location = new Point(423, 319);
+            label3.Location = new Point(432, 319);
             label3.Name = "label3";
             label3.Size = new Size(490, 85);
             label3.TabIndex = 13;
@@ -166,7 +166,7 @@
             label4.BackColor = Color.PaleGreen;
             label4.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.DarkGreen;
-            label4.Location = new Point(589, 213);
+            label4.Location = new Point(598, 213);
             label4.Name = "label4";
             label4.Size = new Size(128, 85);
             label4.TabIndex = 14;
@@ -177,7 +177,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
-            ClientSize = new Size(1313, 736);
+            ClientSize = new Size(1331, 783);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel1);

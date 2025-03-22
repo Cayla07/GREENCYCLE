@@ -45,6 +45,9 @@
             btnExit = new Button();
             panelAdminDB = new Panel();
             panelStats = new Panel();
+            panelUsers = new Panel();
+            label8 = new Label();
+            panel7 = new Panel();
             comboBox1 = new ComboBox();
             label5 = new Label();
             label6 = new Label();
@@ -64,20 +67,17 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            panelUsers = new Panel();
-            label8 = new Label();
-            panel7 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
             panelMenu.SuspendLayout();
             panelAdminDB.SuspendLayout();
             panelStats.SuspendLayout();
+            panelUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panelUsers.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -337,7 +337,6 @@
             // 
             // panelStats
             // 
-            panelStats.Controls.Add(panelUsers);
             panelStats.Controls.Add(comboBox1);
             panelStats.Controls.Add(label5);
             panelStats.Controls.Add(label6);
@@ -348,6 +347,36 @@
             panelStats.Name = "panelStats";
             panelStats.Size = new Size(1154, 722);
             panelStats.TabIndex = 32;
+            // 
+            // panelUsers
+            // 
+            panelUsers.Controls.Add(label8);
+            panelUsers.Controls.Add(panel7);
+            panelUsers.Location = new Point(298, 43);
+            panelUsers.Name = "panelUsers";
+            panelUsers.Size = new Size(1154, 722);
+            panelUsers.TabIndex = 33;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.DarkGreen;
+            label8.Location = new Point(27, 37);
+            label8.Name = "label8";
+            label8.Size = new Size(188, 48);
+            label8.TabIndex = 31;
+            label8.Text = "User List";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
+            panel7.BackgroundImageLayout = ImageLayout.Zoom;
+            panel7.Location = new Point(20, 110);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1097, 475);
+            panel7.TabIndex = 28;
             // 
             // comboBox1
             // 
@@ -543,42 +572,13 @@
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
             // 
-            // panelUsers
-            // 
-            panelUsers.Controls.Add(label8);
-            panelUsers.Controls.Add(panel7);
-            panelUsers.Location = new Point(7, 15);
-            panelUsers.Name = "panelUsers";
-            panelUsers.Size = new Size(1154, 722);
-            panelUsers.TabIndex = 33;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.DarkGreen;
-            label8.Location = new Point(27, 37);
-            label8.Name = "label8";
-            label8.Size = new Size(188, 48);
-            label8.TabIndex = 31;
-            label8.Text = "User List";
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.White;
-            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
-            panel7.BackgroundImageLayout = ImageLayout.Zoom;
-            panel7.Location = new Point(20, 110);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(1097, 475);
-            panel7.TabIndex = 28;
-            // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1452, 765);
+            Controls.Add(panelUsers);
             Controls.Add(panelAdminDB);
             Controls.Add(panelMenu);
             Controls.Add(btnMin);
@@ -596,13 +596,13 @@
             panelAdminDB.PerformLayout();
             panelStats.ResumeLayout(false);
             panelStats.PerformLayout();
+            panelUsers.ResumeLayout(false);
+            panelUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panelUsers.ResumeLayout(false);
-            panelUsers.PerformLayout();
             ResumeLayout(false);
         }
 
