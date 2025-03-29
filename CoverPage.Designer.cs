@@ -39,7 +39,7 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = Color.PaleGreen;
             label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -110,7 +110,7 @@
             // 
             // btnStart
             // 
-            btnStart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            btnStart.Anchor = AnchorStyles.None;
             btnStart.FlatAppearance.BorderSize = 0;
             btnStart.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnStart.FlatAppearance.MouseOverBackColor = Color.Transparent;

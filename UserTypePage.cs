@@ -16,6 +16,7 @@ namespace GREENCYCLE
         public UserTypePage()
         {
             InitializeComponent();
+            this.WindowState = AppSettings.LastWindowState;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -24,34 +25,35 @@ namespace GREENCYCLE
             cmbType.Items.Add("Admin");
         }
 
-        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnProceed_Click(object sender, EventArgs e)
         {
-            if (cmbType.SelectedItem != null)
+            if (cmbType.SelectedItem != null && !string.IsNullOrWhiteSpace(cmbType.SelectedItem.ToString()))
             {
-                string selectedUserType = cmbType.SelectedItem.ToString();
+                string selectedUserType = cmbType.SelectedItem.ToString().Trim();
+
+                Main0 userFunctionality = new Main0();
+                userFunctionality.WindowState = AppSettings.LastWindowState;
 
                 if (selectedUserType == "Application Users")
                 {
-                    UserFunctionality UserFunctionality = new UserFunctionality();
-                    UserFunctionality.Show();
-                    this.Hide();
+                    userFunctionality.Show();
+                }
+                else if (selectedUserType == "Admin")
+                {
+                    userFunctionality.Show();
+                    userFunctionality.LoadFormIntoPanel(new Admin()); // Load Admin in panel
                 }
                 else
                 {
-                    Admin Admin = new Admin();
-                    Admin.Show();
-                    this.Hide();
+                    MessageBox.Show("Invalid user type selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Empty user type!");
+                MessageBox.Show("Please select a user type!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -64,20 +66,22 @@ namespace GREENCYCLE
         {
             if (this.WindowState == FormWindowState.Maximized)
             {
-                this.WindowState = FormWindowState.Normal; 
+                this.WindowState = FormWindowState.Normal;
+                this.StartPosition = FormStartPosition.CenterScreen;
             }
             else
             {
-                this.WindowState = FormWindowState.Maximized; 
+                this.WindowState = FormWindowState.Maximized;
+                this.StartPosition = FormStartPosition.CenterScreen;
             }
+            AppSettings.LastWindowState = this.WindowState;
         }
 
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-
     }
 }
+
 

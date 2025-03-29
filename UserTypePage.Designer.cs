@@ -44,12 +44,12 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = Color.PaleGreen;
             label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGreen;
-            label1.Location = new Point(482, 115);
+            label1.Location = new Point(482, 139);
             label1.Name = "label1";
             label1.Size = new Size(376, 85);
             label1.TabIndex = 2;
@@ -107,7 +107,7 @@
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(cmbType);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(432, 477);
+            panel1.Location = new Point(432, 463);
             panel1.Name = "panel1";
             panel1.Size = new Size(490, 194);
             panel1.TabIndex = 12;
@@ -133,7 +133,6 @@
             cmbType.Name = "cmbType";
             cmbType.Size = new Size(343, 27);
             cmbType.TabIndex = 1;
-            cmbType.SelectedIndexChanged += cmbType_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -148,12 +147,12 @@
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.BackColor = Color.PaleGreen;
             label3.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkGreen;
-            label3.Location = new Point(432, 319);
+            label3.Location = new Point(432, 343);
             label3.Name = "label3";
             label3.Size = new Size(490, 85);
             label3.TabIndex = 13;
@@ -161,12 +160,12 @@
             // 
             // label4
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.BackColor = Color.PaleGreen;
             label4.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.DarkGreen;
-            label4.Location = new Point(598, 213);
+            label4.Location = new Point(598, 237);
             label4.Name = "label4";
             label4.Size = new Size(128, 85);
             label4.TabIndex = 14;

@@ -11,6 +11,7 @@ namespace GREENCYCLE
             this.MouseDown += CoverPage_MouseDown;
             this.MouseMove += CoverPage_MouseMove;
             this.MouseUp += CoverPage_MouseUp;
+            this.WindowState = AppSettings.LastWindowState;
         }
 
         private void CoverPage_MouseDown(object sender, MouseEventArgs e)
@@ -38,6 +39,7 @@ namespace GREENCYCLE
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
+            AppSettings.LastWindowState = this.WindowState;
             UserTypePage UserTypePage = new UserTypePage();
             UserTypePage.Show();
             this.Hide();
@@ -53,11 +55,14 @@ namespace GREENCYCLE
             if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
+                this.StartPosition = FormStartPosition.CenterScreen;
             }
             else
             {
                 this.WindowState = FormWindowState.Maximized;
+                this.StartPosition = FormStartPosition.CenterScreen;
             }
+            AppSettings.LastWindowState = this.WindowState; 
         }
 
         private void btnMin_Click(object sender, EventArgs e)
@@ -65,4 +70,11 @@ namespace GREENCYCLE
             this.WindowState = FormWindowState.Minimized;
         }
     }
+
+    public static class AppSettings
+    {
+        public static FormWindowState LastWindowState = FormWindowState.Normal;
+    }
 }
+
+

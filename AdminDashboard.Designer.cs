@@ -40,14 +40,8 @@
             btnEditTypes = new Button();
             btnUsers = new Button();
             btnDashboard = new Button();
-            btnMin = new Button();
-            btnMax = new Button();
-            btnExit = new Button();
             panelAdminDB = new Panel();
             panelStats = new Panel();
-            panelUsers = new Panel();
-            label8 = new Label();
-            panel7 = new Panel();
             comboBox1 = new ComboBox();
             label5 = new Label();
             label6 = new Label();
@@ -67,17 +61,20 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
+            panelUsers = new Panel();
+            label8 = new Label();
+            panel7 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
             panelMenu.SuspendLayout();
             panelAdminDB.SuspendLayout();
             panelStats.SuspendLayout();
-            panelUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelUsers.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -164,7 +161,7 @@
             btnSettings.Padding = new Padding(10, 0, 0, 0);
             btnSettings.Size = new Size(169, 53);
             btnSettings.TabIndex = 27;
-            btnSettings.Text = " SETTINGS";
+            btnSettings.Text = " PROFILE";
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSettings.UseVisualStyleBackColor = false;
             btnSettings.Click += btnSettings_Click;
@@ -269,51 +266,6 @@
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // btnMin
-            // 
-            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMin.BackColor = Color.PaleGreen;
-            btnMin.BackgroundImageLayout = ImageLayout.Center;
-            btnMin.FlatAppearance.BorderSize = 0;
-            btnMin.FlatStyle = FlatStyle.Flat;
-            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1334, 7);
-            btnMin.Name = "btnMin";
-            btnMin.Size = new Size(38, 34);
-            btnMin.TabIndex = 25;
-            btnMin.UseVisualStyleBackColor = false;
-            btnMin.Click += btnMin_Click;
-            // 
-            // btnMax
-            // 
-            btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax.BackColor = Color.PaleGreen;
-            btnMax.BackgroundImageLayout = ImageLayout.Center;
-            btnMax.FlatAppearance.BorderSize = 0;
-            btnMax.FlatStyle = FlatStyle.Flat;
-            btnMax.Image = (Image)resources.GetObject("btnMax.Image");
-            btnMax.Location = new Point(1378, 9);
-            btnMax.Name = "btnMax";
-            btnMax.Size = new Size(29, 30);
-            btnMax.TabIndex = 24;
-            btnMax.UseVisualStyleBackColor = false;
-            btnMax.Click += btnMax_Click;
-            // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.BackColor = Color.PaleGreen;
-            btnExit.BackgroundImageLayout = ImageLayout.Center;
-            btnExit.FlatAppearance.BorderSize = 0;
-            btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(1413, 12);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(27, 25);
-            btnExit.TabIndex = 23;
-            btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
-            // 
             // panelAdminDB
             // 
             panelAdminDB.Controls.Add(panelStats);
@@ -343,40 +295,10 @@
             panelStats.Controls.Add(label7);
             panelStats.Controls.Add(panel5);
             panelStats.Controls.Add(panel6);
-            panelStats.Location = new Point(0, 0);
+            panelStats.Location = new Point(0, 96);
             panelStats.Name = "panelStats";
-            panelStats.Size = new Size(1154, 722);
+            panelStats.Size = new Size(1154, 626);
             panelStats.TabIndex = 32;
-            // 
-            // panelUsers
-            // 
-            panelUsers.Controls.Add(label8);
-            panelUsers.Controls.Add(panel7);
-            panelUsers.Location = new Point(298, 43);
-            panelUsers.Name = "panelUsers";
-            panelUsers.Size = new Size(1154, 722);
-            panelUsers.TabIndex = 33;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.DarkGreen;
-            label8.Location = new Point(27, 37);
-            label8.Name = "label8";
-            label8.Size = new Size(188, 48);
-            label8.TabIndex = 31;
-            label8.Text = "User List";
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.White;
-            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
-            panel7.BackgroundImageLayout = ImageLayout.Zoom;
-            panel7.Location = new Point(20, 110);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(1097, 475);
-            panel7.TabIndex = 28;
             // 
             // comboBox1
             // 
@@ -572,6 +494,36 @@
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
             // 
+            // panelUsers
+            // 
+            panelUsers.Controls.Add(label8);
+            panelUsers.Controls.Add(panel7);
+            panelUsers.Location = new Point(298, 225);
+            panelUsers.Name = "panelUsers";
+            panelUsers.Size = new Size(1154, 540);
+            panelUsers.TabIndex = 33;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.DarkGreen;
+            label8.Location = new Point(27, 37);
+            label8.Name = "label8";
+            label8.Size = new Size(188, 48);
+            label8.TabIndex = 31;
+            label8.Text = "User List";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
+            panel7.BackgroundImageLayout = ImageLayout.Zoom;
+            panel7.Location = new Point(20, 110);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1097, 475);
+            panel7.TabIndex = 28;
+            // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -581,9 +533,6 @@
             Controls.Add(panelUsers);
             Controls.Add(panelAdminDB);
             Controls.Add(panelMenu);
-            Controls.Add(btnMin);
-            Controls.Add(btnMax);
-            Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AdminDashboard";
             ShowIcon = false;
@@ -596,13 +545,13 @@
             panelAdminDB.PerformLayout();
             panelStats.ResumeLayout(false);
             panelStats.PerformLayout();
-            panelUsers.ResumeLayout(false);
-            panelUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelUsers.ResumeLayout(false);
+            panelUsers.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -619,9 +568,6 @@
         private Button btnEditTypes;
         private Button btnUsers;
         private Button btnDashboard;
-        private Button btnMin;
-        private Button btnMax;
-        private Button btnExit;
         private Panel panelAdminDB;
         private PictureBox pictureBox1;
         private PictureBox pictureBox5;

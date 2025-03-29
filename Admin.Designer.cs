@@ -29,117 +29,61 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
-            btnMin = new Button();
-            btnMax = new Button();
-            btnExit = new Button();
-            panel1 = new Panel();
-            cbShowPassA = new CheckBox();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            btnLogIn = new Button();
-            label13 = new Label();
-            label14 = new Label();
-            tbxAdminPass = new TextBox();
             tbxAdminEmail = new TextBox();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            tbxAdminPass = new TextBox();
+            label14 = new Label();
+            label13 = new Label();
+            btnLogIn = new Button();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            cbShowPassA = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
-            // btnMin
+            // tbxAdminEmail
             // 
-            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMin.BackColor = Color.PaleGreen;
-            btnMin.BackgroundImageLayout = ImageLayout.Center;
-            btnMin.FlatAppearance.BorderSize = 0;
-            btnMin.FlatStyle = FlatStyle.Flat;
-            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1195, 7);
-            btnMin.Name = "btnMin";
-            btnMin.Size = new Size(38, 34);
-            btnMin.TabIndex = 17;
-            btnMin.UseVisualStyleBackColor = false;
-            btnMin.Click += btnMin_Click;
+            tbxAdminEmail.Anchor = AnchorStyles.None;
+            tbxAdminEmail.Location = new Point(129, 208);
+            tbxAdminEmail.Multiline = true;
+            tbxAdminEmail.Name = "tbxAdminEmail";
+            tbxAdminEmail.PlaceholderText = "administratorID@green.cycle";
+            tbxAdminEmail.Size = new Size(341, 34);
+            tbxAdminEmail.TabIndex = 31;
+            tbxAdminEmail.TabStop = false;
             // 
-            // btnMax
+            // tbxAdminPass
             // 
-            btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax.BackColor = Color.PaleGreen;
-            btnMax.BackgroundImageLayout = ImageLayout.Center;
-            btnMax.FlatAppearance.BorderSize = 0;
-            btnMax.FlatStyle = FlatStyle.Flat;
-            btnMax.Image = (Image)resources.GetObject("btnMax.Image");
-            btnMax.Location = new Point(1239, 9);
-            btnMax.Name = "btnMax";
-            btnMax.Size = new Size(29, 30);
-            btnMax.TabIndex = 16;
-            btnMax.UseVisualStyleBackColor = false;
-            btnMax.Click += btnMax_Click;
+            tbxAdminPass.Anchor = AnchorStyles.None;
+            tbxAdminPass.Location = new Point(129, 302);
+            tbxAdminPass.Multiline = true;
+            tbxAdminPass.Name = "tbxAdminPass";
+            tbxAdminPass.PasswordChar = '*';
+            tbxAdminPass.PlaceholderText = "Password";
+            tbxAdminPass.Size = new Size(341, 34);
+            tbxAdminPass.TabIndex = 33;
             // 
-            // btnExit
+            // label14
             // 
-            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.BackColor = Color.PaleGreen;
-            btnExit.BackgroundImageLayout = ImageLayout.Center;
-            btnExit.FlatAppearance.BorderSize = 0;
-            btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(1274, 12);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(27, 25);
-            btnExit.TabIndex = 15;
-            btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
+            label14.Anchor = AnchorStyles.None;
+            label14.AutoSize = true;
+            label14.Font = new Font("Arial Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Location = new Point(129, 59);
+            label14.Name = "label14";
+            label14.Size = new Size(314, 56);
+            label14.TabIndex = 34;
+            label14.Text = "Hello, Admin!";
             // 
-            // panel1
+            // label13
             // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = Color.LightSalmon;
-            panel1.Controls.Add(cbShowPassA);
-            panel1.Controls.Add(pictureBox5);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(btnLogIn);
-            panel1.Controls.Add(label13);
-            panel1.Controls.Add(label14);
-            panel1.Controls.Add(tbxAdminPass);
-            panel1.Controls.Add(tbxAdminEmail);
-            panel1.Location = new Point(358, 75);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(607, 616);
-            panel1.TabIndex = 18;
-            // 
-            // cbShowPassA
-            // 
-            cbShowPassA.Anchor = AnchorStyles.None;
-            cbShowPassA.AutoSize = true;
-            cbShowPassA.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbShowPassA.Location = new Point(335, 377);
-            cbShowPassA.Name = "cbShowPassA";
-            cbShowPassA.Size = new Size(147, 23);
-            cbShowPassA.TabIndex = 40;
-            cbShowPassA.Text = "Show Password";
-            cbShowPassA.UseVisualStyleBackColor = true;
-            cbShowPassA.CheckedChanged += cbShowPassA_CheckedChanged;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Anchor = AnchorStyles.None;
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(104, 337);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(31, 32);
-            pictureBox5.TabIndex = 39;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = AnchorStyles.None;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(104, 245);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(31, 32);
-            pictureBox4.TabIndex = 38;
-            pictureBox4.TabStop = false;
+            label13.Anchor = AnchorStyles.None;
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(129, 115);
+            label13.Name = "label13";
+            label13.Size = new Size(306, 23);
+            label13.TabIndex = 35;
+            label13.Text = "Log-in to your account to continue";
             // 
             // btnLogIn
             // 
@@ -148,7 +92,7 @@
             btnLogIn.BackgroundImageLayout = ImageLayout.Center;
             btnLogIn.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogIn.ForeColor = Color.Lime;
-            btnLogIn.Location = new Point(234, 475);
+            btnLogIn.Location = new Point(222, 440);
             btnLogIn.Name = "btnLogIn";
             btnLogIn.Size = new Size(119, 50);
             btnLogIn.TabIndex = 36;
@@ -156,85 +100,73 @@
             btnLogIn.UseVisualStyleBackColor = false;
             btnLogIn.Click += btnLogIn_Click;
             // 
-            // label13
+            // pictureBox4
             // 
-            label13.Anchor = AnchorStyles.None;
-            label13.AutoSize = true;
-            label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(141, 150);
-            label13.Name = "label13";
-            label13.Size = new Size(306, 23);
-            label13.TabIndex = 35;
-            label13.Text = "Log-in to your account to continue";
+            pictureBox4.Anchor = AnchorStyles.None;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(92, 210);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(31, 32);
+            pictureBox4.TabIndex = 38;
+            pictureBox4.TabStop = false;
             // 
-            // label14
+            // pictureBox5
             // 
-            label14.Anchor = AnchorStyles.None;
-            label14.AutoSize = true;
-            label14.Font = new Font("Arial Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(141, 94);
-            label14.Name = "label14";
-            label14.Size = new Size(314, 56);
-            label14.TabIndex = 34;
-            label14.Text = "Hello, Admin!";
+            pictureBox5.Anchor = AnchorStyles.None;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(92, 302);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(31, 32);
+            pictureBox5.TabIndex = 39;
+            pictureBox5.TabStop = false;
             // 
-            // tbxAdminPass
+            // cbShowPassA
             // 
-            tbxAdminPass.Anchor = AnchorStyles.None;
-            tbxAdminPass.Location = new Point(141, 337);
-            tbxAdminPass.Multiline = true;
-            tbxAdminPass.Name = "tbxAdminPass";
-            tbxAdminPass.PasswordChar = '*';
-            tbxAdminPass.PlaceholderText = "Password";
-            tbxAdminPass.Size = new Size(341, 34);
-            tbxAdminPass.TabIndex = 33;
-            // 
-            // tbxAdminEmail
-            // 
-            tbxAdminEmail.Anchor = AnchorStyles.None;
-            tbxAdminEmail.Location = new Point(141, 243);
-            tbxAdminEmail.Multiline = true;
-            tbxAdminEmail.Name = "tbxAdminEmail";
-            tbxAdminEmail.PlaceholderText = "administratorID@green.cycle";
-            tbxAdminEmail.Size = new Size(341, 34);
-            tbxAdminEmail.TabIndex = 31;
-            tbxAdminEmail.TabStop = false;
+            cbShowPassA.Anchor = AnchorStyles.None;
+            cbShowPassA.AutoSize = true;
+            cbShowPassA.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbShowPassA.Location = new Point(323, 342);
+            cbShowPassA.Name = "cbShowPassA";
+            cbShowPassA.Size = new Size(147, 23);
+            cbShowPassA.TabIndex = 40;
+            cbShowPassA.Text = "Show Password";
+            cbShowPassA.UseVisualStyleBackColor = true;
+            cbShowPassA.CheckedChanged += cbShowPassA_CheckedChanged;
             // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PaleGreen;
-            ClientSize = new Size(1313, 736);
-            Controls.Add(panel1);
-            Controls.Add(btnMin);
-            Controls.Add(btnMax);
-            Controls.Add(btnExit);
+            BackColor = Color.LightSalmon;
+            ClientSize = new Size(589, 569);
+            Controls.Add(cbShowPassA);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
+            Controls.Add(btnLogIn);
+            Controls.Add(label13);
+            Controls.Add(label14);
+            Controls.Add(tbxAdminEmail);
+            Controls.Add(tbxAdminPass);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Admin";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Load += Admin_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button btnMin;
-        private Button btnMax;
-        private Button btnExit;
-        private Panel panel1;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox4;
-        private Button btnLogIn;
-        private Label label13;
-        private Label label14;
-        private TextBox tbxAdminPass;
         private TextBox tbxAdminEmail;
+        private TextBox tbxAdminPass;
+        private Label label14;
+        private Label label13;
+        private Button btnLogIn;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
         private CheckBox cbShowPassA;
     }
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboard));
-            btnMin = new Button();
-            btnMax = new Button();
-            btnExit = new Button();
             panelMenu = new Panel();
             btnOut = new Button();
             btnSettings = new Button();
@@ -44,6 +41,7 @@
             label1 = new Label();
             UserProfile = new PictureBox();
             paneldisplayDB = new Panel();
+            label3 = new Label();
             panel3 = new Panel();
             panel2 = new Panel();
             panel4 = new Panel();
@@ -55,7 +53,6 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            label3 = new Label();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
@@ -66,51 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
-            // btnMin
-            // 
-            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMin.BackColor = Color.PaleGreen;
-            btnMin.BackgroundImageLayout = ImageLayout.Center;
-            btnMin.FlatAppearance.BorderSize = 0;
-            btnMin.FlatStyle = FlatStyle.Flat;
-            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1334, 7);
-            btnMin.Name = "btnMin";
-            btnMin.Size = new Size(38, 34);
-            btnMin.TabIndex = 20;
-            btnMin.UseVisualStyleBackColor = false;
-            btnMin.Click += btnMin_Click;
-            // 
-            // btnMax
-            // 
-            btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax.BackColor = Color.PaleGreen;
-            btnMax.BackgroundImageLayout = ImageLayout.Center;
-            btnMax.FlatAppearance.BorderSize = 0;
-            btnMax.FlatStyle = FlatStyle.Flat;
-            btnMax.Image = (Image)resources.GetObject("btnMax.Image");
-            btnMax.Location = new Point(1378, 9);
-            btnMax.Name = "btnMax";
-            btnMax.Size = new Size(29, 30);
-            btnMax.TabIndex = 19;
-            btnMax.UseVisualStyleBackColor = false;
-            btnMax.Click += btnMax_Click;
-            // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.BackColor = Color.PaleGreen;
-            btnExit.BackgroundImageLayout = ImageLayout.Center;
-            btnExit.FlatAppearance.BorderSize = 0;
-            btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(1413, 12);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(27, 25);
-            btnExit.TabIndex = 18;
-            btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
             // 
             // panelMenu
             // 
@@ -165,7 +117,7 @@
             btnSettings.Padding = new Padding(10, 0, 0, 0);
             btnSettings.Size = new Size(169, 53);
             btnSettings.TabIndex = 27;
-            btnSettings.Text = " SETTINGS";
+            btnSettings.Text = " PROFILE";
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSettings.UseVisualStyleBackColor = false;
             btnSettings.Click += btnSettings_Click;
@@ -303,7 +255,6 @@
             // 
             // paneldisplayDB
             // 
-            paneldisplayDB.Anchor = AnchorStyles.None;
             paneldisplayDB.Controls.Add(label3);
             paneldisplayDB.Controls.Add(panel3);
             paneldisplayDB.Controls.Add(panel2);
@@ -316,10 +267,23 @@
             paneldisplayDB.Controls.Add(pictureBox4);
             paneldisplayDB.Controls.Add(pictureBox3);
             paneldisplayDB.Controls.Add(pictureBox2);
-            paneldisplayDB.Location = new Point(298, 43);
+            paneldisplayDB.Dock = DockStyle.Fill;
+            paneldisplayDB.Location = new Point(299, 0);
             paneldisplayDB.Name = "paneldisplayDB";
-            paneldisplayDB.Size = new Size(1154, 722);
+            paneldisplayDB.Size = new Size(1153, 765);
             paneldisplayDB.TabIndex = 22;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Green;
+            label3.Location = new Point(26, 32);
+            label3.Name = "label3";
+            label3.Size = new Size(168, 28);
+            label3.TabIndex = 33;
+            label3.Text = "Waste Tracker";
             // 
             // panel3
             // 
@@ -327,7 +291,7 @@
             panel3.BackColor = Color.White;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Center;
-            panel3.Location = new Point(652, 485);
+            panel3.Location = new Point(651, 506);
             panel3.Name = "panel3";
             panel3.Size = new Size(475, 225);
             panel3.TabIndex = 20;
@@ -337,7 +301,7 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(27, 284);
+            panel2.Location = new Point(26, 305);
             panel2.Name = "panel2";
             panel2.Size = new Size(619, 426);
             panel2.TabIndex = 21;
@@ -348,7 +312,7 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Zoom;
-            panel4.Location = new Point(652, 284);
+            panel4.Location = new Point(651, 305);
             panel4.Name = "panel4";
             panel4.Size = new Size(475, 195);
             panel4.TabIndex = 19;
@@ -359,7 +323,7 @@
             pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(27, 51);
+            pictureBox1.Location = new Point(26, 72);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(251, 227);
             pictureBox1.TabIndex = 11;
@@ -370,7 +334,7 @@
             pictureBox5.Anchor = AnchorStyles.None;
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox5.Location = new Point(27, 51);
+            pictureBox5.Location = new Point(26, 72);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(251, 227);
             pictureBox5.TabIndex = 18;
@@ -382,7 +346,7 @@
             button4.BackColor = Color.White;
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(876, 51);
+            button4.Location = new Point(875, 72);
             button4.Name = "button4";
             button4.Size = new Size(251, 227);
             button4.TabIndex = 17;
@@ -394,7 +358,7 @@
             button3.BackColor = Color.White;
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(595, 51);
+            button3.Location = new Point(594, 72);
             button3.Name = "button3";
             button3.Size = new Size(251, 227);
             button3.TabIndex = 16;
@@ -406,7 +370,7 @@
             button2.BackColor = Color.White;
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(311, 51);
+            button2.Location = new Point(310, 72);
             button2.Name = "button2";
             button2.Size = new Size(251, 227);
             button2.TabIndex = 15;
@@ -416,7 +380,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.None;
             pictureBox4.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox4.Location = new Point(876, 51);
+            pictureBox4.Location = new Point(875, 72);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(251, 227);
             pictureBox4.TabIndex = 14;
@@ -426,7 +390,7 @@
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.Location = new Point(595, 51);
+            pictureBox3.Location = new Point(594, 72);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(251, 227);
             pictureBox3.TabIndex = 13;
@@ -436,23 +400,11 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(311, 51);
+            pictureBox2.Location = new Point(310, 72);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(251, 227);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Green;
-            label3.Location = new Point(27, 11);
-            label3.Name = "label3";
-            label3.Size = new Size(168, 28);
-            label3.TabIndex = 33;
-            label3.Text = "Waste Tracker";
             // 
             // UserDashboard
             // 
@@ -462,9 +414,6 @@
             ClientSize = new Size(1452, 765);
             Controls.Add(paneldisplayDB);
             Controls.Add(panelMenu);
-            Controls.Add(btnMin);
-            Controls.Add(btnMax);
-            Controls.Add(btnExit);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserDashboard";
@@ -485,9 +434,6 @@
         }
 
         #endregion
-        private Button btnMin;
-        private Button btnMax;
-        private Button btnExit;
         private Panel panelMenu;
         private Panel panel1;
         private Button btnDashboard;
