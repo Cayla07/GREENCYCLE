@@ -12,9 +12,19 @@ namespace GREENCYCLE
 {
     public partial class UserSignUp : Form
     {
+        private Main0 mainForm; // Reference to Main0
+
+        // Default constructor
         public UserSignUp()
         {
             InitializeComponent();
+        }
+
+        // Constructor with Main0 reference (ensures Main0 can be closed properly)
+        public UserSignUp(Main0 mainForm)
+        {
+            InitializeComponent();
+            this.mainForm = mainForm; // Store reference to `Main0`
         }
 
         private void UserSignUp_Load(object sender, EventArgs e)
@@ -59,11 +69,19 @@ namespace GREENCYCLE
                 MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             UserMain1 userDashboard = new UserMain1();
             userDashboard.Show();
-            this.Hide();
+
+            if (mainForm != null) // Ensure `mainForm` is not null before closing
+            {
+                mainForm.Close(); // Fully closes Main0
+                mainForm.Dispose(); // Releases resources
+            }
+
+            this.Hide(); // Hide the sign-up form
         }
 
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)

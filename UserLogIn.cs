@@ -69,8 +69,9 @@ namespace GREENCYCLE
         {
             if (this.ParentForm is Main0 functionalityForm)
             {
-                functionalityForm.LoadFormIntoPanel(new UserSignUp1());
+                functionalityForm.LoadFormIntoPanel(new UserSignUp(functionalityForm));
             }
+
         }
     }
 }
