@@ -88,7 +88,7 @@
             panelUser.Size = new Size(589, 569);
             panelUser.TabIndex = 15;
             // 
-            // UserFunctionality
+            // Main0
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             Controls.Add(btnMax);
             Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "UserFunctionality";
+            Name = "Main0";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);

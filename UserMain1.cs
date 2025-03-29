@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GREENCYCLE
 {
-    public partial class UserDashboard : Form
+    public partial class UserMain1 : Form
     {
-        public UserDashboard()
+        public UserMain1()
         {
             InitializeComponent();
             btnDashboard.BackColor = Color.Lime;
@@ -35,6 +36,7 @@ namespace GREENCYCLE
             DisableButton();
             btnDashboard.BackColor = Color.Lime;
             paneldisplayDB.Visible = true;
+
         }
 
         private void btnRecycle_Click(object sender, EventArgs e)
@@ -73,15 +75,15 @@ namespace GREENCYCLE
             btnOut.BackColor = Color.Lime;
             CoverPage coverpage = new CoverPage();
             coverpage.Show();
-            this.Hide();
+            this.Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void btnMax_Click(object sender, EventArgs e)
+        private void btnMax_Click_1(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
             {
@@ -93,7 +95,7 @@ namespace GREENCYCLE
             }
         }
 
-        private void btnMin_Click(object sender, EventArgs e)
+        private void btnMin_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }

@@ -54,6 +54,12 @@ namespace GREENCYCLE
             {
                 functionalityForm.LoadFormIntoPanel(new UserSignUp());
             }
+            else
+            {
+                UserSignUp userSignUp = new UserSignUp();
+                userSignUp.Show();
+                this.Hide();
+            }
         }
 
         private void linkUserLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

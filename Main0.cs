@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +13,10 @@ namespace GREENCYCLE
     public partial class Main0 : Form
     {
         private Form activeForm = null; // Keeps track of the currently displayed form
-
         public Main0()
         {
             InitializeComponent();
-            LoadFormIntoPanel(new UserLogIn()); // Default form on startup
+            LoadFormIntoPanel(new UserLogIn(this));
         }
 
         public void LoadFormIntoPanel(Form childForm)

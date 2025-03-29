@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,17 @@ namespace GREENCYCLE
 {
     public partial class UserLogIn : Form
     {
+        private Main0 mainForm;
         public UserLogIn()
         {
             InitializeComponent();
         }
 
+        public UserLogIn(Main0 mainForm)
+        {
+            InitializeComponent();
+            this.mainForm = mainForm; // Store reference to `Main0`
+        }
         private void UserLogIn_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
@@ -46,9 +53,16 @@ namespace GREENCYCLE
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            UserDashboard userDashboard = new UserDashboard();
+            UserMain1 userDashboard = new UserMain1();
             userDashboard.Show();
-            this.Hide();
+
+            if (mainForm != null)
+            {
+                mainForm.Close(); // Fully closes `Main0`
+                mainForm.Dispose(); // Releases resources
+            }
+
+            this.Hide(); // Hide
         }
 
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

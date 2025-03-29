@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GREENCYCLE
 {
-    public partial class Main1 : Form
+    public partial class Statistics : Form
     {
-        public Main1()
+        public Statistics()
         {
             InitializeComponent();
         }

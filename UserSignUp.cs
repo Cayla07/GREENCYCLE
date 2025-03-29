@@ -61,7 +61,7 @@ namespace GREENCYCLE
             }
             MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            UserDashboard userDashboard = new UserDashboard();
+            UserMain1 userDashboard = new UserMain1();
             userDashboard.Show();
             this.Hide();
         }

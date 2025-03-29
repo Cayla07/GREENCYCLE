@@ -31,17 +31,17 @@ namespace GREENCYCLE
             {
                 string selectedUserType = cmbType.SelectedItem.ToString().Trim();
 
-                Main0 userFunctionality = new Main0();
-                userFunctionality.WindowState = AppSettings.LastWindowState;
+                Main0 main0 = new Main0();
+                main0.WindowState = AppSettings.LastWindowState;
 
                 if (selectedUserType == "Application Users")
                 {
-                    userFunctionality.Show();
+                    main0.Show();
                 }
                 else if (selectedUserType == "Admin")
                 {
-                    userFunctionality.Show();
-                    userFunctionality.LoadFormIntoPanel(new Admin()); // Load Admin in panel
+                    main0.Show();
+                    main0.LoadFormIntoPanel(new Admin()); // Load Admin in panel
                 }
                 else
                 {

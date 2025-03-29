@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,7 @@ namespace GREENCYCLE
                 e.SuppressKeyPress = true;
             }
         }
-       
+
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
         {
             tbxAdminPass.UseSystemPasswordChar = cbShowPassA.Checked;
@@ -46,7 +47,7 @@ namespace GREENCYCLE
             {
                 MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                AdminDashboard admindashboard = new AdminDashboard();
+                AdminMain1 admindashboard = new AdminMain1();
                 admindashboard.Show();
             }
             else

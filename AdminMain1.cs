@@ -10,15 +10,13 @@ using System.Windows.Forms;
 
 namespace GREENCYCLE
 {
-    public partial class AdminDashboard : Form
+    public partial class AdminMain1 : Form
     {
-        public AdminDashboard()
+        public AdminMain1()
         {
             InitializeComponent();
             btnDashboard.BackColor = Color.Lime;
-            panelUsers.Visible = true;
-            panelStats.Visible = false;
-            panelUsers.Visible = false;
+
         }
 
         private void DisableButton()
@@ -30,28 +28,6 @@ namespace GREENCYCLE
             btnStatistics.BackColor = Color.Transparent;
             btnSettings.BackColor = Color.Transparent;
             btnOut.BackColor = Color.Transparent;
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void btnMin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnOut_Click(object sender, EventArgs e)
@@ -67,15 +43,12 @@ namespace GREENCYCLE
         {
             DisableButton();
             btnDashboard.BackColor = Color.Lime;
-            panelAdminDB.Visible = true;
-            panelUsers.Visible = false;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
             DisableButton();
             btnUsers.BackColor = Color.Lime;
-            panelUsers.Visible = true;
         }
 
         private void btnEditRates_Click(object sender, EventArgs e)
@@ -94,14 +67,34 @@ namespace GREENCYCLE
         {
             DisableButton();
             btnStatistics.BackColor = Color.Lime;
-            panelStats.Visible = true;
-            panelUsers.Visible = false;
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
             DisableButton();
             btnSettings.BackColor = Color.Lime;
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMax_Click_1(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void btnMin_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
