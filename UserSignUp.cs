@@ -66,12 +66,9 @@ namespace GREENCYCLE
 
             MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            UserMain1 userDashboard = new UserMain1();
-            userDashboard.Show();
-
             if (this.ParentForm is Main0 main0)
             {
-                main0.Close(); // Close `Main0`
+                main0.LoadFormIntoPanel(new UserLogIn(main0)); // Load the login form inside `Main0`
             }
 
             this.Hide(); // Hide 
