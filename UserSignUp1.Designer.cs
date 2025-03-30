@@ -156,7 +156,7 @@
             linkUserLog.AutoSize = true;
             linkUserLog.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             linkUserLog.LinkColor = Color.Black;
-            linkUserLog.Location = new Point(349, 538);
+            linkUserLog.Location = new Point(350, 523);
             linkUserLog.Name = "linkUserLog";
             linkUserLog.Size = new Size(56, 19);
             linkUserLog.TabIndex = 47;
@@ -169,7 +169,7 @@
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(133, 538);
+            label5.Location = new Point(134, 523);
             label5.Name = "label5";
             label5.Size = new Size(217, 21);
             label5.TabIndex = 46;
@@ -182,7 +182,7 @@
             btnNext.BackgroundImageLayout = ImageLayout.Center;
             btnNext.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNext.ForeColor = Color.Lime;
-            btnNext.Location = new Point(447, 460);
+            btnNext.Location = new Point(442, 443);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(106, 41);
             btnNext.TabIndex = 45;
