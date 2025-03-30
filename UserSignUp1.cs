@@ -12,9 +12,16 @@ namespace GREENCYCLE
 {
     public partial class UserSignUp1 : Form
     {
+        private Main0 mainForm;
         public UserSignUp1()
         {
             InitializeComponent();
+        }
+
+        public UserSignUp1(Main0 mainForm)
+        {
+            InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void UserSignUp1_Load(object sender, EventArgs e)

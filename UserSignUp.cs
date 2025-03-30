@@ -18,13 +18,7 @@ namespace GREENCYCLE
         public UserSignUp()
         {
             InitializeComponent();
-        }
-
-        // Constructor with Main0 reference (ensures Main0 can be closed properly)
-        public UserSignUp(Main0 mainForm)
-        {
-            InitializeComponent();
-            this.mainForm = mainForm; // Store reference to `Main0`
+            this.mainForm = mainForm;
         }
 
         private void UserSignUp_Load(object sender, EventArgs e)
@@ -75,13 +69,12 @@ namespace GREENCYCLE
             UserMain1 userDashboard = new UserMain1();
             userDashboard.Show();
 
-            if (mainForm != null) // Ensure `mainForm` is not null before closing
+            if (this.ParentForm is Main0 main0)
             {
-                mainForm.Close(); // Fully closes Main0
-                mainForm.Dispose(); // Releases resources
+                main0.Close(); // Close `Main0`
             }
 
-            this.Hide(); // Hide the sign-up form
+            this.Hide(); // Hide 
         }
 
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)

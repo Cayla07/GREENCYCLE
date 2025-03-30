@@ -56,22 +56,20 @@ namespace GREENCYCLE
             UserMain1 userDashboard = new UserMain1();
             userDashboard.Show();
 
-            if (mainForm != null)
+            if (this.ParentForm is Main0 main0)
             {
-                mainForm.Close(); // Fully closes `Main0`
-                mainForm.Dispose(); // Releases resources
+                main0.Close(); // Close `Main0`
             }
 
-            this.Hide(); // Hide
+            this.Hide(); // Hide 
         }
 
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (this.ParentForm is Main0 functionalityForm)
             {
-                functionalityForm.LoadFormIntoPanel(new UserSignUp(functionalityForm));
+                functionalityForm.LoadFormIntoPanel(new UserSignUp1(functionalityForm)); // Pass Main0 reference
             }
-
         }
     }
 }
