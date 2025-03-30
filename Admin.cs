@@ -13,9 +13,15 @@ namespace GREENCYCLE
 {
     public partial class Admin : Form
     {
+        private Main0 mainForm;
         public Admin()
         {
             InitializeComponent();
+        }
+        public Admin(Main0 mainForm)
+        {
+            InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -49,6 +55,13 @@ namespace GREENCYCLE
                 this.Hide();
                 AdminMain1 admindashboard = new AdminMain1();
                 admindashboard.Show();
+
+                if (this.ParentForm is Main0 main0)
+                {
+                    main0.Close(); // Close `Main0`
+                }
+
+                this.Hide();
             }
             else
             {
