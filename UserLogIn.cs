@@ -14,6 +14,7 @@ namespace GREENCYCLE
     public partial class UserLogIn : Form
     {
         private Main0 mainForm;
+
         public UserLogIn()
         {
             InitializeComponent();
@@ -22,13 +23,8 @@ namespace GREENCYCLE
         public UserLogIn(Main0 mainForm)
         {
             InitializeComponent();
-            this.mainForm = mainForm; // Store reference to `Main0`
+            this.mainForm = mainForm;
         }
-
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source = UserAccount.mdb");
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataAdapter da = new OleDbDataAdapter();
-
         private void UserLogIn_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
@@ -46,77 +42,27 @@ namespace GREENCYCLE
 
         private void cbxShowPassL_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxShowPassL.Checked)
-            {
-                tbxPassL.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                tbxPassL.UseSystemPasswordChar = false;
-            }
+            tbxPassL.UseSystemPasswordChar = !cbxShowPassL.Checked;
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            using (OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.12.0;Data Source=UserAccount.accdb"))
+            UserMain1 userDashboard = new UserMain1();
+            userDashboard.Show();
+
+            if (mainForm != null)
             {
-                string email = tbxEmailL.Text;
-                string password = tbxPassL.Text;
-
-                if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
-                {
-                    MessageBox.Show("Please enter your email and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                try
-                {
-                    con.Open();
-
-                    // Query to check user credentials
-                    string loginQuery = "SELECT COUNT(*) FROM UserAccount WHERE Email = ? AND Password = ?";
-                    using (OleDbCommand cmd = new OleDbCommand(loginQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("Email", email);
-                        cmd.Parameters.AddWithValue("Password", password);
-
-                        int userExists = (int)cmd.ExecuteScalar();
-
-                        if (userExists > 0)
-                        {
-                            MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Proceed to the main user dashboard
-                            UserMain1 userDashboard = new UserMain1();
-                            userDashboard.Show();
-
-                            if (this.ParentForm is Main0 main0)
-                            {
-                                main0.Close();
-                                main0.Dispose();
-                            }
-
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid email or password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                finally
-                {
-                    con.Close();
-                }
+                mainForm.Close(); // Fully closes Main0
+                mainForm.Dispose(); // Releases resources
             }
+
+            this.Hide(); // Hide
         }
-
-
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (this.ParentForm is Main0 functionalityForm)
+            if (mainForm != null)
             {
-                functionalityForm.LoadFormIntoPanel(new UserSignUp1(functionalityForm)); // Pass Main0 reference
+                mainForm.LoadFormIntoPanel(new UserSignUp1(mainForm));
             }
         }
     }

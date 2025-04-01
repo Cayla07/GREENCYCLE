@@ -18,12 +18,15 @@ namespace GREENCYCLE
         public UserSignUp()
         {
             InitializeComponent();
+        }
+
+        public UserSignUp(Main0 mainForm)
+        {
+            InitializeComponent();
             this.mainForm = mainForm;
         }
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.12.0;Data Source = UserAccount.accdb");
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataAdapter da = new OleDbDataAdapter();
+
         private void UserSignUp_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
@@ -51,79 +54,35 @@ namespace GREENCYCLE
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
-            using (OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=UserAccount.mdb"))
+            string email = tbxEmailC.Text;
+            string password = tbxPassC.Text;
+            string confirmPassword = tbxConPass.Text;
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
             {
-                string email = tbxEmailC.Text;
-                string password = tbxPassC.Text;
-                string confirmPassword = tbxConPass.Text;
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
-                {
-                    MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (password != confirmPassword)
-                {
-                    MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                try
-                {
-                    con.Open();
-
-                    // Check if email already exists
-                    string checkQuery = "SELECT COUNT(*) FROM UserAccount WHERE Email = ?";
-                    using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, con))
-                    {
-                        checkCmd.Parameters.AddWithValue("Email", email);
-                        int userExists = (int)checkCmd.ExecuteScalar();
-
-                        if (userExists > 0)
-                        {
-                            MessageBox.Show("Email is already registered. Try a different one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                    }
-
-                    // Insert new user
-                    string signUpQuery = "INSERT INTO UserAccount ([Email], [Password]) VALUES (?, ?)";
-                    using (OleDbCommand cmd = new OleDbCommand(signUpQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("Email", email);
-                        cmd.Parameters.AddWithValue("Password", password);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                finally
-                {
-                    con.Close();
-                }
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Redirect to login form
             if (this.ParentForm is Main0 main0)
             {
-                main0.LoadFormIntoPanel(new UserLogIn(main0));
+                main0.LoadFormIntoPanel(new UserLogIn(main0)); // Load the login form inside Main0
             }
 
-            this.Hide();
+            this.Hide(); // Hide 
         }
-
 
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShowPassA.Checked)
-            {
-                tbxPassC.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                tbxPassC.UseSystemPasswordChar = false;
-            }
+            tbxPassC.UseSystemPasswordChar = !cbShowPassA.Checked;
         }
     }
 }
