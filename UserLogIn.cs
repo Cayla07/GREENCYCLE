@@ -47,17 +47,44 @@ namespace GREENCYCLE
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            UserMain1 userDashboard = new UserMain1();
-            userDashboard.Show();
+            string email = tbxEmailL.Text;
+            string password = tbxPassL.Text;
 
-            if (mainForm != null)
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                mainForm.Close(); // Fully closes Main0
-                mainForm.Dispose(); // Releases resources
+                MessageBox.Show("Please enter both Email and Password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            this.Hide(); // Hide
+            string connString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\Visual Studio 2022\MVSV Projects 2.0\GREENCYCLE\database\Database1.accdb;";
+
+            using (OleDbConnection myConn = new OleDbConnection(connString))
+            {
+                myConn.Open();
+
+                string loginQuery = "SELECT COUNT(*) FROM UserInfo WHERE Email = ? AND [Password] = ?";
+                using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
+                {
+                    cmd.Parameters.AddWithValue("?", email);
+                    cmd.Parameters.AddWithValue("?", password);
+
+                    int count = (int)cmd.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        UserMain1 userDashboard = new UserMain1();
+                        userDashboard.Show();
+                        mainForm.Close(); // Fully close Main0
+                        this.Hide(); // Hide login form
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Email or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
+   
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (mainForm != null)

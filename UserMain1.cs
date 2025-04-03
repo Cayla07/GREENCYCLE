@@ -99,5 +99,6 @@ namespace GREENCYCLE
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
     }
 }

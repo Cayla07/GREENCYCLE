@@ -13,19 +13,19 @@ namespace GREENCYCLE
 {
     public partial class UserSignUp : Form
     {
-        private Main0 mainForm; // Reference to Main0
+        OleDbConnection? myConn;
+        OleDbDataAdapter? da;
+        OleDbCommand? cmd;
+        DataSet? ds;
+        int indexRow;
 
-        public UserSignUp()
-        {
-            InitializeComponent();
-        }
+        private Main0 mainForm; // Reference to Main0
 
         public UserSignUp(Main0 mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
         }
-
 
         private void UserSignUp_Load(object sender, EventArgs e)
         {
@@ -70,15 +70,59 @@ namespace GREENCYCLE
                 return;
             }
 
-            MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (this.ParentForm is Main0 main0)
+            try
             {
-                main0.LoadFormIntoPanel(new UserLogIn(main0)); // Load the login form inside Main0
-            }
+                string connString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\Visual Studio 2022\MVSV Projects 2.0\GREENCYCLE\database\Database1.accdb;";
+                using (OleDbConnection myConn = new OleDbConnection(connString))
+                {
+                    myConn.Open();
 
-            this.Hide(); // Hide 
+                    // 1️⃣ Check if email already exists
+                    string checkQuery = "SELECT COUNT(*) FROM UserInfo WHERE Email = @Email";
+                    using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, myConn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@Email", email);
+                        int count = (int)checkCmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Email already exists. Please use a different email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    // 2️⃣ Insert new user if email is unique
+                    string insertQuery = "INSERT INTO UserInfo (Email, [Password]) VALUES (@Email, @Password)";
+                    using (OleDbCommand insertCmd = new OleDbCommand(insertQuery, myConn))
+                    {
+                        insertCmd.Parameters.AddWithValue("@Email", email);
+                        insertCmd.Parameters.AddWithValue("@Password", password); // ⚠ Password should be hashed for security
+
+                        int result = insertCmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Account Created Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            if (this.ParentForm is Main0 main0)
+                            {
+                                main0.LoadFormIntoPanel(new UserLogIn(main0)); // Redirect to login
+                            }
+
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Account creation failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
         {

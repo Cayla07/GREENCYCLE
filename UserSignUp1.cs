@@ -13,10 +13,6 @@ namespace GREENCYCLE
     public partial class UserSignUp1 : Form
     {
         private Main0 mainForm;
-        public UserSignUp1()
-        {
-            InitializeComponent();
-        }
 
         public UserSignUp1(Main0 mainForm)
         {
@@ -59,11 +55,12 @@ namespace GREENCYCLE
         {
             if (this.ParentForm is Main0 functionalityForm)
             {
-                functionalityForm.LoadFormIntoPanel(new UserSignUp());
+                functionalityForm.LoadFormIntoPanel(new UserSignUp(functionalityForm));
             }
             else
             {
-                UserSignUp userSignUp = new UserSignUp();
+                Main0 mainForm = new Main0(); // Create an instance of Main0
+                UserSignUp userSignUp = new UserSignUp(mainForm); // Pass it correctly
                 userSignUp.Show();
                 this.Hide();
             }

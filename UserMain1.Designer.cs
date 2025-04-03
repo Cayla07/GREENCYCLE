@@ -38,12 +38,13 @@
             btnRecycle = new Button();
             btnDashboard = new Button();
             panel1 = new Panel();
+            panel2 = new Panel();
             label1 = new Label();
             UserProfile = new PictureBox();
-            paneldisplayDB = new Panel();
             btnMin = new Button();
             btnMax = new Button();
             btnExit = new Button();
+            paneldisplayDB = new Panel();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
@@ -208,12 +209,20 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(UserProfile);
             panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(299, 185);
             panel1.TabIndex = 22;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(298, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1153, 59);
+            panel2.TabIndex = 26;
             // 
             // label1
             // 
@@ -236,13 +245,6 @@
             UserProfile.Size = new Size(64, 64);
             UserProfile.TabIndex = 0;
             UserProfile.TabStop = false;
-            // 
-            // paneldisplayDB
-            // 
-            paneldisplayDB.Location = new Point(299, 45);
-            paneldisplayDB.Name = "paneldisplayDB";
-            paneldisplayDB.Size = new Size(1153, 720);
-            paneldisplayDB.TabIndex = 22;
             // 
             // btnMin
             // 
@@ -289,16 +291,23 @@
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click_1;
             // 
+            // paneldisplayDB
+            // 
+            paneldisplayDB.Location = new Point(299, 65);
+            paneldisplayDB.Name = "paneldisplayDB";
+            paneldisplayDB.Size = new Size(1153, 700);
+            paneldisplayDB.TabIndex = 26;
+            // 
             // UserMain1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1452, 765);
+            Controls.Add(paneldisplayDB);
             Controls.Add(btnMin);
             Controls.Add(btnMax);
             Controls.Add(btnExit);
-            Controls.Add(paneldisplayDB);
             Controls.Add(panelMenu);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
@@ -320,7 +329,6 @@
         private Button btnWallet;
         private Button btnHistory;
         private Button btnTransaction;
-        private Panel paneldisplayDB;
         private Button btnOut;
         private Button btnSettings;
         private PictureBox UserProfile;
@@ -328,5 +336,7 @@
         private Button btnMin;
         private Button btnMax;
         private Button btnExit;
+        private Panel panel2;
+        private Panel paneldisplayDB;
     }
 }
