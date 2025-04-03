@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GREENCYCLE.Properties.Resources" Collapsed="true">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.Admin" Collapsed="true">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gUAEAgAAACAAEAAAIgKAQAAKAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.AdminDB" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAAACAAABAAAACAQAACAGAwAAAEAAAAAQRAAAA=</HashCode>
+      <FileName>AdminDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.AdminMain1" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAogAAQGCAAQBAEEACAABACACQFAgAEAIBEAQQBAQA=</HashCode>
+      <FileName>AdminMain1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.CoverPage" Collapsed="true">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAAAQRAECQAABAAAASAAAACACAoAAAAABAAAAQAAAA=</HashCode>
+      <FileName>CoverPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.AppSettings" Collapsed="true">
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>CoverPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.Main0" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAEDAAAAAAAACAABACACAAAACEABAAAAQAAAA=</HashCode>
+      <FileName>Main0.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.MonitorUsers" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>MonitorUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.Program" Collapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.Statistics" Collapsed="true">
+    <Position X="11.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAQAACAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Statistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.UserDB" Collapsed="true">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAAACAAABAAAACAQAACAEAwAAAAAAAAAQBAAAA=</HashCode>
+      <FileName>UserDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.UserLogIn" Collapsed="true">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>xWAAAgAAACAAAAAAMgSAQAAKQAAAAAIACAAACAAAAAA=</HashCode>
+      <FileName>UserLogIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.UserMain1" Collapsed="true">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAIAAAQCCAAABAAAACAABBiACQABgAMAIBsAQQBAQA=</HashCode>
+      <FileName>UserMain1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.UserSignUp" Collapsed="true">
+    <Position X="6.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgQBAAACEAABQAIg6ABAAKAIAAAAIABAACAABAAAA=</HashCode>
+      <FileName>UserSignUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.UserSignUp1" Collapsed="true">
+    <Position X="6.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MABAwYAAACABABAACgCABAACAxAACAAAQCAAAAAAAAA=</HashCode>
+      <FileName>UserSignUp1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.UserTypePage" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAIBAECAAEBAAAACAAAACACIAAAAEABAAAQQAAAA=</HashCode>
+      <FileName>UserTypePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
