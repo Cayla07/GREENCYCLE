@@ -62,11 +62,11 @@ namespace GREENCYCLE
             {
                 myConn.Open();
 
-                string loginQuery = "SELECT COUNT(*) FROM UserInfo WHERE Email = ? AND [Password] = ?";
+                string loginQuery = "SELECT COUNT(*) FROM UserInfo WHERE Email = @Email AND [Password] = @Password";
                 using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
                 {
-                    cmd.Parameters.AddWithValue("?", email);
-                    cmd.Parameters.AddWithValue("?", password);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", password);
 
                     int count = (int)cmd.ExecuteScalar();
                     if (count > 0)
