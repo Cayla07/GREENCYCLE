@@ -1,105 +1,203 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="GREENCYCLE.Properties.Resources" Collapsed="true">
-    <Position X="22" Y="3.5" Width="1.5" />
+    <Position X="32.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="16" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.ContainerControl" Collapsed="true">
+    <Position X="16" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
   <Class Name="GREENCYCLE.Admin" Collapsed="true">
-    <Position X="24.75" Y="2.25" Width="1.5" />
+    <Position X="18.75" Y="5" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="20.625" Y="3.066" />
+        <Point X="20.625" Y="5.375" />
+        <Point X="20.25" Y="5.375" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>gUAEAgAAACAAEAAAIgKAQAAKAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.AdminDB" Collapsed="true">
-    <Position X="21" Y="4.25" Width="1.5" />
+    <Position X="20.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAhAAACAAABAAAACAQAACAGAwAAAEAAAAAQRAAAA=</HashCode>
       <FileName>AdminDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.AdminMain1" Collapsed="true">
-    <Position X="19.25" Y="4.25" Width="1.5" />
+    <Position X="18.75" Y="6" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="20.625" Y="3.066" />
+        <Point X="20.625" Y="6.5" />
+        <Point X="20.25" Y="6.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>EAAogAAQGCAAQBAEEACAABACACQFAgAEAIBEAQQBAQA=</HashCode>
       <FileName>AdminMain1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.CoverPage" Collapsed="true">
-    <Position X="16" Y="0.75" Width="1.5" />
+    <Position X="18.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IBAAAQRAECQAABAAAASAAAACACAoAAAAABAAAAQAAAA=</HashCode>
       <FileName>CoverPage.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="GREENCYCLE.AppSettings" Collapsed="true">
+    <Position X="30.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>CoverPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="GREENCYCLE.Main0" Collapsed="true">
-    <Position X="18.5" Y="3.75" Width="1.5" />
+    <Position X="16" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAEDAAAAAAAACAABACACAAAACEABAAAAQAAAA=</HashCode>
       <FileName>Main0.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.MonitorUsers" Collapsed="true">
-    <Position X="20" Y="3.25" Width="1.5" />
+    <Position X="20.75" Y="7" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="22.625" Y="3.066" />
+        <Point X="22.625" Y="7.312" />
+        <Point X="22.25" Y="7.312" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MonitorUsers.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="GREENCYCLE.Program" Collapsed="true">
+    <Position X="34" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GREENCYCLE.Recycle" Collapsed="true">
+    <Position X="9.25" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="8.875" Y="3.066" />
+        <Point X="8.875" Y="7.562" />
+        <Point X="9.25" Y="7.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>BAAAABAAASAAAABAAACAAAACAACAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Recycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="GREENCYCLE.Statistics" Collapsed="true">
-    <Position X="20.75" Y="5.25" Width="1.5" />
+    <Position X="20.75" Y="8" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="22.625" Y="3.066" />
+        <Point X="22.625" Y="8.375" />
+        <Point X="22.25" Y="8.375" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAABAQAACAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Statistics.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserDB" Collapsed="true">
-    <Position X="21.25" Y="6.5" Width="1.5" />
+    <Position X="9.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAhAAACAAABAAAACAQAACAEAwAAAAAAAAAQBAAAA=</HashCode>
       <FileName>UserDB.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserLogIn" Collapsed="true">
-    <Position X="17.75" Y="6" Width="1.5" />
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="12.875" Y="3.066" />
+        <Point X="12.875" Y="7.625" />
+        <Point X="13.25" Y="7.625" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>xWAAAgAAACAAAAAAMgSAQAAKQAAAAAIACAAACAAAAAA=</HashCode>
       <FileName>UserLogIn.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserMain1" Collapsed="true">
-    <Position X="19.5" Y="6.5" Width="1.5" />
+    <Position X="11" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>GAAIAAAQCCAAABAAAACAABBiACQABgAMAIBsAQQBAQA=</HashCode>
+      <HashCode>GAAIgAAQCCAAQBAAAACAABBiACQABgCMAIBsAQQBAQA=</HashCode>
       <FileName>UserMain1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserSignUp" Collapsed="true">
-    <Position X="17.75" Y="7.75" Width="1.5" />
+    <Position X="13.25" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="12.875" Y="3.066" />
+        <Point X="12.875" Y="6.5" />
+        <Point X="13.25" Y="6.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAgQBAAACEAABQAIg6ABAAKAIAAAAIABAACAABAAAA=</HashCode>
       <FileName>UserSignUp.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserSignUp1" Collapsed="true">
-    <Position X="9.5" Y="4.25" Width="1.5" />
+    <Position X="13.25" Y="5" Width="1.5" />
+    <InheritanceLine Type="System.Windows.Forms.Form" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="2.691" />
+        <Point X="16.75" Y="3.066" />
+        <Point X="12.875" Y="3.066" />
+        <Point X="12.875" Y="5.25" />
+        <Point X="13.25" Y="5.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>MABAwYAAACABABAACgCABAACAxAACAAAQCAAAAAAAAA=</HashCode>
+      <HashCode>MAFAwYAEACABABAACgCABAACAxAACAAAQKABAAAAAAA=</HashCode>
       <FileName>UserSignUp1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserTypePage" Collapsed="true">
-    <Position X="21" Y="0.75" Width="1.5" />
+    <Position X="13.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAIBAECAAEBAAAACAAAACACIAAAAEABAAAQQAAAA=</HashCode>
       <FileName>UserTypePage.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="System.Windows.Forms.Form" Collapsed="true">
-    <Position X="18.75" Y="0.75" Width="1.5" />
-    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

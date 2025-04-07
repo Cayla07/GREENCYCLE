@@ -7,21 +7,53 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace GREENCYCLE
 {
     public partial class UserMain1 : Form
     {
+        private Form activeForm = null;
+
+        // Form instances for reuse
+        private Recycle recycleForm;
+     //   private Wallet walletForm;
+      //  private Transaction transactionForm;
+    //    private History historyForm;
+      //  private Settings settingsForm;
+
         public UserMain1()
         {
             InitializeComponent();
-            btnDashboard.BackColor = Color.Lime;
+            HighlightButton(btnDashboard);
+            recycleForm = new Recycle(this); 
+            LoadFormIntoPanel(recycleForm);
+        }
+
+        public void LoadFormIntoPanel(Form childForm)
+        {
+            if (activeForm != null && activeForm.GetType() == childForm.GetType())
+                return;
+
+            if (activeForm != null)
+            {
+                activeForm.Hide();
+            }
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            paneldisplayDB.Controls.Clear();
+            paneldisplayDB.Controls.Add(childForm);
+            childForm.Show();
+
+            activeForm = childForm;
         }
 
         private void DisableButton()
         {
-
             btnDashboard.BackColor = Color.Transparent;
             btnRecycle.BackColor = Color.Transparent;
             btnWallet.BackColor = Color.Transparent;
@@ -31,18 +63,28 @@ namespace GREENCYCLE
             btnOut.BackColor = Color.Transparent;
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
+        private void HighlightButton(Button btn)
         {
             DisableButton();
-            btnDashboard.BackColor = Color.Lime;
-            paneldisplayDB.Visible = true;
+            btn.BackColor = Color.Lime;
+        }
 
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            HighlightButton(btnDashboard);
+            paneldisplayDB.Visible = true;
+            recycleForm = new Recycle(this); // Assuming Recycle is dashboard
+            LoadFormIntoPanel(recycleForm);
         }
 
         private void btnRecycle_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnRecycle.BackColor = Color.Lime;
+            HighlightButton(btnRecycle);
+
+            if (recycleForm == null || recycleForm.IsDisposed)
+                recycleForm = new Recycle(this);
+
+            LoadFormIntoPanel(recycleForm);
         }
 
         private void btnWallet_Click(object sender, EventArgs e)
