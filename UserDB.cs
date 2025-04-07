@@ -12,9 +12,12 @@ namespace GREENCYCLE
 {
     public partial class UserDB : Form
     {
-        public UserDB()
+        private UserMain1 parentForm;
+
+        public UserDB(UserMain1 parent)
         {
             InitializeComponent();
+            this.parentForm = parent;
         }
 
     }

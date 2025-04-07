@@ -13,18 +13,12 @@ namespace GREENCYCLE
     public partial class Recycle : Form
     {
         private UserMain1 parentForm;
-
-        public Recycle()
-        {
-            InitializeComponent();
-        }
-
         public Recycle(UserMain1 parent)
         {
             InitializeComponent();
             this.parentForm = parent;
         }
-        private void Recycle_Load(object sender, EventArgs e)
+    private void Recycle_Load(object sender, EventArgs e)
         {
 
         }

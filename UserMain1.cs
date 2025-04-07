@@ -16,18 +16,16 @@ namespace GREENCYCLE
     {
         private Form activeForm = null;
 
-        // Form instances for reuse
+        // Forms for reuse
         private Recycle recycleForm;
-     //   private Wallet walletForm;
-      //  private Transaction transactionForm;
-    //    private History historyForm;
-      //  private Settings settingsForm;
+        private UserDB userDBForm;
 
         public UserMain1()
         {
             InitializeComponent();
             HighlightButton(btnDashboard);
-            recycleForm = new Recycle(this); 
+
+            recycleForm = new Recycle(this);
             LoadFormIntoPanel(recycleForm);
         }
 
@@ -37,9 +35,7 @@ namespace GREENCYCLE
                 return;
 
             if (activeForm != null)
-            {
                 activeForm.Hide();
-            }
 
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -73,8 +69,11 @@ namespace GREENCYCLE
         {
             HighlightButton(btnDashboard);
             paneldisplayDB.Visible = true;
-            recycleForm = new Recycle(this); // Assuming Recycle is dashboard
-            LoadFormIntoPanel(recycleForm);
+
+            if (userDBForm == null || userDBForm.IsDisposed)
+                userDBForm = new UserDB(this);
+
+            LoadFormIntoPanel(userDBForm);
         }
 
         private void btnRecycle_Click(object sender, EventArgs e)
@@ -89,32 +88,31 @@ namespace GREENCYCLE
 
         private void btnWallet_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnWallet.BackColor = Color.Lime;
+            HighlightButton(btnWallet);
+            // Add Wallet form logic here
         }
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnTransaction.BackColor = Color.Lime;
+            HighlightButton(btnTransaction);
+            // Add Transaction form logic here
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnHistory.BackColor = Color.Lime;
+            HighlightButton(btnHistory);
+            // Add History form logic here
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnSettings.BackColor = Color.Lime;
+            HighlightButton(btnSettings);
+            // Add Settings form logic here
         }
 
         private void btnOut_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnOut.BackColor = Color.Lime;
+            HighlightButton(btnOut);
             CoverPage coverpage = new CoverPage();
             coverpage.Show();
             this.Close();
