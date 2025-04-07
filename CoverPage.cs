@@ -62,7 +62,7 @@ namespace GREENCYCLE
                 this.WindowState = FormWindowState.Maximized;
                 this.StartPosition = FormStartPosition.CenterScreen;
             }
-            AppSettings.LastWindowState = this.WindowState; 
+            AppSettings.LastWindowState = this.WindowState;
         }
 
         private void btnMin_Click(object sender, EventArgs e)
@@ -76,5 +76,3 @@ namespace GREENCYCLE
         public static FormWindowState LastWindowState = FormWindowState.Normal;
     }
 }
-
-

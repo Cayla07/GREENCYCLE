@@ -56,13 +56,13 @@ namespace GREENCYCLE
                 return;
             }
 
-            string connString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\Visual Studio 2022\MVSV Projects 2.0\GREENCYCLE\database\Database1.accdb;";
+            string connString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;";
 
             using (OleDbConnection myConn = new OleDbConnection(connString))
             {
                 myConn.Open();
 
-                string loginQuery = "SELECT COUNT(*) FROM UserInfo WHERE Email = @Email AND [Password] = @Password";
+                string loginQuery = "SELECT COUNT(*) FROM UserAccount WHERE Email = @Email AND [Password] = @Password";
                 using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);

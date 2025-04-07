@@ -61,6 +61,7 @@
             panelMenu.Controls.Add(btnRecycle);
             panelMenu.Controls.Add(btnDashboard);
             panelMenu.Controls.Add(panel1);
+            panelMenu.Dock = DockStyle.Left;
             panelMenu.ForeColor = Color.ForestGreen;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
@@ -77,10 +78,10 @@
             btnOut.ForeColor = Color.White;
             btnOut.Image = (Image)resources.GetObject("btnOut.Image");
             btnOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOut.Location = new Point(131, 700);
+            btnOut.Location = new Point(107, 712);
             btnOut.Name = "btnOut";
             btnOut.Padding = new Padding(10, 0, 0, 0);
-            btnOut.Size = new Size(169, 53);
+            btnOut.Size = new Size(200, 53);
             btnOut.TabIndex = 28;
             btnOut.Text = " LOG OUT";
             btnOut.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -97,10 +98,10 @@
             btnSettings.ForeColor = Color.White;
             btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
             btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(131, 641);
+            btnSettings.Location = new Point(107, 663);
             btnSettings.Name = "btnSettings";
             btnSettings.Padding = new Padding(10, 0, 0, 0);
-            btnSettings.Size = new Size(169, 53);
+            btnSettings.Size = new Size(200, 53);
             btnSettings.TabIndex = 27;
             btnSettings.Text = " PROFILE";
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -117,7 +118,7 @@
             btnWallet.ForeColor = Color.White;
             btnWallet.Image = (Image)resources.GetObject("btnWallet.Image");
             btnWallet.ImageAlign = ContentAlignment.MiddleLeft;
-            btnWallet.Location = new Point(3, 327);
+            btnWallet.Location = new Point(0, 366);
             btnWallet.Name = "btnWallet";
             btnWallet.Padding = new Padding(10, 0, 0, 0);
             btnWallet.Size = new Size(307, 65);
@@ -137,7 +138,7 @@
             btnHistory.ForeColor = Color.White;
             btnHistory.Image = (Image)resources.GetObject("btnHistory.Image");
             btnHistory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistory.Location = new Point(3, 469);
+            btnHistory.Location = new Point(0, 508);
             btnHistory.Name = "btnHistory";
             btnHistory.Padding = new Padding(10, 0, 0, 0);
             btnHistory.Size = new Size(307, 65);
@@ -157,7 +158,7 @@
             btnTransaction.ForeColor = Color.White;
             btnTransaction.Image = (Image)resources.GetObject("btnTransaction.Image");
             btnTransaction.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTransaction.Location = new Point(3, 398);
+            btnTransaction.Location = new Point(0, 437);
             btnTransaction.Name = "btnTransaction";
             btnTransaction.Padding = new Padding(10, 0, 0, 0);
             btnTransaction.Size = new Size(307, 65);
@@ -177,7 +178,7 @@
             btnRecycle.ForeColor = Color.White;
             btnRecycle.Image = (Image)resources.GetObject("btnRecycle.Image");
             btnRecycle.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRecycle.Location = new Point(3, 256);
+            btnRecycle.Location = new Point(0, 295);
             btnRecycle.Name = "btnRecycle";
             btnRecycle.Padding = new Padding(10, 0, 0, 0);
             btnRecycle.Size = new Size(307, 65);
@@ -197,7 +198,7 @@
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDashboard.Location = new Point(3, 185);
+            btnDashboard.Location = new Point(0, 224);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Padding = new Padding(10, 0, 0, 0);
             btnDashboard.Size = new Size(307, 65);
@@ -212,25 +213,28 @@
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(UserProfile);
-            panel1.Location = new Point(1, 0);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(299, 185);
+            panel1.Size = new Size(299, 218);
             panel1.TabIndex = 22;
             // 
             // panel2
             // 
-            panel2.Location = new Point(298, 0);
+            panel2.Anchor = AnchorStyles.None;
+            panel2.Location = new Point(298, 17);
             panel2.Name = "panel2";
             panel2.Size = new Size(1153, 59);
             panel2.TabIndex = 26;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(75, 110);
+            label1.Location = new Point(75, 127);
             label1.Name = "label1";
             label1.Size = new Size(139, 24);
             label1.TabIndex = 0;
@@ -238,9 +242,10 @@
             // 
             // UserProfile
             // 
+            UserProfile.Anchor = AnchorStyles.None;
             UserProfile.BackgroundImageLayout = ImageLayout.Center;
             UserProfile.Image = (Image)resources.GetObject("UserProfile.Image");
-            UserProfile.Location = new Point(113, 28);
+            UserProfile.Location = new Point(113, 45);
             UserProfile.Name = "UserProfile";
             UserProfile.Size = new Size(64, 64);
             UserProfile.TabIndex = 0;

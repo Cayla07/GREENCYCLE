@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace GREENCYCLE
@@ -23,14 +17,13 @@ namespace GREENCYCLE
         private void UserSignUp1_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
-            tbxFullName.KeyDown += new KeyEventHandler(tbxFullName_KeyDown);
-            tbxAge.KeyDown += new KeyEventHandler(tbxAge_KeyDown);
+            tbxFullName.KeyDown += tbxFullName_KeyDown;
+            tbxAge.KeyDown += tbxAge_KeyDown;
 
-            cbxPayMeth.Items.Add("Gcash");
-            cbxBarangay.Items.Add("Umapad");
-            cbxBarangay.Items.Add("Opao");
-            cbxMunicipality.Items.Add("Mandaue");
-            cbxProvince.Items.Add("Cebu");
+            cbxProvince.SelectedIndexChanged += cbxProvince_SelectedIndexChanged;
+            cbxMunicipality.SelectedIndexChanged += cbxMunicipality_SelectedIndexChanged;
+
+            LoadProvinces();
         }
 
         private void tbxFullName_KeyDown(object sender, KeyEventArgs e)
@@ -53,16 +46,12 @@ namespace GREENCYCLE
 
         private void btnNext_Click_1(object sender, EventArgs e)
         {
+            SaveUserInfo();
+
             if (this.ParentForm is Main0 functionalityForm)
             {
-                functionalityForm.LoadFormIntoPanel(new UserSignUp(functionalityForm));
-            }
-            else
-            {
-                Main0 mainForm = new Main0(); // Create an instance of Main0
-                UserSignUp userSignUp = new UserSignUp(mainForm); // Pass it correctly
-                userSignUp.Show();
-                this.Hide();
+                var nextForm = new UserSignUp(functionalityForm);
+                functionalityForm.LoadFormIntoPanel(nextForm);
             }
         }
 
@@ -71,6 +60,130 @@ namespace GREENCYCLE
             if (this.ParentForm is Main0 functionalityForm)
             {
                 functionalityForm.LoadFormIntoPanel(new UserLogIn());
+            }
+        }
+
+        private void LoadProvinces()
+        {
+            try
+            {
+                cbxProvince.Items.Clear();
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "SELECT ProvinceName FROM Province";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbxProvince.Items.Add(reader["ProvinceName"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading provinces: " + ex.Message);
+            }
+        }
+
+        private void cbxProvince_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxMunicipality.Items.Clear();
+            cbxBarangay.Items.Clear();
+            cbxMunicipality.Text = "";
+            cbxBarangay.Text = "";
+
+            string selectedProvince = cbxProvince.Text;
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "SELECT MunicipalityName FROM Municipality WHERE ProvinceName = '" + selectedProvince + "'";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbxMunicipality.Items.Add(reader["MunicipalityName"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading municipalities: " + ex.Message);
+            }
+        }
+
+        private void cbxMunicipality_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxBarangay.Items.Clear();
+            cbxBarangay.Text = "";
+
+            string selectedMunicipality = cbxMunicipality.Text;
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "SELECT BarangayName FROM Barangay WHERE MunicipalityName = '" + selectedMunicipality + "'";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbxBarangay.Items.Add(reader["BarangayName"].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading barangays: " + ex.Message);
+            }
+        }
+
+        private void SaveUserInfo()
+        {
+            string fullName = tbxFullName.Text;
+            string ageText = tbxAge.Text;
+            string phone = tbxPhoneNum.Text;
+            string province = cbxProvince.Text;
+            string municipality = cbxMunicipality.Text;
+            string barangay = cbxBarangay.Text;
+
+            if (!int.TryParse(ageText, out int age))
+            {
+                MessageBox.Show("Please enter a valid age.");
+                return;
+            }
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "INSERT INTO UserInfo (Fullname, Age, PhoneNumber, PaymentMethod, Province, Municipality, Barangay) " +
+                               "VALUES ('" + fullName + "', " + age + ", '" + phone + "', 0, '" + province + "', '" + municipality + "', '" + barangay + "')";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("User information saved successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving user information: " + ex.Message);
             }
         }
     }

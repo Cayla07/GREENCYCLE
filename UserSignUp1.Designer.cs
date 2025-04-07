@@ -77,6 +77,7 @@
             cbxMunicipality.Name = "cbxMunicipality";
             cbxMunicipality.Size = new Size(213, 28);
             cbxMunicipality.TabIndex = 55;
+            cbxMunicipality.SelectedIndexChanged += cbxMunicipality_SelectedIndexChanged;
             // 
             // label10
             // 
@@ -97,6 +98,7 @@
             cbxProvince.Name = "cbxProvince";
             cbxProvince.Size = new Size(213, 28);
             cbxProvince.TabIndex = 53;
+            cbxProvince.SelectedIndexChanged += cbxProvince_SelectedIndexChanged;
             // 
             // label9
             // 
