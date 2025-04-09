@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserMain1));
             panelMenu = new Panel();
+            btnHome = new Button();
             btnOut = new Button();
             btnSettings = new Button();
             btnWallet = new Button();
@@ -41,7 +42,6 @@
             btnMax = new Button();
             btnExit = new Button();
             paneldisplayDB = new Panel();
-            btnHome = new Button();
             panelMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,6 +62,22 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(299, 765);
             panelMenu.TabIndex = 21;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.Green;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.ForeColor = Color.White;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(0, 0);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(299, 218);
+            btnHome.TabIndex = 0;
+            btnHome.Text = "GREENCYCLE";
+            btnHome.TextAlign = ContentAlignment.MiddleRight;
+            btnHome.UseVisualStyleBackColor = false;
             // 
             // btnOut
             // 
@@ -250,27 +266,11 @@
             // 
             // paneldisplayDB
             // 
-            paneldisplayDB.Anchor = AnchorStyles.None;
+            paneldisplayDB.BackColor = Color.PaleGreen;
             paneldisplayDB.Location = new Point(299, 65);
             paneldisplayDB.Name = "paneldisplayDB";
             paneldisplayDB.Size = new Size(1153, 700);
             paneldisplayDB.TabIndex = 26;
-            // 
-            // btnHome
-            // 
-            btnHome.BackColor = Color.Green;
-            btnHome.FlatAppearance.BorderSize = 0;
-            btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHome.ForeColor = Color.White;
-            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(0, 0);
-            btnHome.Name = "btnHome";
-            btnHome.Size = new Size(299, 218);
-            btnHome.TabIndex = 0;
-            btnHome.Text = "GREENCYCLE";
-            btnHome.TextAlign = ContentAlignment.MiddleRight;
-            btnHome.UseVisualStyleBackColor = false;
             // 
             // UserMain1
             // 

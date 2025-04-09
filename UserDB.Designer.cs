@@ -54,7 +54,7 @@
             panel3.BackColor = Color.White;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Center;
-            panel3.Location = new Point(651, 475);
+            panel3.Location = new Point(651, 476);
             panel3.Name = "panel3";
             panel3.Size = new Size(475, 225);
             panel3.TabIndex = 43;
@@ -64,7 +64,7 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(26, 274);
+            panel2.Location = new Point(26, 275);
             panel2.Name = "panel2";
             panel2.Size = new Size(619, 426);
             panel2.TabIndex = 44;
@@ -75,7 +75,7 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Zoom;
-            panel4.Location = new Point(651, 274);
+            panel4.Location = new Point(651, 275);
             panel4.Name = "panel4";
             panel4.Size = new Size(475, 195);
             panel4.TabIndex = 42;
@@ -86,7 +86,7 @@
             pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(26, 41);
+            pictureBox1.Location = new Point(26, 42);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(251, 227);
             pictureBox1.TabIndex = 34;
@@ -97,7 +97,7 @@
             pictureBox5.Anchor = AnchorStyles.None;
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox5.Location = new Point(26, 41);
+            pictureBox5.Location = new Point(26, 42);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(251, 227);
             pictureBox5.TabIndex = 41;
@@ -109,7 +109,7 @@
             button4.BackColor = Color.White;
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(875, 41);
+            button4.Location = new Point(875, 42);
             button4.Name = "button4";
             button4.Size = new Size(251, 227);
             button4.TabIndex = 40;
@@ -121,7 +121,7 @@
             button3.BackColor = Color.White;
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(594, 41);
+            button3.Location = new Point(594, 42);
             button3.Name = "button3";
             button3.Size = new Size(251, 227);
             button3.TabIndex = 39;
@@ -133,7 +133,7 @@
             button2.BackColor = Color.White;
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(310, 41);
+            button2.Location = new Point(310, 42);
             button2.Name = "button2";
             button2.Size = new Size(251, 227);
             button2.TabIndex = 38;
@@ -143,7 +143,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.None;
             pictureBox4.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox4.Location = new Point(875, 41);
+            pictureBox4.Location = new Point(875, 42);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(251, 227);
             pictureBox4.TabIndex = 37;
@@ -153,7 +153,7 @@
             // 
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.Location = new Point(594, 41);
+            pictureBox3.Location = new Point(594, 42);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(251, 227);
             pictureBox3.TabIndex = 36;
@@ -163,7 +163,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(310, 41);
+            pictureBox2.Location = new Point(310, 42);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(251, 227);
             pictureBox2.TabIndex = 35;
@@ -175,7 +175,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Black", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Green;
-            label3.Location = new Point(26, -4);
+            label3.Location = new Point(26, -3);
             label3.Name = "label3";
             label3.Size = new Size(193, 42);
             label3.TabIndex = 46;
@@ -186,7 +186,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
-            ClientSize = new Size(1153, 700);
+            ClientSize = new Size(1153, 703);
             Controls.Add(label3);
             Controls.Add(panel3);
             Controls.Add(panel2);

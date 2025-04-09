@@ -12,11 +12,40 @@ namespace GREENCYCLE
 {
     public partial class AdminMain1 : Form
     {
+        private Form currentChildForm;
+        private MonitorUsers usersForm;
+        private AdminDB adminDB;
         public AdminMain1()
         {
             InitializeComponent();
-            btnDashboard.BackColor = Color.Lime;
+            HighlightButton(btnDashboard); // Default highlight
+            adminDB = new AdminDB(this);   // Load default form
+            LoadFormIntoPanel(adminDB);
+        }
 
+        public void LoadFormIntoPanel(Form childForm)
+        {
+            if (currentChildForm != null && currentChildForm.GetType() == childForm.GetType())
+                return;
+
+            if (currentChildForm != null)
+                currentChildForm.Hide();
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            paneldisplayDB.Controls.Clear();
+            paneldisplayDB.Controls.Add(childForm);
+            childForm.Show();
+
+            currentChildForm = childForm;
+        }
+
+        private void HighlightButton(Button btn)
+        {
+            DisableButton(); // Reset all buttons to default
+            btn.BackColor = Color.Lime; 
         }
 
         private void DisableButton()
@@ -24,7 +53,6 @@ namespace GREENCYCLE
             btnDashboard.BackColor = Color.Transparent;
             btnUsers.BackColor = Color.Transparent;
             btnEditRates.BackColor = Color.Transparent;
-            btnEditTypes.BackColor = Color.Transparent;
             btnStatistics.BackColor = Color.Transparent;
             btnSettings.BackColor = Color.Transparent;
             btnOut.BackColor = Color.Transparent;
@@ -41,38 +69,39 @@ namespace GREENCYCLE
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnDashboard.BackColor = Color.Lime;
+            HighlightButton(btnDashboard);
+            paneldisplayDB.Visible = true;
+            
+            if (adminDB == null || adminDB.IsDisposed)
+                adminDB = new AdminDB(this);
+
+            LoadFormIntoPanel(adminDB);
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnUsers.BackColor = Color.Lime;
+            HighlightButton(btnUsers);
+            paneldisplayDB.Visible = true;
+
+            if (usersForm == null || usersForm.IsDisposed)
+                usersForm = new MonitorUsers(this);
+
+            LoadFormIntoPanel(usersForm);
         }
 
         private void btnEditRates_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnEditRates.BackColor = Color.Lime;
-        }
-
-        private void btnEditTypes_Click(object sender, EventArgs e)
-        {
-            DisableButton();
-            btnEditTypes.BackColor = Color.Lime;
+            
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnStatistics.BackColor = Color.Lime;
+            
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            btnSettings.BackColor = Color.Lime;
+           
         }
 
         private void btnExit_Click_1(object sender, EventArgs e)

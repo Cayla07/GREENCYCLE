@@ -12,9 +12,16 @@ namespace GREENCYCLE
 {
     public partial class AdminDB : Form
     {
-        public AdminDB()
+        private AdminMain1 parentForm;
+        public AdminDB(AdminMain1 parent)
         {
             InitializeComponent();
+            this.parentForm = parent;
+        }
+
+        private void AdminDB_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

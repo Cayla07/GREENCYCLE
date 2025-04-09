@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDB));
-            btnExit = new Button();
-            btnMax = new Button();
-            btnMin = new Button();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -52,50 +49,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.BackColor = Color.PaleGreen;
-            btnExit.BackgroundImageLayout = ImageLayout.Center;
-            btnExit.FlatAppearance.BorderSize = 0;
-            btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
-            btnExit.Location = new Point(1274, 15);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(27, 25);
-            btnExit.TabIndex = 15;
-            btnExit.UseVisualStyleBackColor = false;
-            // 
-            // btnMax
-            // 
-            btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax.BackColor = Color.PaleGreen;
-            btnMax.BackgroundImageLayout = ImageLayout.Center;
-            btnMax.FlatAppearance.BorderSize = 0;
-            btnMax.FlatStyle = FlatStyle.Flat;
-            btnMax.Image = (Image)resources.GetObject("btnMax.Image");
-            btnMax.Location = new Point(1239, 12);
-            btnMax.Name = "btnMax";
-            btnMax.Size = new Size(29, 30);
-            btnMax.TabIndex = 16;
-            btnMax.UseVisualStyleBackColor = false;
-            // 
-            // btnMin
-            // 
-            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMin.BackColor = Color.PaleGreen;
-            btnMin.BackgroundImageLayout = ImageLayout.Center;
-            btnMin.FlatAppearance.BorderSize = 0;
-            btnMin.FlatStyle = FlatStyle.Flat;
-            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1195, 10);
-            btnMin.Name = "btnMin";
-            btnMin.Size = new Size(38, 34);
-            btnMin.TabIndex = 17;
-            btnMin.UseVisualStyleBackColor = false;
-            // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Arial Black", 13.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.DarkGreen;
@@ -107,6 +63,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Arial Black", 10.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkGreen;
@@ -118,6 +75,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Arial Black", 10.8F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.DarkGreen;
@@ -129,6 +87,7 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.None;
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Center;
@@ -139,6 +98,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.None;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.BackgroundImageLayout = ImageLayout.Center;
             panel3.Location = new Point(106, 377);
@@ -148,6 +108,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -159,6 +120,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Anchor = AnchorStyles.None;
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.BackgroundImageLayout = ImageLayout.Center;
             pictureBox5.Location = new Point(106, 82);
@@ -169,6 +131,7 @@
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.None;
             button4.BackColor = Color.White;
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.Image = (Image)resources.GetObject("button4.Image");
@@ -180,6 +143,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.None;
             button3.BackColor = Color.White;
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.Image = (Image)resources.GetObject("button3.Image");
@@ -191,6 +155,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.None;
             button2.BackColor = Color.White;
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Image = (Image)resources.GetObject("button2.Image");
@@ -202,6 +167,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Anchor = AnchorStyles.None;
             pictureBox4.BackgroundImageLayout = ImageLayout.Center;
             pictureBox4.Location = new Point(955, 82);
             pictureBox4.Name = "pictureBox4";
@@ -211,6 +177,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.BackgroundImageLayout = ImageLayout.Center;
             pictureBox3.Location = new Point(674, 82);
             pictureBox3.Name = "pictureBox3";
@@ -220,6 +187,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.BackgroundImageLayout = ImageLayout.Center;
             pictureBox2.Location = new Point(390, 82);
             pictureBox2.Name = "pictureBox2";
@@ -227,7 +195,7 @@
             pictureBox2.TabIndex = 33;
             pictureBox2.TabStop = false;
             // 
-            // Main1
+            // AdminDB
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -246,13 +214,11 @@
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
-            Controls.Add(btnMin);
-            Controls.Add(btnMax);
-            Controls.Add(btnExit);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Main1";
+            Name = "AdminDB";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += AdminDB_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -263,10 +229,6 @@
         }
 
         #endregion
-
-        private Button btnExit;
-        private Button btnMax;
-        private Button btnMin;
         private Label label4;
         private Label label3;
         private Label label2;

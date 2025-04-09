@@ -66,6 +66,8 @@ namespace GREENCYCLE
             else
             {
                 MessageBox.Show("Invalid Email or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbxAdminPass.Clear();
+                tbxAdminPass.Focus();
             }
         }
     }

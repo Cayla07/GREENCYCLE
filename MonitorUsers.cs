@@ -12,9 +12,16 @@ namespace GREENCYCLE
 {
     public partial class MonitorUsers : Form
     {
-        public MonitorUsers()
+        private AdminMain1 parentForm;
+        public MonitorUsers(AdminMain1 parent)
         {
             InitializeComponent();
+            this.parentForm = parent;
+        }
+
+        private void MonitorUsers_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

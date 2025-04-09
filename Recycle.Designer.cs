@@ -39,12 +39,11 @@
             // 
             // btnPlastics
             // 
-            btnPlastics.Anchor = AnchorStyles.None;
             btnPlastics.BackColor = Color.LimeGreen;
             btnPlastics.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPlastics.ForeColor = Color.DarkSlateGray;
             btnPlastics.Image = (Image)resources.GetObject("btnPlastics.Image");
-            btnPlastics.Location = new Point(29, 46);
+            btnPlastics.Location = new Point(58, 46);
             btnPlastics.Name = "btnPlastics";
             btnPlastics.Size = new Size(313, 275);
             btnPlastics.TabIndex = 0;
@@ -54,12 +53,11 @@
             // 
             // btnGlass
             // 
-            btnGlass.Anchor = AnchorStyles.None;
             btnGlass.BackColor = Color.LimeGreen;
             btnGlass.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGlass.ForeColor = Color.DarkSlateGray;
             btnGlass.Image = (Image)resources.GetObject("btnGlass.Image");
-            btnGlass.Location = new Point(378, 46);
+            btnGlass.Location = new Point(407, 46);
             btnGlass.Name = "btnGlass";
             btnGlass.Size = new Size(313, 275);
             btnGlass.TabIndex = 1;
@@ -69,12 +67,11 @@
             // 
             // btnCans
             // 
-            btnCans.Anchor = AnchorStyles.None;
             btnCans.BackColor = Color.LimeGreen;
             btnCans.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCans.ForeColor = Color.DarkSlateGray;
             btnCans.Image = (Image)resources.GetObject("btnCans.Image");
-            btnCans.Location = new Point(737, 46);
+            btnCans.Location = new Point(766, 46);
             btnCans.Name = "btnCans";
             btnCans.Size = new Size(313, 275);
             btnCans.TabIndex = 2;
@@ -84,12 +81,11 @@
             // 
             // btnCartons
             // 
-            btnCartons.Anchor = AnchorStyles.None;
             btnCartons.BackColor = Color.LimeGreen;
             btnCartons.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCartons.ForeColor = Color.DarkSlateGray;
             btnCartons.Image = (Image)resources.GetObject("btnCartons.Image");
-            btnCartons.Location = new Point(29, 375);
+            btnCartons.Location = new Point(58, 375);
             btnCartons.Name = "btnCartons";
             btnCartons.Size = new Size(313, 275);
             btnCartons.TabIndex = 3;
@@ -99,12 +95,11 @@
             // 
             // btnPapers
             // 
-            btnPapers.Anchor = AnchorStyles.None;
             btnPapers.BackColor = Color.LimeGreen;
             btnPapers.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPapers.ForeColor = Color.DarkSlateGray;
             btnPapers.Image = (Image)resources.GetObject("btnPapers.Image");
-            btnPapers.Location = new Point(378, 375);
+            btnPapers.Location = new Point(407, 375);
             btnPapers.Name = "btnPapers";
             btnPapers.Size = new Size(313, 275);
             btnPapers.TabIndex = 4;
@@ -114,12 +109,11 @@
             // 
             // btnLids
             // 
-            btnLids.Anchor = AnchorStyles.None;
             btnLids.BackColor = Color.LimeGreen;
             btnLids.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLids.ForeColor = Color.DarkSlateGray;
             btnLids.Image = (Image)resources.GetObject("btnLids.Image");
-            btnLids.Location = new Point(737, 375);
+            btnLids.Location = new Point(766, 375);
             btnLids.Name = "btnLids";
             btnLids.Size = new Size(313, 275);
             btnLids.TabIndex = 5;

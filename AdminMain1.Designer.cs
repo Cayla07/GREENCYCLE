@@ -29,83 +29,53 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMain1));
-            panel1 = new Panel();
-            panel2 = new Panel();
-            label1 = new Label();
-            UserProfile = new PictureBox();
             panelMenu = new Panel();
+            btnHome = new Button();
             btnOut = new Button();
             btnSettings = new Button();
             btnEditRates = new Button();
             btnStatistics = new Button();
-            btnEditTypes = new Button();
             btnUsers = new Button();
             btnDashboard = new Button();
             btnMin = new Button();
             btnMax = new Button();
             btnExit = new Button();
-            panel3 = new Panel();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
+            paneldisplayDB = new Panel();
             panelMenu.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(UserProfile);
-            panel1.Location = new Point(1, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(299, 185);
-            panel1.TabIndex = 22;
-            // 
-            // panel2
-            // 
-            panel2.Location = new Point(298, 54);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1153, 708);
-            panel2.TabIndex = 31;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(91, 112);
-            label1.Name = "label1";
-            label1.Size = new Size(103, 24);
-            label1.TabIndex = 0;
-            label1.Text = "< admin >";
-            // 
-            // UserProfile
-            // 
-            UserProfile.BackgroundImageLayout = ImageLayout.Center;
-            UserProfile.Image = (Image)resources.GetObject("UserProfile.Image");
-            UserProfile.Location = new Point(113, 28);
-            UserProfile.Name = "UserProfile";
-            UserProfile.Size = new Size(64, 64);
-            UserProfile.TabIndex = 0;
-            UserProfile.TabStop = false;
             // 
             // panelMenu
             // 
             panelMenu.BackColor = Color.Green;
+            panelMenu.Controls.Add(btnHome);
             panelMenu.Controls.Add(btnOut);
             panelMenu.Controls.Add(btnSettings);
             panelMenu.Controls.Add(btnEditRates);
             panelMenu.Controls.Add(btnStatistics);
-            panelMenu.Controls.Add(btnEditTypes);
             panelMenu.Controls.Add(btnUsers);
             panelMenu.Controls.Add(btnDashboard);
-            panelMenu.Controls.Add(panel1);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.ForeColor = Color.ForestGreen;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(299, 765);
             panelMenu.TabIndex = 26;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.Green;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.ForeColor = Color.White;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(0, 0);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(299, 218);
+            btnHome.TabIndex = 29;
+            btnHome.Text = "GREENCYCLE";
+            btnHome.TextAlign = ContentAlignment.MiddleRight;
+            btnHome.UseVisualStyleBackColor = false;
             // 
             // btnOut
             // 
@@ -117,10 +87,10 @@
             btnOut.ForeColor = Color.White;
             btnOut.Image = (Image)resources.GetObject("btnOut.Image");
             btnOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOut.Location = new Point(131, 700);
+            btnOut.Location = new Point(107, 712);
             btnOut.Name = "btnOut";
             btnOut.Padding = new Padding(10, 0, 0, 0);
-            btnOut.Size = new Size(169, 53);
+            btnOut.Size = new Size(200, 53);
             btnOut.TabIndex = 28;
             btnOut.Text = " LOG OUT";
             btnOut.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -137,10 +107,10 @@
             btnSettings.ForeColor = Color.White;
             btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
             btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(131, 641);
+            btnSettings.Location = new Point(107, 653);
             btnSettings.Name = "btnSettings";
             btnSettings.Padding = new Padding(10, 0, 0, 0);
-            btnSettings.Size = new Size(169, 53);
+            btnSettings.Size = new Size(200, 53);
             btnSettings.TabIndex = 27;
             btnSettings.Text = " PROFILE";
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -157,7 +127,7 @@
             btnEditRates.ForeColor = Color.White;
             btnEditRates.Image = (Image)resources.GetObject("btnEditRates.Image");
             btnEditRates.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditRates.Location = new Point(3, 327);
+            btnEditRates.Location = new Point(0, 366);
             btnEditRates.Name = "btnEditRates";
             btnEditRates.Padding = new Padding(10, 0, 0, 0);
             btnEditRates.Size = new Size(307, 65);
@@ -177,7 +147,7 @@
             btnStatistics.ForeColor = Color.White;
             btnStatistics.Image = (Image)resources.GetObject("btnStatistics.Image");
             btnStatistics.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStatistics.Location = new Point(3, 469);
+            btnStatistics.Location = new Point(0, 437);
             btnStatistics.Name = "btnStatistics";
             btnStatistics.Padding = new Padding(10, 0, 0, 0);
             btnStatistics.Size = new Size(307, 65);
@@ -186,26 +156,6 @@
             btnStatistics.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnStatistics.UseVisualStyleBackColor = false;
             btnStatistics.Click += btnStatistics_Click;
-            // 
-            // btnEditTypes
-            // 
-            btnEditTypes.Anchor = AnchorStyles.Left;
-            btnEditTypes.BackColor = Color.Transparent;
-            btnEditTypes.BackgroundImageLayout = ImageLayout.None;
-            btnEditTypes.FlatStyle = FlatStyle.Flat;
-            btnEditTypes.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditTypes.ForeColor = Color.White;
-            btnEditTypes.Image = (Image)resources.GetObject("btnEditTypes.Image");
-            btnEditTypes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditTypes.Location = new Point(3, 398);
-            btnEditTypes.Name = "btnEditTypes";
-            btnEditTypes.Padding = new Padding(10, 0, 0, 0);
-            btnEditTypes.Size = new Size(307, 65);
-            btnEditTypes.TabIndex = 24;
-            btnEditTypes.Text = " EDIT RECYCLES";
-            btnEditTypes.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEditTypes.UseVisualStyleBackColor = false;
-            btnEditTypes.Click += btnEditTypes_Click;
             // 
             // btnUsers
             // 
@@ -217,7 +167,7 @@
             btnUsers.ForeColor = Color.White;
             btnUsers.Image = (Image)resources.GetObject("btnUsers.Image");
             btnUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUsers.Location = new Point(3, 256);
+            btnUsers.Location = new Point(0, 295);
             btnUsers.Name = "btnUsers";
             btnUsers.Padding = new Padding(10, 0, 0, 0);
             btnUsers.Size = new Size(307, 65);
@@ -237,7 +187,7 @@
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDashboard.Location = new Point(3, 185);
+            btnDashboard.Location = new Point(0, 224);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Padding = new Padding(10, 0, 0, 0);
             btnDashboard.Size = new Size(307, 65);
@@ -292,12 +242,14 @@
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click_1;
             // 
-            // panel3
+            // paneldisplayDB
             // 
-            panel3.Location = new Point(299, 43);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1153, 722);
-            panel3.TabIndex = 31;
+            paneldisplayDB.Anchor = AnchorStyles.None;
+            paneldisplayDB.BackColor = Color.PaleGreen;
+            paneldisplayDB.Location = new Point(299, 62);
+            paneldisplayDB.Name = "paneldisplayDB";
+            paneldisplayDB.Size = new Size(1153, 703);
+            paneldisplayDB.TabIndex = 31;
             // 
             // AdminMain1
             // 
@@ -305,7 +257,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1452, 765);
-            Controls.Add(panel3);
+            Controls.Add(paneldisplayDB);
             Controls.Add(btnMin);
             Controls.Add(btnMax);
             Controls.Add(btnExit);
@@ -314,30 +266,22 @@
             Name = "AdminMain1";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)UserProfile).EndInit();
             panelMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel1;
-        private Label label1;
-        private PictureBox UserProfile;
         private Panel panelMenu;
         private Button btnOut;
         private Button btnSettings;
         private Button btnEditRates;
         private Button btnStatistics;
-        private Button btnEditTypes;
         private Button btnUsers;
         private Button btnDashboard;
-        private Panel panel2;
         private Button btnMin;
         private Button btnMax;
         private Button btnExit;
-        private Panel panel3;
+        private Panel paneldisplayDB;
+        private Button btnHome;
     }
 }
