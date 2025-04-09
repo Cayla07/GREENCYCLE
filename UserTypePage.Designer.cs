@@ -47,11 +47,11 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = Color.PaleGreen;
-            label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Cooper Black", 40.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGreen;
             label1.Location = new Point(482, 139);
             label1.Name = "label1";
-            label1.Size = new Size(376, 85);
+            label1.Size = new Size(396, 77);
             label1.TabIndex = 2;
             label1.Text = "WELCOME";
             // 
@@ -107,7 +107,7 @@
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(cmbType);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(432, 463);
+            panel1.Location = new Point(449, 462);
             panel1.Name = "panel1";
             panel1.Size = new Size(490, 194);
             panel1.TabIndex = 12;
@@ -115,7 +115,7 @@
             // btnProceed
             // 
             btnProceed.BackColor = Color.DarkGreen;
-            btnProceed.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProceed.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnProceed.ForeColor = Color.Lime;
             btnProceed.Location = new Point(372, 136);
             btnProceed.Name = "btnProceed";
@@ -137,11 +137,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.DarkRed;
             label2.Location = new Point(50, 36);
             label2.Name = "label2";
-            label2.Size = new Size(246, 24);
+            label2.Size = new Size(255, 23);
             label2.TabIndex = 0;
             label2.Text = "Please select a user type";
             // 
@@ -150,11 +150,11 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.BackColor = Color.PaleGreen;
-            label3.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Cooper Black", 40.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkGreen;
             label3.Location = new Point(432, 343);
             label3.Name = "label3";
-            label3.Size = new Size(490, 85);
+            label3.Size = new Size(522, 77);
             label3.TabIndex = 13;
             label3.Text = "GREENCYCLE";
             // 
@@ -163,11 +163,11 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.BackColor = Color.PaleGreen;
-            label4.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Cooper Black", 40.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.DarkGreen;
-            label4.Location = new Point(598, 237);
+            label4.Location = new Point(614, 237);
             label4.Name = "label4";
-            label4.Size = new Size(128, 85);
+            label4.Size = new Size(132, 77);
             label4.TabIndex = 14;
             label4.Text = "TO";
             // 

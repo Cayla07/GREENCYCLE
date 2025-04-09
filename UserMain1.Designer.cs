@@ -37,22 +37,18 @@
             btnTransaction = new Button();
             btnRecycle = new Button();
             btnDashboard = new Button();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            label1 = new Label();
-            UserProfile = new PictureBox();
             btnMin = new Button();
             btnMax = new Button();
             btnExit = new Button();
             paneldisplayDB = new Panel();
+            btnHome = new Button();
             panelMenu.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)UserProfile).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
             // 
             panelMenu.BackColor = Color.Green;
+            panelMenu.Controls.Add(btnHome);
             panelMenu.Controls.Add(btnOut);
             panelMenu.Controls.Add(btnSettings);
             panelMenu.Controls.Add(btnWallet);
@@ -60,7 +56,6 @@
             panelMenu.Controls.Add(btnTransaction);
             panelMenu.Controls.Add(btnRecycle);
             panelMenu.Controls.Add(btnDashboard);
-            panelMenu.Controls.Add(panel1);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.ForeColor = Color.ForestGreen;
             panelMenu.Location = new Point(0, 0);
@@ -208,49 +203,6 @@
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(UserProfile);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(299, 218);
-            panel1.TabIndex = 22;
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.None;
-            panel2.Location = new Point(298, 17);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1153, 59);
-            panel2.TabIndex = 26;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(75, 127);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 24);
-            label1.TabIndex = 0;
-            label1.Text = "< username >";
-            // 
-            // UserProfile
-            // 
-            UserProfile.Anchor = AnchorStyles.None;
-            UserProfile.BackgroundImageLayout = ImageLayout.Center;
-            UserProfile.Image = (Image)resources.GetObject("UserProfile.Image");
-            UserProfile.Location = new Point(113, 45);
-            UserProfile.Name = "UserProfile";
-            UserProfile.Size = new Size(64, 64);
-            UserProfile.TabIndex = 0;
-            UserProfile.TabStop = false;
-            // 
             // btnMin
             // 
             btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -298,10 +250,27 @@
             // 
             // paneldisplayDB
             // 
+            paneldisplayDB.Anchor = AnchorStyles.None;
             paneldisplayDB.Location = new Point(299, 65);
             paneldisplayDB.Name = "paneldisplayDB";
             paneldisplayDB.Size = new Size(1153, 700);
             paneldisplayDB.TabIndex = 26;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.Green;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.ForeColor = Color.White;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(0, 0);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(299, 218);
+            btnHome.TabIndex = 0;
+            btnHome.Text = "GREENCYCLE";
+            btnHome.TextAlign = ContentAlignment.MiddleRight;
+            btnHome.UseVisualStyleBackColor = false;
             // 
             // UserMain1
             // 
@@ -320,15 +289,11 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             panelMenu.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)UserProfile).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private Panel panelMenu;
-        private Panel panel1;
         private Button btnDashboard;
         private Button btnRecycle;
         private Button btnWallet;
@@ -336,12 +301,10 @@
         private Button btnTransaction;
         private Button btnOut;
         private Button btnSettings;
-        private PictureBox UserProfile;
-        private Label label1;
         private Button btnMin;
         private Button btnMax;
         private Button btnExit;
-        private Panel panel2;
         private Panel paneldisplayDB;
+        private Button btnHome;
     }
 }

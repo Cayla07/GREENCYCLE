@@ -25,8 +25,8 @@ namespace GREENCYCLE
             InitializeComponent();
             HighlightButton(btnDashboard);
 
-            recycleForm = new Recycle(this);
-            LoadFormIntoPanel(recycleForm);
+            userDBForm = new UserDB(this);
+            LoadFormIntoPanel(userDBForm);
         }
 
         public void LoadFormIntoPanel(Form childForm)

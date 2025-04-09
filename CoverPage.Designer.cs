@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoverPage));
             label1 = new Label();
             btnExit = new Button();
-            linkLabel1 = new LinkLabel();
             button1 = new Button();
             btnMin = new Button();
             btnStart = new Button();
@@ -42,11 +41,11 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = Color.PaleGreen;
-            label1.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Cooper Black", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkGreen;
-            label1.Location = new Point(416, 172);
+            label1.Location = new Point(346, 189);
             label1.Name = "label1";
-            label1.Size = new Size(490, 85);
+            label1.Size = new Size(625, 91);
             label1.TabIndex = 1;
             label1.Text = "GREENCYCLE";
             // 
@@ -64,19 +63,6 @@
             btnExit.TabIndex = 2;
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.ActiveLinkColor = Color.FromArgb(192, 255, 192);
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            linkLabel1.LinkColor = Color.DarkGreen;
-            linkLabel1.Location = new Point(32, 33);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(96, 27);
-            linkLabel1.TabIndex = 5;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "ABOUT";
             // 
             // button1
             // 
@@ -115,11 +101,11 @@
             btnStart.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnStart.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnStart.FlatStyle = FlatStyle.Flat;
-            btnStart.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnStart.ForeColor = Color.DarkGreen;
             btnStart.Image = (Image)resources.GetObject("btnStart.Image");
             btnStart.ImageAlign = ContentAlignment.TopCenter;
-            btnStart.Location = new Point(416, 283);
+            btnStart.Location = new Point(406, 283);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(490, 398);
             btnStart.TabIndex = 9;
@@ -138,7 +124,6 @@
             Controls.Add(btnStart);
             Controls.Add(btnMin);
             Controls.Add(button1);
-            Controls.Add(linkLabel1);
             Controls.Add(btnExit);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -152,7 +137,6 @@
         #endregion
         private Label label1;
         private Button btnExit;
-        private LinkLabel linkLabel1;
         private Button button1;
         private Button btnMin;
         private Button btnStart;
