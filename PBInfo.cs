@@ -19,7 +19,7 @@ namespace GREENCYCLE
 
         private void PBInfo_Load(object sender, EventArgs e)
         {
-
+            btnBack.Click += new EventHandler(btnBack_Click);
         }
 
         private void tbxWeight_TextChanged(object sender, EventArgs e)
@@ -30,6 +30,11 @@ namespace GREENCYCLE
         private void btnProceed_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

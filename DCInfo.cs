@@ -16,5 +16,15 @@ namespace GREENCYCLE
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void DCInfo_Load(object sender, EventArgs e)
+        {
+            btnBack.Click += new EventHandler(btnBack_Click);
+        }
     }
 }

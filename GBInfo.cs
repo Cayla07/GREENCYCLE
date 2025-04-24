@@ -17,9 +17,20 @@ namespace GREENCYCLE
             InitializeComponent();
         }
 
+        private void GBInfo_Load(object sender, EventArgs e)
+        {
+            btnBack.Click += new EventHandler(btnBack_Click);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void tbxWeight_TextChanged(object sender, EventArgs e)
         {
 
         }
+
     }
 }
