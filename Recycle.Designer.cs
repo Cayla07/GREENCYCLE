@@ -35,6 +35,8 @@
             btnCartons = new Button();
             btnPapers = new Button();
             btnLids = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnPlastics
@@ -43,9 +45,9 @@
             btnPlastics.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPlastics.ForeColor = Color.DarkSlateGray;
             btnPlastics.Image = (Image)resources.GetObject("btnPlastics.Image");
-            btnPlastics.Location = new Point(58, 46);
+            btnPlastics.Location = new Point(3, 3);
             btnPlastics.Name = "btnPlastics";
-            btnPlastics.Size = new Size(313, 275);
+            btnPlastics.Size = new Size(370, 332);
             btnPlastics.TabIndex = 0;
             btnPlastics.Text = "Plastic Bottles";
             btnPlastics.TextAlign = ContentAlignment.BottomCenter;
@@ -57,9 +59,9 @@
             btnGlass.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGlass.ForeColor = Color.DarkSlateGray;
             btnGlass.Image = (Image)resources.GetObject("btnGlass.Image");
-            btnGlass.Location = new Point(407, 46);
+            btnGlass.Location = new Point(379, 3);
             btnGlass.Name = "btnGlass";
-            btnGlass.Size = new Size(313, 275);
+            btnGlass.Size = new Size(370, 332);
             btnGlass.TabIndex = 1;
             btnGlass.Text = "Glass Bottles";
             btnGlass.TextAlign = ContentAlignment.BottomCenter;
@@ -71,9 +73,9 @@
             btnCans.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCans.ForeColor = Color.DarkSlateGray;
             btnCans.Image = (Image)resources.GetObject("btnCans.Image");
-            btnCans.Location = new Point(766, 46);
+            btnCans.Location = new Point(755, 3);
             btnCans.Name = "btnCans";
-            btnCans.Size = new Size(313, 275);
+            btnCans.Size = new Size(370, 332);
             btnCans.TabIndex = 2;
             btnCans.Text = "Drink Cans";
             btnCans.TextAlign = ContentAlignment.BottomCenter;
@@ -85,9 +87,9 @@
             btnCartons.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCartons.ForeColor = Color.DarkSlateGray;
             btnCartons.Image = (Image)resources.GetObject("btnCartons.Image");
-            btnCartons.Location = new Point(58, 375);
+            btnCartons.Location = new Point(3, 341);
             btnCartons.Name = "btnCartons";
-            btnCartons.Size = new Size(313, 275);
+            btnCartons.Size = new Size(370, 332);
             btnCartons.TabIndex = 3;
             btnCartons.Text = "Drink Cartons";
             btnCartons.TextAlign = ContentAlignment.BottomCenter;
@@ -99,9 +101,9 @@
             btnPapers.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPapers.ForeColor = Color.DarkSlateGray;
             btnPapers.Image = (Image)resources.GetObject("btnPapers.Image");
-            btnPapers.Location = new Point(407, 375);
+            btnPapers.Location = new Point(379, 341);
             btnPapers.Name = "btnPapers";
-            btnPapers.Size = new Size(313, 275);
+            btnPapers.Size = new Size(370, 332);
             btnPapers.TabIndex = 4;
             btnPapers.Text = "Recycled Papers";
             btnPapers.TextAlign = ContentAlignment.BottomCenter;
@@ -113,13 +115,33 @@
             btnLids.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLids.ForeColor = Color.DarkSlateGray;
             btnLids.Image = (Image)resources.GetObject("btnLids.Image");
-            btnLids.Location = new Point(766, 375);
+            btnLids.Location = new Point(755, 341);
             btnLids.Name = "btnLids";
-            btnLids.Size = new Size(313, 275);
+            btnLids.Size = new Size(370, 332);
             btnLids.TabIndex = 5;
             btnLids.Text = "Bottle Lids";
             btnLids.TextAlign = ContentAlignment.BottomCenter;
             btnLids.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.Controls.Add(btnLids, 2, 1);
+            tableLayoutPanel1.Controls.Add(btnPlastics, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnPapers, 1, 1);
+            tableLayoutPanel1.Controls.Add(btnGlass, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnCartons, 0, 1);
+            tableLayoutPanel1.Controls.Add(btnCans, 2, 0);
+            tableLayoutPanel1.Location = new Point(12, 12);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1129, 676);
+            tableLayoutPanel1.TabIndex = 6;
             // 
             // Recycle
             // 
@@ -127,16 +149,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 700);
-            Controls.Add(btnLids);
-            Controls.Add(btnPapers);
-            Controls.Add(btnCartons);
-            Controls.Add(btnCans);
-            Controls.Add(btnGlass);
-            Controls.Add(btnPlastics);
+            Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Recycle";
+            RightToLeftLayout = true;
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -148,5 +167,6 @@
         private Button btnCartons;
         private Button btnPapers;
         private Button btnLids;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

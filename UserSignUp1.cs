@@ -154,13 +154,13 @@ namespace GREENCYCLE
         private void SaveUserInfo()
         {
             string fullName = tbxFullName.Text;
-            string ageText = tbxAge.Text;
+            string age = tbxAge.Text;
             string phone = tbxPhoneNum.Text;
             string province = cbxProvince.Text;
             string municipality = cbxMunicipality.Text;
             string barangay = cbxBarangay.Text;
 
-            if (!int.TryParse(ageText, out int age))
+            if (!int.TryParse(age, out int Age))
             {
                 MessageBox.Show("Please enter a valid age.");
                 return;

@@ -1,3 +1,5 @@
+using System;
+
 namespace GREENCYCLE
 {
     public partial class CoverPage : Form
@@ -40,8 +42,8 @@ namespace GREENCYCLE
         private void btnStart_Click_1(object sender, EventArgs e)
         {
             AppSettings.LastWindowState = this.WindowState;
-            UserTypePage UserTypePage = new UserTypePage();
-            UserTypePage.Show();
+            UserTypePage userTypePage = new UserTypePage();
+            userTypePage.Show();
             this.Hide();
         }
 
@@ -70,9 +72,8 @@ namespace GREENCYCLE
             this.WindowState = FormWindowState.Minimized;
         }
     }
-
+}
     public static class AppSettings
     {
         public static FormWindowState LastWindowState = FormWindowState.Normal;
     }
-}

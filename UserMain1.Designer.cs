@@ -38,10 +38,10 @@
             btnTransaction = new Button();
             btnRecycle = new Button();
             btnDashboard = new Button();
-            btnMin = new Button();
-            btnMax = new Button();
-            btnExit = new Button();
             paneldisplayDB = new Panel();
+            btnMax = new Button();
+            btnMin = new Button();
+            btnExit = new Button();
             panelMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -219,20 +219,14 @@
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // btnMin
+            // paneldisplayDB
             // 
-            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMin.BackColor = Color.PaleGreen;
-            btnMin.BackgroundImageLayout = ImageLayout.Center;
-            btnMin.FlatAppearance.BorderSize = 0;
-            btnMin.FlatStyle = FlatStyle.Flat;
-            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1334, 7);
-            btnMin.Name = "btnMin";
-            btnMin.Size = new Size(38, 34);
-            btnMin.TabIndex = 25;
-            btnMin.UseVisualStyleBackColor = false;
-            btnMin.Click += btnMin_Click_1;
+            paneldisplayDB.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            paneldisplayDB.BackColor = Color.PaleGreen;
+            paneldisplayDB.Location = new Point(299, 56);
+            paneldisplayDB.Name = "paneldisplayDB";
+            paneldisplayDB.Size = new Size(1153, 709);
+            paneldisplayDB.TabIndex = 26;
             // 
             // btnMax
             // 
@@ -249,6 +243,21 @@
             btnMax.UseVisualStyleBackColor = false;
             btnMax.Click += btnMax_Click_1;
             // 
+            // btnMin
+            // 
+            btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMin.BackColor = Color.PaleGreen;
+            btnMin.BackgroundImageLayout = ImageLayout.Center;
+            btnMin.FlatAppearance.BorderSize = 0;
+            btnMin.FlatStyle = FlatStyle.Flat;
+            btnMin.Image = (Image)resources.GetObject("btnMin.Image");
+            btnMin.Location = new Point(1334, 7);
+            btnMin.Name = "btnMin";
+            btnMin.Size = new Size(38, 34);
+            btnMin.TabIndex = 25;
+            btnMin.UseVisualStyleBackColor = false;
+            btnMin.Click += btnMin_Click_1;
+            // 
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -263,14 +272,6 @@
             btnExit.TabIndex = 23;
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click_1;
-            // 
-            // paneldisplayDB
-            // 
-            paneldisplayDB.BackColor = Color.PaleGreen;
-            paneldisplayDB.Location = new Point(299, 65);
-            paneldisplayDB.Name = "paneldisplayDB";
-            paneldisplayDB.Size = new Size(1153, 700);
-            paneldisplayDB.TabIndex = 26;
             // 
             // UserMain1
             // 
@@ -301,10 +302,10 @@
         private Button btnTransaction;
         private Button btnOut;
         private Button btnSettings;
-        private Button btnMin;
-        private Button btnMax;
-        private Button btnExit;
         private Panel paneldisplayDB;
         private Button btnHome;
+        private Button btnMax;
+        private Button btnMin;
+        private Button btnExit;
     }
 }
