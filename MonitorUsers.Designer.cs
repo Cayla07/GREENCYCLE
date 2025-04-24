@@ -46,6 +46,10 @@
             btnLoadFile = new Button();
             btnConnection = new Button();
             dataGridView1 = new DataGridView();
+            cbxMunicipality = new ComboBox();
+            cbxProvince = new ComboBox();
+            label8 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +77,7 @@
             // 
             // tbxUserID
             // 
-            tbxUserID.Location = new Point(103, 158);
+            tbxUserID.Location = new Point(103, 141);
             tbxUserID.Name = "tbxUserID";
             tbxUserID.Size = new Size(102, 27);
             tbxUserID.TabIndex = 68;
@@ -83,7 +87,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Cooper Black", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(51, 64);
+            label10.Location = new Point(52, 64);
             label10.Name = "label10";
             label10.Size = new Size(264, 32);
             label10.TabIndex = 67;
@@ -91,7 +95,7 @@
             // 
             // tbxPhoneNum
             // 
-            tbxPhoneNum.Location = new Point(170, 409);
+            tbxPhoneNum.Location = new Point(170, 366);
             tbxPhoneNum.Name = "tbxPhoneNum";
             tbxPhoneNum.Size = new Size(207, 27);
             tbxPhoneNum.TabIndex = 66;
@@ -101,7 +105,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(12, 409);
+            label6.Location = new Point(12, 366);
             label6.Name = "label6";
             label6.Size = new Size(152, 21);
             label6.TabIndex = 65;
@@ -109,7 +113,7 @@
             // 
             // tbxAge
             // 
-            tbxAge.Location = new Point(68, 375);
+            tbxAge.Location = new Point(68, 332);
             tbxAge.Name = "tbxAge";
             tbxAge.Size = new Size(86, 27);
             tbxAge.TabIndex = 64;
@@ -119,7 +123,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(12, 377);
+            label5.Location = new Point(12, 334);
             label5.Name = "label5";
             label5.Size = new Size(50, 21);
             label5.TabIndex = 63;
@@ -127,7 +131,7 @@
             // 
             // tbxFullname
             // 
-            tbxFullname.Location = new Point(124, 301);
+            tbxFullname.Location = new Point(124, 271);
             tbxFullname.Name = "tbxFullname";
             tbxFullname.Size = new Size(253, 27);
             tbxFullname.TabIndex = 62;
@@ -137,7 +141,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(12, 303);
+            label4.Location = new Point(12, 273);
             label4.Name = "label4";
             label4.Size = new Size(102, 21);
             label4.TabIndex = 61;
@@ -145,7 +149,7 @@
             // 
             // tbxPassword
             // 
-            tbxPassword.Location = new Point(124, 264);
+            tbxPassword.Location = new Point(124, 234);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.Size = new Size(253, 27);
             tbxPassword.TabIndex = 60;
@@ -155,7 +159,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(12, 266);
+            label3.Location = new Point(12, 236);
             label3.Name = "label3";
             label3.Size = new Size(106, 21);
             label3.TabIndex = 59;
@@ -163,7 +167,7 @@
             // 
             // tbxEmail
             // 
-            tbxEmail.Location = new Point(85, 231);
+            tbxEmail.Location = new Point(85, 201);
             tbxEmail.Name = "tbxEmail";
             tbxEmail.Size = new Size(292, 27);
             tbxEmail.TabIndex = 58;
@@ -173,7 +177,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(12, 231);
+            label2.Location = new Point(12, 201);
             label2.Name = "label2";
             label2.Size = new Size(67, 21);
             label2.TabIndex = 57;
@@ -184,7 +188,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 160);
+            label1.Location = new Point(12, 143);
             label1.Name = "label1";
             label1.Size = new Size(85, 21);
             label1.TabIndex = 56;
@@ -222,12 +226,54 @@
             dataGridView1.Size = new Size(758, 609);
             dataGridView1.TabIndex = 53;
             // 
+            // cbxMunicipality
+            // 
+            cbxMunicipality.FormattingEnabled = true;
+            cbxMunicipality.Location = new Point(148, 462);
+            cbxMunicipality.Name = "cbxMunicipality";
+            cbxMunicipality.Size = new Size(229, 28);
+            cbxMunicipality.TabIndex = 74;
+            // 
+            // cbxProvince
+            // 
+            cbxProvince.FormattingEnabled = true;
+            cbxProvince.Location = new Point(114, 428);
+            cbxProvince.Name = "cbxProvince";
+            cbxProvince.Size = new Size(263, 28);
+            cbxProvince.TabIndex = 73;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(12, 464);
+            label8.Name = "label8";
+            label8.Size = new Size(130, 21);
+            label8.TabIndex = 72;
+            label8.Text = "Municipality:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(12, 430);
+            label7.Name = "label7";
+            label7.Size = new Size(96, 21);
+            label7.TabIndex = 71;
+            label7.Text = "Province:";
+            // 
             // MonitorUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 703);
+            Controls.Add(cbxMunicipality);
+            Controls.Add(cbxProvince);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(cbxPurok);
             Controls.Add(cbxBarangay);
             Controls.Add(tbxUserID);
@@ -276,5 +322,9 @@
         private Button btnLoadFile;
         private Button btnConnection;
         private DataGridView dataGridView1;
+        private ComboBox cbxMunicipality;
+        private ComboBox cbxProvince;
+        private Label label8;
+        private Label label7;
     }
 }
