@@ -28,93 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            btnConnection = new Button();
-            btnLoadFile = new Button();
+            cbxPurok = new ComboBox();
+            cbxBarangay = new ComboBox();
+            tbxUserID = new TextBox();
+            label10 = new Label();
+            tbxPhoneNum = new TextBox();
+            label6 = new Label();
+            tbxAge = new TextBox();
+            label5 = new Label();
+            tbxFullname = new TextBox();
+            label4 = new Label();
+            tbxPassword = new TextBox();
+            label3 = new Label();
+            tbxEmail = new TextBox();
+            label2 = new Label();
             label1 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
+            btnLoadFile = new Button();
+            btnConnection = new Button();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // cbxPurok
             // 
-            dataGridView1.BackgroundColor = Color.LemonChiffon;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 87);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1129, 511);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            cbxPurok.BackColor = Color.LemonChiffon;
+            cbxPurok.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxPurok.FormattingEnabled = true;
+            cbxPurok.Location = new Point(564, 29);
+            cbxPurok.Name = "cbxPurok";
+            cbxPurok.Size = new Size(175, 29);
+            cbxPurok.TabIndex = 70;
+            cbxPurok.Text = "    Purok/Sitio";
             // 
-            // btnConnection
+            // cbxBarangay
             // 
-            btnConnection.BackColor = Color.Salmon;
-            btnConnection.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnConnection.Location = new Point(12, 637);
-            btnConnection.Name = "btnConnection";
-            btnConnection.Size = new Size(173, 54);
-            btnConnection.TabIndex = 1;
-            btnConnection.Text = "Connection Test";
-            btnConnection.UseVisualStyleBackColor = false;
-            btnConnection.Click += btnConnection_Click;
+            cbxBarangay.BackColor = Color.LemonChiffon;
+            cbxBarangay.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxBarangay.FormattingEnabled = true;
+            cbxBarangay.Location = new Point(383, 30);
+            cbxBarangay.Name = "cbxBarangay";
+            cbxBarangay.Size = new Size(175, 29);
+            cbxBarangay.TabIndex = 69;
+            cbxBarangay.Text = "     Barangay";
+            // 
+            // tbxUserID
+            // 
+            tbxUserID.Location = new Point(103, 158);
+            tbxUserID.Name = "tbxUserID";
+            tbxUserID.Size = new Size(102, 27);
+            tbxUserID.TabIndex = 68;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Cooper Black", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(51, 64);
+            label10.Name = "label10";
+            label10.Size = new Size(264, 32);
+            label10.TabIndex = 67;
+            label10.Text = "User Information";
+            // 
+            // tbxPhoneNum
+            // 
+            tbxPhoneNum.Location = new Point(170, 409);
+            tbxPhoneNum.Name = "tbxPhoneNum";
+            tbxPhoneNum.Size = new Size(207, 27);
+            tbxPhoneNum.TabIndex = 66;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(12, 409);
+            label6.Name = "label6";
+            label6.Size = new Size(152, 21);
+            label6.TabIndex = 65;
+            label6.Text = "Phone Number:";
+            // 
+            // tbxAge
+            // 
+            tbxAge.Location = new Point(68, 375);
+            tbxAge.Name = "tbxAge";
+            tbxAge.Size = new Size(86, 27);
+            tbxAge.TabIndex = 64;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(12, 377);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 21);
+            label5.TabIndex = 63;
+            label5.Text = "Age:";
+            // 
+            // tbxFullname
+            // 
+            tbxFullname.Location = new Point(124, 301);
+            tbxFullname.Name = "tbxFullname";
+            tbxFullname.Size = new Size(253, 27);
+            tbxFullname.TabIndex = 62;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(12, 303);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 21);
+            label4.TabIndex = 61;
+            label4.Text = "Fullname:";
+            // 
+            // tbxPassword
+            // 
+            tbxPassword.Location = new Point(124, 264);
+            tbxPassword.Name = "tbxPassword";
+            tbxPassword.Size = new Size(253, 27);
+            tbxPassword.TabIndex = 60;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(12, 266);
+            label3.Name = "label3";
+            label3.Size = new Size(106, 21);
+            label3.TabIndex = 59;
+            label3.Text = "Password:";
+            // 
+            // tbxEmail
+            // 
+            tbxEmail.Location = new Point(85, 231);
+            tbxEmail.Name = "tbxEmail";
+            tbxEmail.Size = new Size(292, 27);
+            tbxEmail.TabIndex = 58;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(12, 231);
+            label2.Name = "label2";
+            label2.Size = new Size(67, 21);
+            label2.TabIndex = 57;
+            label2.Text = "Email:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(12, 160);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 21);
+            label1.TabIndex = 56;
+            label1.Text = "User ID:";
             // 
             // btnLoadFile
             // 
             btnLoadFile.BackColor = Color.Salmon;
             btnLoadFile.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLoadFile.Location = new Point(191, 637);
+            btnLoadFile.Location = new Point(191, 619);
             btnLoadFile.Name = "btnLoadFile";
             btnLoadFile.Size = new Size(173, 54);
-            btnLoadFile.TabIndex = 2;
+            btnLoadFile.TabIndex = 55;
             btnLoadFile.Text = "Load File";
             btnLoadFile.UseVisualStyleBackColor = false;
-            btnLoadFile.Click += btnLoadFile_Click;
             // 
-            // label1
+            // btnConnection
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Cooper Black", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(174, 35);
-            label1.TabIndex = 3;
-            label1.Text = "USERLIST";
+            btnConnection.BackColor = Color.Salmon;
+            btnConnection.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConnection.Location = new Point(12, 619);
+            btnConnection.Name = "btnConnection";
+            btnConnection.Size = new Size(173, 54);
+            btnConnection.TabIndex = 54;
+            btnConnection.Text = "Connection Test";
+            btnConnection.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // dataGridView1
             // 
-            comboBox1.BackColor = Color.LemonChiffon;
-            comboBox1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 50);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(174, 31);
-            comboBox1.TabIndex = 5;
-            comboBox1.Text = "       Province";
-            // 
-            // comboBox2
-            // 
-            comboBox2.BackColor = Color.LemonChiffon;
-            comboBox2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(190, 50);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(174, 31);
-            comboBox2.TabIndex = 6;
-            comboBox2.Text = "       Province";
-            // 
-            // comboBox3
-            // 
-            comboBox3.BackColor = Color.LemonChiffon;
-            comboBox3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(370, 50);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(174, 31);
-            comboBox3.TabIndex = 7;
-            comboBox3.Text = "       Province";
+            dataGridView1.BackgroundColor = Color.LemonChiffon;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(383, 64);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(758, 609);
+            dataGridView1.TabIndex = 53;
             // 
             // MonitorUsers
             // 
@@ -122,9 +228,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 703);
-            Controls.Add(comboBox3);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(cbxPurok);
+            Controls.Add(cbxBarangay);
+            Controls.Add(tbxUserID);
+            Controls.Add(label10);
+            Controls.Add(tbxPhoneNum);
+            Controls.Add(label6);
+            Controls.Add(tbxAge);
+            Controls.Add(label5);
+            Controls.Add(tbxFullname);
+            Controls.Add(label4);
+            Controls.Add(tbxPassword);
+            Controls.Add(label3);
+            Controls.Add(tbxEmail);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnLoadFile);
             Controls.Add(btnConnection);
@@ -141,12 +258,23 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Button btnConnection;
-        private Button btnLoadFile;
+        private ComboBox cbxPurok;
+        private ComboBox cbxBarangay;
+        private TextBox tbxUserID;
+        private Label label10;
+        private TextBox tbxPhoneNum;
+        private Label label6;
+        private TextBox tbxAge;
+        private Label label5;
+        private TextBox tbxFullname;
+        private Label label4;
+        private TextBox tbxPassword;
+        private Label label3;
+        private TextBox tbxEmail;
+        private Label label2;
         private Label label1;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
+        private Button btnLoadFile;
+        private Button btnConnection;
+        private DataGridView dataGridView1;
     }
 }
