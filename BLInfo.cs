@@ -19,7 +19,7 @@ namespace GREENCYCLE
 
         private void BLInfo_Load(object sender, EventArgs e)
         {
-
+            btnBack.Click += new EventHandler(btnBack_Click);
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GREENCYCLE
 {
-    public partial class RPInfo : Form
+    public partial class CartonInfo : Form
     {
-        public RPInfo()
+        public CartonInfo()
         {
             InitializeComponent();
+        }
+
+        private void CartonInfo_Load(object sender, EventArgs e)
+        {
+            btnBack.Click += new EventHandler(btnBack_Click);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -22,9 +27,9 @@ namespace GREENCYCLE
             this.Close();
         }
 
-        private void RPInfo_Load(object sender, EventArgs e)
+        private void tbxWeight_TextChanged(object sender, EventArgs e)
         {
-            btnBack.Click += new EventHandler(btnBack_Click);
+
         }
     }
 }

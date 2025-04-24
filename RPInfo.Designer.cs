@@ -160,6 +160,7 @@
             Name = "RPInfo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RPInfo";
+            Load += RPInfo_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

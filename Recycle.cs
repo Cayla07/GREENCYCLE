@@ -69,8 +69,8 @@ namespace GREENCYCLE
 
         private void btnCartons_Click(object sender, EventArgs e)
         {
-            CartonsInfo cartonsInfoForm = new CartonsInfo();
-            Overlay.ShowOverlay(this, cartonsInfoForm, null);
+            CartonInfo cartonInfoForm = new CartonInfo();
+            Overlay.ShowOverlay(this, cartonInfoForm, null);
         }
 
         private void btnPapers_Click(object sender, EventArgs e)

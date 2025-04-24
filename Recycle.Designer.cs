@@ -80,7 +80,7 @@
             btnCans.Name = "btnCans";
             btnCans.Size = new Size(370, 302);
             btnCans.TabIndex = 2;
-            btnCans.Text = "Drink Cans";
+            btnCans.Text = " Drink Cans";
             btnCans.TextAlign = ContentAlignment.BottomCenter;
             btnCans.UseVisualStyleBackColor = false;
             btnCans.Click += btnCans_Click;
