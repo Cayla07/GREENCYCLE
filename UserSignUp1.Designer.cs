@@ -34,10 +34,6 @@
             label10 = new Label();
             cbxProvince = new ComboBox();
             label9 = new Label();
-            cbxPayMeth = new ComboBox();
-            label8 = new Label();
-            tbxAge = new TextBox();
-            label7 = new Label();
             linkUserLog = new LinkLabel();
             label5 = new Label();
             btnNext = new Button();
@@ -47,13 +43,15 @@
             label2 = new Label();
             tbxFullName = new TextBox();
             label6 = new Label();
+            label3 = new Label();
+            cbxPurok = new ComboBox();
             SuspendLayout();
             // 
             // cbxBarangay
             // 
             cbxBarangay.Anchor = AnchorStyles.None;
             cbxBarangay.FormattingEnabled = true;
-            cbxBarangay.Location = new Point(35, 412);
+            cbxBarangay.Location = new Point(23, 353);
             cbxBarangay.Name = "cbxBarangay";
             cbxBarangay.Size = new Size(213, 28);
             cbxBarangay.TabIndex = 57;
@@ -63,7 +61,7 @@
             label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
             label11.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(35, 385);
+            label11.Location = new Point(23, 326);
             label11.Name = "label11";
             label11.Size = new Size(107, 24);
             label11.TabIndex = 56;
@@ -73,7 +71,7 @@
             // 
             cbxMunicipality.Anchor = AnchorStyles.None;
             cbxMunicipality.FormattingEnabled = true;
-            cbxMunicipality.Location = new Point(312, 332);
+            cbxMunicipality.Location = new Point(300, 273);
             cbxMunicipality.Name = "cbxMunicipality";
             cbxMunicipality.Size = new Size(213, 28);
             cbxMunicipality.TabIndex = 55;
@@ -84,7 +82,7 @@
             label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
             label10.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(312, 305);
+            label10.Location = new Point(300, 246);
             label10.Name = "label10";
             label10.Size = new Size(130, 24);
             label10.TabIndex = 54;
@@ -94,7 +92,7 @@
             // 
             cbxProvince.Anchor = AnchorStyles.None;
             cbxProvince.FormattingEnabled = true;
-            cbxProvince.Location = new Point(35, 332);
+            cbxProvince.Location = new Point(23, 273);
             cbxProvince.Name = "cbxProvince";
             cbxProvince.Size = new Size(213, 28);
             cbxProvince.TabIndex = 53;
@@ -105,51 +103,11 @@
             label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
             label9.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(35, 305);
+            label9.Location = new Point(23, 246);
             label9.Name = "label9";
             label9.Size = new Size(100, 24);
             label9.TabIndex = 52;
             label9.Text = "Province:";
-            // 
-            // cbxPayMeth
-            // 
-            cbxPayMeth.Anchor = AnchorStyles.None;
-            cbxPayMeth.FormattingEnabled = true;
-            cbxPayMeth.Location = new Point(349, 250);
-            cbxPayMeth.Name = "cbxPayMeth";
-            cbxPayMeth.Size = new Size(176, 28);
-            cbxPayMeth.TabIndex = 51;
-            // 
-            // label8
-            // 
-            label8.Anchor = AnchorStyles.None;
-            label8.AutoSize = true;
-            label8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(349, 223);
-            label8.Name = "label8";
-            label8.Size = new Size(176, 24);
-            label8.TabIndex = 50;
-            label8.Text = "Payment Method:";
-            // 
-            // tbxAge
-            // 
-            tbxAge.Anchor = AnchorStyles.None;
-            tbxAge.Location = new Point(415, 158);
-            tbxAge.Multiline = true;
-            tbxAge.Name = "tbxAge";
-            tbxAge.Size = new Size(110, 34);
-            tbxAge.TabIndex = 49;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.None;
-            label7.AutoSize = true;
-            label7.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(415, 131);
-            label7.Name = "label7";
-            label7.Size = new Size(53, 24);
-            label7.TabIndex = 48;
-            label7.Text = "Age:";
             // 
             // linkUserLog
             // 
@@ -217,7 +175,7 @@
             // tbxPhoneNum
             // 
             tbxPhoneNum.Anchor = AnchorStyles.None;
-            tbxPhoneNum.Location = new Point(35, 250);
+            tbxPhoneNum.Location = new Point(300, 159);
             tbxPhoneNum.Multiline = true;
             tbxPhoneNum.Name = "tbxPhoneNum";
             tbxPhoneNum.Size = new Size(267, 34);
@@ -228,7 +186,7 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(35, 223);
+            label2.Location = new Point(300, 132);
             label2.Name = "label2";
             label2.Size = new Size(157, 24);
             label2.TabIndex = 41;
@@ -237,11 +195,11 @@
             // tbxFullName
             // 
             tbxFullName.Anchor = AnchorStyles.None;
-            tbxFullName.Location = new Point(35, 158);
+            tbxFullName.Location = new Point(23, 159);
             tbxFullName.Multiline = true;
             tbxFullName.Name = "tbxFullName";
             tbxFullName.PlaceholderText = "ex. Juan Dela Cruz";
-            tbxFullName.Size = new Size(341, 34);
+            tbxFullName.Size = new Size(267, 34);
             tbxFullName.TabIndex = 40;
             tbxFullName.TabStop = false;
             // 
@@ -250,11 +208,31 @@
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(35, 131);
+            label6.Location = new Point(23, 132);
             label6.Name = "label6";
             label6.Size = new Size(110, 24);
             label6.TabIndex = 39;
             label6.Text = "Full Name:";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(300, 326);
+            label3.Name = "label3";
+            label3.Size = new Size(121, 24);
+            label3.TabIndex = 58;
+            label3.Text = "Purok/Sitio:";
+            // 
+            // cbxPurok
+            // 
+            cbxPurok.Anchor = AnchorStyles.None;
+            cbxPurok.FormattingEnabled = true;
+            cbxPurok.Location = new Point(300, 353);
+            cbxPurok.Name = "cbxPurok";
+            cbxPurok.Size = new Size(213, 28);
+            cbxPurok.TabIndex = 59;
             // 
             // UserSignUp1
             // 
@@ -262,16 +240,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(589, 569);
+            Controls.Add(cbxPurok);
+            Controls.Add(label3);
             Controls.Add(cbxBarangay);
             Controls.Add(label11);
             Controls.Add(cbxMunicipality);
             Controls.Add(label10);
             Controls.Add(cbxProvince);
             Controls.Add(label9);
-            Controls.Add(cbxPayMeth);
-            Controls.Add(label8);
-            Controls.Add(tbxAge);
-            Controls.Add(label7);
             Controls.Add(linkUserLog);
             Controls.Add(label5);
             Controls.Add(btnNext);
@@ -298,10 +274,6 @@
         private Label label10;
         private ComboBox cbxProvince;
         private Label label9;
-        private ComboBox cbxPayMeth;
-        private Label label8;
-        private TextBox tbxAge;
-        private Label label7;
         private LinkLabel linkUserLog;
         private Label label5;
         private Button btnNext;
@@ -311,5 +283,7 @@
         private Label label2;
         private TextBox tbxFullName;
         private Label label6;
+        private Label label3;
+        private ComboBox cbxPurok;
     }
 }

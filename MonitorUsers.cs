@@ -53,7 +53,7 @@ namespace GREENCYCLE
         {
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
             da = new OleDbDataAdapter(
-                "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, UserInfo.FullName, UserInfo.Age, UserInfo.PhoneNumber, UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID;",
+                "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, UserInfo.FullName, UserInfo.PhoneNumber, UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID;",
                 myConn);
             ds = new DataSet();
             myConn.Open();
@@ -292,7 +292,7 @@ namespace GREENCYCLE
             {
                 string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
                 string query = "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, " +
-                               "UserInfo.FullName, UserInfo.Age, UserInfo.PhoneNumber, " +
+                               "UserInfo.FullName, UserInfo.PhoneNumber, " +
                                "UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay " +
                                "FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID " +
                                "WHERE UserInfo.Province = ? AND UserInfo.Municipality = ? AND UserInfo.Barangay = ?";
@@ -318,6 +318,46 @@ namespace GREENCYCLE
             catch (Exception ex)
             {
                 MessageBox.Show("Error filtering users: " + ex.Message);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchID = tbxUserID.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(searchID))
+            {
+                return;
+            }
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, " +
+                               "UserInfo.FullName, UserInfo.PhoneNumber, " +
+                               "UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay " +
+                               "FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID " +
+                               "WHERE UserAccount.ID = ?";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", searchID);
+
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds, "UserSearch");
+
+                        dataGridView1.DataSource = ds.Tables["UserSearch"];
+                        dataGridView1.Columns["ID"].Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching user: " + ex.Message);
             }
         }
     }

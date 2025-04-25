@@ -68,7 +68,7 @@
             btnHome.BackColor = Color.Green;
             btnHome.FlatAppearance.BorderSize = 0;
             btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHome.Font = new Font("Cooper Black", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.ForeColor = Color.White;
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
             btnHome.Location = new Point(0, 0);
@@ -76,7 +76,6 @@
             btnHome.Size = new Size(299, 218);
             btnHome.TabIndex = 0;
             btnHome.Text = "GREENCYCLE";
-            btnHome.TextAlign = ContentAlignment.MiddleRight;
             btnHome.UseVisualStyleBackColor = false;
             // 
             // btnOut
@@ -85,7 +84,7 @@
             btnOut.BackColor = Color.Transparent;
             btnOut.BackgroundImageLayout = ImageLayout.None;
             btnOut.FlatStyle = FlatStyle.Flat;
-            btnOut.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOut.Font = new Font("Cooper Black", 12F);
             btnOut.ForeColor = Color.White;
             btnOut.Image = (Image)resources.GetObject("btnOut.Image");
             btnOut.ImageAlign = ContentAlignment.MiddleLeft;
@@ -105,7 +104,7 @@
             btnSettings.BackColor = Color.Transparent;
             btnSettings.BackgroundImageLayout = ImageLayout.None;
             btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSettings.Font = new Font("Cooper Black", 12F);
             btnSettings.ForeColor = Color.White;
             btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
             btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
@@ -125,7 +124,7 @@
             btnWallet.BackColor = Color.Transparent;
             btnWallet.BackgroundImageLayout = ImageLayout.None;
             btnWallet.FlatStyle = FlatStyle.Flat;
-            btnWallet.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnWallet.Font = new Font("Cooper Black", 12F);
             btnWallet.ForeColor = Color.White;
             btnWallet.Image = (Image)resources.GetObject("btnWallet.Image");
             btnWallet.ImageAlign = ContentAlignment.MiddleLeft;
@@ -145,7 +144,7 @@
             btnHistory.BackColor = Color.Transparent;
             btnHistory.BackgroundImageLayout = ImageLayout.None;
             btnHistory.FlatStyle = FlatStyle.Flat;
-            btnHistory.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHistory.Font = new Font("Cooper Black", 12F);
             btnHistory.ForeColor = Color.White;
             btnHistory.Image = (Image)resources.GetObject("btnHistory.Image");
             btnHistory.ImageAlign = ContentAlignment.MiddleLeft;
@@ -165,7 +164,7 @@
             btnTransaction.BackColor = Color.Transparent;
             btnTransaction.BackgroundImageLayout = ImageLayout.None;
             btnTransaction.FlatStyle = FlatStyle.Flat;
-            btnTransaction.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTransaction.Font = new Font("Cooper Black", 12F);
             btnTransaction.ForeColor = Color.White;
             btnTransaction.Image = (Image)resources.GetObject("btnTransaction.Image");
             btnTransaction.ImageAlign = ContentAlignment.MiddleLeft;
@@ -185,7 +184,7 @@
             btnRecycle.BackColor = Color.Transparent;
             btnRecycle.BackgroundImageLayout = ImageLayout.None;
             btnRecycle.FlatStyle = FlatStyle.Flat;
-            btnRecycle.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRecycle.Font = new Font("Cooper Black", 12F);
             btnRecycle.ForeColor = Color.White;
             btnRecycle.Image = (Image)resources.GetObject("btnRecycle.Image");
             btnRecycle.ImageAlign = ContentAlignment.MiddleLeft;
@@ -205,7 +204,7 @@
             btnDashboard.BackColor = Color.Transparent;
             btnDashboard.BackgroundImageLayout = ImageLayout.None;
             btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
@@ -214,7 +213,7 @@
             btnDashboard.Padding = new Padding(10, 0, 0, 0);
             btnDashboard.Size = new Size(307, 65);
             btnDashboard.TabIndex = 22;
-            btnDashboard.Text = "DASHBOARD";
+            btnDashboard.Text = "   DASHBOARD";
             btnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;

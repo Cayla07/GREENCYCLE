@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitorUsers));
             cbxPurok = new ComboBox();
             cbxBarangay = new ComboBox();
             tbxUserID = new TextBox();
@@ -49,6 +50,7 @@
             label8 = new Label();
             label7 = new Label();
             btnClear = new Button();
+            btnSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -261,12 +263,25 @@
             btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
             // 
+            // btnSearch
+            // 
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
+            btnSearch.Location = new Point(201, 141);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(31, 27);
+            btnSearch.TabIndex = 76;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
             // MonitorUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 703);
+            Controls.Add(btnSearch);
             Controls.Add(btnClear);
             Controls.Add(cbxMunicipality);
             Controls.Add(cbxProvince);
@@ -321,5 +336,6 @@
         private Label label8;
         private Label label7;
         private Button btnClear;
+        private Button btnSearch;
     }
 }

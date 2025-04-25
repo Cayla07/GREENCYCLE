@@ -18,7 +18,6 @@ namespace GREENCYCLE
         {
             this.KeyPreview = true;
             tbxFullName.KeyDown += tbxFullName_KeyDown;
-            tbxAge.KeyDown += tbxAge_KeyDown;
 
             cbxProvince.SelectedIndexChanged += cbxProvince_SelectedIndexChanged;
             cbxMunicipality.SelectedIndexChanged += cbxMunicipality_SelectedIndexChanged;
@@ -27,15 +26,6 @@ namespace GREENCYCLE
         }
 
         private void tbxFullName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                tbxAge.Focus();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void tbxAge_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -154,23 +144,16 @@ namespace GREENCYCLE
         private void SaveUserInfo()
         {
             string fullName = tbxFullName.Text;
-            string age = tbxAge.Text;
             string phone = tbxPhoneNum.Text;
             string province = cbxProvince.Text;
             string municipality = cbxMunicipality.Text;
             string barangay = cbxBarangay.Text;
 
-            if (!int.TryParse(age, out int Age))
-            {
-                MessageBox.Show("Please enter a valid age.");
-                return;
-            }
-
             try
             {
                 string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "INSERT INTO UserInfo (Fullname, Age, PhoneNumber, PaymentMethod, Province, Municipality, Barangay) " +
-                               "VALUES ('" + fullName + "', " + age + ", '" + phone + "', 0, '" + province + "', '" + municipality + "', '" + barangay + "')";
+                string query = "INSERT INTO UserInfo (Fullname, PhoneNumber, Province, Municipality, Barangay) " +
+                               "VALUES ('" + fullName + "', '" + phone + "', 0, '" + province + "', '" + municipality + "', '" + barangay + "')";
 
                 using (OleDbConnection conn = new OleDbConnection(connString))
                 {
