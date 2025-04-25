@@ -174,6 +174,7 @@
             RightToLeftLayout = true;
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += Recycle_Load;
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

@@ -34,8 +34,6 @@
             label10 = new Label();
             tbxPhoneNum = new TextBox();
             label6 = new Label();
-            tbxAge = new TextBox();
-            label5 = new Label();
             tbxFullname = new TextBox();
             label4 = new Label();
             tbxPassword = new TextBox();
@@ -50,6 +48,7 @@
             cbxProvince = new ComboBox();
             label8 = new Label();
             label7 = new Label();
+            btnClear = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -74,6 +73,7 @@
             cbxBarangay.Size = new Size(175, 29);
             cbxBarangay.TabIndex = 69;
             cbxBarangay.Text = "     Barangay";
+            cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
             // 
             // tbxUserID
             // 
@@ -95,7 +95,7 @@
             // 
             // tbxPhoneNum
             // 
-            tbxPhoneNum.Location = new Point(170, 366);
+            tbxPhoneNum.Location = new Point(170, 333);
             tbxPhoneNum.Name = "tbxPhoneNum";
             tbxPhoneNum.Size = new Size(207, 27);
             tbxPhoneNum.TabIndex = 66;
@@ -105,29 +105,11 @@
             label6.AutoSize = true;
             label6.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(12, 366);
+            label6.Location = new Point(12, 333);
             label6.Name = "label6";
             label6.Size = new Size(152, 21);
             label6.TabIndex = 65;
             label6.Text = "Phone Number:";
-            // 
-            // tbxAge
-            // 
-            tbxAge.Location = new Point(68, 332);
-            tbxAge.Name = "tbxAge";
-            tbxAge.Size = new Size(86, 27);
-            tbxAge.TabIndex = 64;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(12, 334);
-            label5.Name = "label5";
-            label5.Size = new Size(50, 21);
-            label5.TabIndex = 63;
-            label5.Text = "Age:";
             // 
             // tbxFullname
             // 
@@ -204,6 +186,7 @@
             btnLoadFile.TabIndex = 55;
             btnLoadFile.Text = "Load File";
             btnLoadFile.UseVisualStyleBackColor = false;
+            btnLoadFile.Click += btnLoadFile_Click_1;
             // 
             // btnConnection
             // 
@@ -215,6 +198,7 @@
             btnConnection.TabIndex = 54;
             btnConnection.Text = "Connection Test";
             btnConnection.UseVisualStyleBackColor = false;
+            btnConnection.Click += btnConnection_Click_1;
             // 
             // dataGridView1
             // 
@@ -225,11 +209,12 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(758, 609);
             dataGridView1.TabIndex = 53;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // cbxMunicipality
             // 
             cbxMunicipality.FormattingEnabled = true;
-            cbxMunicipality.Location = new Point(148, 462);
+            cbxMunicipality.Location = new Point(148, 433);
             cbxMunicipality.Name = "cbxMunicipality";
             cbxMunicipality.Size = new Size(229, 28);
             cbxMunicipality.TabIndex = 74;
@@ -237,7 +222,7 @@
             // cbxProvince
             // 
             cbxProvince.FormattingEnabled = true;
-            cbxProvince.Location = new Point(114, 428);
+            cbxProvince.Location = new Point(114, 399);
             cbxProvince.Name = "cbxProvince";
             cbxProvince.Size = new Size(263, 28);
             cbxProvince.TabIndex = 73;
@@ -247,7 +232,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(12, 464);
+            label8.Location = new Point(12, 435);
             label8.Name = "label8";
             label8.Size = new Size(130, 21);
             label8.TabIndex = 72;
@@ -258,11 +243,23 @@
             label7.AutoSize = true;
             label7.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(12, 430);
+            label7.Location = new Point(12, 401);
             label7.Name = "label7";
             label7.Size = new Size(96, 21);
             label7.TabIndex = 71;
             label7.Text = "Province:";
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.Salmon;
+            btnClear.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClear.Location = new Point(114, 495);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(118, 32);
+            btnClear.TabIndex = 75;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // MonitorUsers
             // 
@@ -270,6 +267,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 703);
+            Controls.Add(btnClear);
             Controls.Add(cbxMunicipality);
             Controls.Add(cbxProvince);
             Controls.Add(label8);
@@ -280,8 +278,6 @@
             Controls.Add(label10);
             Controls.Add(tbxPhoneNum);
             Controls.Add(label6);
-            Controls.Add(tbxAge);
-            Controls.Add(label5);
             Controls.Add(tbxFullname);
             Controls.Add(label4);
             Controls.Add(tbxPassword);
@@ -310,8 +306,6 @@
         private Label label10;
         private TextBox tbxPhoneNum;
         private Label label6;
-        private TextBox tbxAge;
-        private Label label5;
         private TextBox tbxFullname;
         private Label label4;
         private TextBox tbxPassword;
@@ -326,5 +320,6 @@
         private ComboBox cbxProvince;
         private Label label8;
         private Label label7;
+        private Button btnClear;
     }
 }

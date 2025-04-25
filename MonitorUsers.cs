@@ -32,7 +32,6 @@ namespace GREENCYCLE
             tbxEmail.KeyDown += tbxEmail_KeyDown;
             tbxPassword.KeyDown += tbxPassword_KeyDown;
             tbxFullname.KeyDown += tbxFullname_KeyDown;
-            tbxAge.KeyDown += tbxAge_KeyDown;
             tbxPhoneNum.KeyDown += tbxPhoneNum_KeyDown;
 
             cbxProvince.SelectedIndexChanged += cbxProvince_SelectedIndexChanged;
@@ -41,7 +40,7 @@ namespace GREENCYCLE
             LoadProvinces();
         }
 
-        private void btnConnection_Click(object sender, EventArgs e)
+        private void btnConnection_Click_1(object sender, EventArgs e)
         {
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
             ds = new DataSet();
@@ -50,7 +49,7 @@ namespace GREENCYCLE
             myConn.Close();
         }
 
-        private void btnLoadFile_Click(object sender, EventArgs e)
+        private void btnLoadFile_Click_1(object sender, EventArgs e)
         {
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
             da = new OleDbDataAdapter(
@@ -84,15 +83,6 @@ namespace GREENCYCLE
         }
 
         private void tbxFullname_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                tbxAge.Focus();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void tbxAge_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -200,130 +190,7 @@ namespace GREENCYCLE
             }
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
-                myConn.Open();
-
-                string queryAccount = "INSERT INTO UserAccount (Email, [Password]) VALUES (?, ?)";
-                cmd = new OleDbCommand(queryAccount, myConn);
-                cmd.Parameters.AddWithValue("?", tbxEmail.Text);
-                cmd.Parameters.AddWithValue("?", tbxPassword.Text);
-                cmd.ExecuteNonQuery();
-
-                string getIdQuery = "SELECT MAX(ID) FROM UserAccount";
-                cmd = new OleDbCommand(getIdQuery, myConn);
-                int userId = Convert.ToInt32(cmd.ExecuteScalar());
-
-                string queryInfo = "INSERT INTO UserInfo (ID, FullName, Age, PhoneNumber, Province, Municipality, Barangay) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                cmd = new OleDbCommand(queryInfo, myConn);
-                cmd.Parameters.AddWithValue("?", userId);
-                cmd.Parameters.AddWithValue("?", tbxFullname.Text);
-                cmd.Parameters.AddWithValue("?", tbxAge.Text);
-                cmd.Parameters.AddWithValue("?", tbxPhoneNum.Text);
-                cmd.Parameters.AddWithValue("?", cbxProvince.Text);
-                cmd.Parameters.AddWithValue("?", cbxMunicipality.Text);
-                cmd.Parameters.AddWithValue("?", cbxBarangay.Text);
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("User inserted successfully!");
-                myConn.Close();
-
-                btnLoadFile.PerformClick();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inserting user: " + ex.Message);
-                if (myConn != null && myConn.State == ConnectionState.Open)
-                    myConn.Close();
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(tbxUserID.Text))
-                    return;
-
-                int userId = int.Parse(tbxUserID.Text);
-                myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
-                myConn.Open();
-
-                // Delete from UserInfo first
-                string deleteUserInfo = "DELETE FROM UserInfo WHERE ID = ?";
-                cmd = new OleDbCommand(deleteUserInfo, myConn);
-                cmd.Parameters.AddWithValue("?", userId);
-                cmd.ExecuteNonQuery();
-
-                // Then delete from UserAccount
-                string deleteUserAccount = "DELETE FROM UserAccount WHERE ID = ?";
-                cmd = new OleDbCommand(deleteUserAccount, myConn);
-                cmd.Parameters.AddWithValue("?", userId);
-                cmd.ExecuteNonQuery();
-
-                myConn.Close();
-                MessageBox.Show("User deleted successfully!");
-                btnLoadFile.PerformClick();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error deleting user: " + ex.Message);
-                if (myConn != null && myConn.State == ConnectionState.Open)
-                    myConn.Close();
-            }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(tbxUserID.Text))
-                    return;
-
-                int userId = int.Parse(tbxUserID.Text);
-                myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
-                myConn.Open();
-
-                // --- First update: UserAccount ---
-                string updateAccount = "UPDATE UserAccount SET Email = ?, [Password] = ? WHERE ID = ?";
-                cmd = new OleDbCommand(updateAccount, myConn);
-                cmd.Parameters.AddWithValue("?", tbxEmail.Text);
-                cmd.Parameters.AddWithValue("?", tbxPassword.Text);
-                cmd.Parameters.AddWithValue("?", userId);
-                cmd.ExecuteNonQuery();
-
-                // --- Second update: UserInfo ---
-                string updateInfo = "UPDATE UserInfo SET FullName = ?, Age = ?, PhoneNumber = ?, " +
-                                    "Province = ?, Municipality = ?, Barangay = ? WHERE ID = ?";
-                cmd = new OleDbCommand(updateInfo, myConn);
-                cmd.Parameters.AddWithValue("?", tbxFullname.Text);
-                cmd.Parameters.AddWithValue("?", tbxAge.Text);
-                cmd.Parameters.AddWithValue("?", tbxPhoneNum.Text);
-                cmd.Parameters.AddWithValue("?", cbxProvince.Text);
-                cmd.Parameters.AddWithValue("?", cbxMunicipality.Text);
-                cmd.Parameters.AddWithValue("?", cbxBarangay.Text);
-                cmd.Parameters.AddWithValue("?", userId);
-                cmd.ExecuteNonQuery();
-
-                myConn.Close();
-                MessageBox.Show("User updated successfully!");
-                btnLoadFile.PerformClick();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating user: " + ex.Message);
-                if (myConn != null && myConn.State == ConnectionState.Open)
-                    myConn.Close();
-            }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -336,7 +203,6 @@ namespace GREENCYCLE
                 tbxEmail.Text = row.Cells["Email"].Value?.ToString();
                 tbxPassword.Text = row.Cells["Password"].Value?.ToString();
                 tbxFullname.Text = row.Cells["FullName"].Value?.ToString();
-                tbxAge.Text = row.Cells["Age"].Value?.ToString();
                 tbxPhoneNum.Text = row.Cells["PhoneNumber"].Value?.ToString();
 
                 string province = row.Cells["Province"].Value?.ToString();
@@ -394,18 +260,65 @@ namespace GREENCYCLE
                 indexRow = e.RowIndex;
             }
         }
-
         private void ClearFields()
         {
             tbxUserID.Clear();
             tbxEmail.Clear();
             tbxPassword.Clear();
             tbxFullname.Clear();
-            tbxAge.Clear();
             tbxPhoneNum.Clear();
             cbxProvince.SelectedIndex = -1;
             cbxMunicipality.Items.Clear();
             cbxBarangay.Items.Clear();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void cbxBarangay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedProvince = cbxProvince.Text;
+            string selectedMunicipality = cbxMunicipality.Text;
+            string selectedBarangay = cbxBarangay.Text;
+
+            if (string.IsNullOrWhiteSpace(selectedProvince) ||
+                string.IsNullOrWhiteSpace(selectedMunicipality) ||
+                string.IsNullOrWhiteSpace(selectedBarangay))
+                return;
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, " +
+                               "UserInfo.FullName, UserInfo.Age, UserInfo.PhoneNumber, " +
+                               "UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay " +
+                               "FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID " +
+                               "WHERE UserInfo.Province = ? AND UserInfo.Municipality = ? AND UserInfo.Barangay = ?";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", selectedProvince);
+                        cmd.Parameters.AddWithValue("?", selectedMunicipality);
+                        cmd.Parameters.AddWithValue("?", selectedBarangay);
+
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                        DataSet filteredData = new DataSet();
+                        adapter.Fill(filteredData, "FilteredUsers");
+
+                        dataGridView1.DataSource = filteredData.Tables["FilteredUsers"];
+                        dataGridView1.Columns["ID"].Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering users: " + ex.Message);
+            }
         }
     }
 }

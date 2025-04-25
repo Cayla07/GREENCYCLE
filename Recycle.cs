@@ -27,7 +27,7 @@ namespace GREENCYCLE
                 overlayForm.FormBorderStyle = FormBorderStyle.None;
                 overlayForm.Opacity = 0.5d;
                 overlayForm.BackColor = Color.Black;
-                overlayForm.Size = new Size(1153, 709);
+                overlayForm.Size = new Size(1452, 7659);
                 overlayForm.Location = owner.Location;
                 overlayForm.ShowInTaskbar = false;
 
@@ -83,6 +83,11 @@ namespace GREENCYCLE
         {
             BLInfo blInfoForm = new BLInfo();
             Overlay.ShowOverlay(this, blInfoForm, null);
+        }
+
+        private void Recycle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
