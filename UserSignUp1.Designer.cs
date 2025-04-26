@@ -55,6 +55,7 @@
             cbxBarangay.Name = "cbxBarangay";
             cbxBarangay.Size = new Size(213, 28);
             cbxBarangay.TabIndex = 57;
+            cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
             // 
             // label11
             // 
@@ -221,9 +222,9 @@
             label3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(300, 326);
             label3.Name = "label3";
-            label3.Size = new Size(121, 24);
+            label3.Size = new Size(73, 24);
             label3.TabIndex = 58;
-            label3.Text = "Purok/Sitio:";
+            label3.Text = "Purok:";
             // 
             // cbxPurok
             // 

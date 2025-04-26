@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DCInfo));
             panel1 = new Panel();
             label4 = new Label();
-            tbxWeight = new TextBox();
+            tbxDCWeight = new TextBox();
             btnProceed = new Button();
             label3 = new Label();
             label2 = new Label();
@@ -47,7 +47,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.DarkSalmon;
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(tbxWeight);
+            panel1.Controls.Add(tbxDCWeight);
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(label3);
             panel1.Location = new Point(124, 417);
@@ -66,14 +66,15 @@
             label4.TabIndex = 4;
             label4.Text = "kilogram/s";
             // 
-            // tbxWeight
+            // tbxDCWeight
             // 
-            tbxWeight.Font = new Font("Arial", 12F, FontStyle.Bold);
-            tbxWeight.Location = new Point(120, 73);
-            tbxWeight.Multiline = true;
-            tbxWeight.Name = "tbxWeight";
-            tbxWeight.Size = new Size(105, 32);
-            tbxWeight.TabIndex = 3;
+            tbxDCWeight.Font = new Font("Arial Rounded MT Bold", 12F);
+            tbxDCWeight.Location = new Point(120, 73);
+            tbxDCWeight.Multiline = true;
+            tbxDCWeight.Name = "tbxDCWeight";
+            tbxDCWeight.Size = new Size(105, 32);
+            tbxDCWeight.TabIndex = 3;
+            tbxDCWeight.TextAlign = HorizontalAlignment.Center;
             // 
             // btnProceed
             // 
@@ -143,7 +144,6 @@
             btnBack.Size = new Size(44, 41);
             btnBack.TabIndex = 23;
             btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
             // 
             // DCInfo
             // 
@@ -160,7 +160,7 @@
             Name = "DCInfo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DCInfo";
-            Load += DCInfo_Load;
+            Load += DCInfo_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -172,7 +172,7 @@
 
         private Panel panel1;
         private Label label4;
-        private TextBox tbxWeight;
+        private TextBox tbxDCWeight;
         private Button btnProceed;
         private Label label3;
         private Label label2;

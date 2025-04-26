@@ -21,6 +21,7 @@ namespace GREENCYCLE
 
             cbxProvince.SelectedIndexChanged += cbxProvince_SelectedIndexChanged;
             cbxMunicipality.SelectedIndexChanged += cbxMunicipality_SelectedIndexChanged;
+            cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
 
             LoadProvinces();
         }
@@ -85,6 +86,8 @@ namespace GREENCYCLE
             cbxBarangay.Items.Clear();
             cbxMunicipality.Text = "";
             cbxBarangay.Text = "";
+            cbxPurok.Items.Clear();
+            cbxPurok.Text = "";
 
             string selectedProvince = cbxProvince.Text;
 
@@ -141,6 +144,40 @@ namespace GREENCYCLE
             }
         }
 
+        private void cbxBarangay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxPurok.Items.Clear();
+            cbxPurok.Text = "";
+
+            string selectedBarangay = cbxBarangay.Text;
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+                string query = "SELECT PurokName FROM Purok WHERE BarangayName = ?";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", selectedBarangay);
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cbxPurok.Items.Add(reader["PurokName"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading puroks: " + ex.Message);
+            }
+        }
+
         private void SaveUserInfo()
         {
             string fullName = tbxFullName.Text;
@@ -148,12 +185,13 @@ namespace GREENCYCLE
             string province = cbxProvince.Text;
             string municipality = cbxMunicipality.Text;
             string barangay = cbxBarangay.Text;
+            string purok = cbxPurok.Text;
 
             try
             {
                 string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "INSERT INTO UserInfo (Fullname, PhoneNumber, Province, Municipality, Barangay) " +
-                               "VALUES ('" + fullName + "', '" + phone + "', 0, '" + province + "', '" + municipality + "', '" + barangay + "')";
+                string query = "INSERT INTO UserInfo (Fullname, PhoneNumber, Province, Municipality, Barangay, Purok) " +
+                               "VALUES ('" + fullName + "', '" + phone + "', 0, '" + province + "', '" + municipality + "', '" + barangay + "', '" + purok + "')";
 
                 using (OleDbConnection conn = new OleDbConnection(connString))
                 {

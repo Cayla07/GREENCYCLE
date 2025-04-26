@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RPInfo));
             panel1 = new Panel();
             label4 = new Label();
-            tbxWeight = new TextBox();
+            tbxRPWeight = new TextBox();
             btnProceed = new Button();
             label3 = new Label();
             label2 = new Label();
@@ -47,7 +47,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.DarkSalmon;
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(tbxWeight);
+            panel1.Controls.Add(tbxRPWeight);
             panel1.Controls.Add(btnProceed);
             panel1.Controls.Add(label3);
             panel1.Location = new Point(125, 413);
@@ -66,14 +66,15 @@
             label4.TabIndex = 4;
             label4.Text = "kilogram/s";
             // 
-            // tbxWeight
+            // tbxRPWeight
             // 
-            tbxWeight.Font = new Font("Arial", 12F, FontStyle.Bold);
-            tbxWeight.Location = new Point(120, 73);
-            tbxWeight.Multiline = true;
-            tbxWeight.Name = "tbxWeight";
-            tbxWeight.Size = new Size(105, 32);
-            tbxWeight.TabIndex = 3;
+            tbxRPWeight.Font = new Font("Arial Rounded MT Bold", 12F);
+            tbxRPWeight.Location = new Point(120, 73);
+            tbxRPWeight.Multiline = true;
+            tbxRPWeight.Name = "tbxRPWeight";
+            tbxRPWeight.Size = new Size(105, 32);
+            tbxRPWeight.TabIndex = 3;
+            tbxRPWeight.TextAlign = HorizontalAlignment.Center;
             // 
             // btnProceed
             // 
@@ -86,6 +87,7 @@
             btnProceed.TabIndex = 2;
             btnProceed.Text = "Add to Recycle Bag";
             btnProceed.UseVisualStyleBackColor = false;
+         //   btnProceed.Click += btnProceed_Click;
             // 
             // label3
             // 
@@ -143,7 +145,7 @@
             btnBack.Size = new Size(44, 41);
             btnBack.TabIndex = 30;
             btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
+           // btnBack.Click += btnBack_Click;
             // 
             // RPInfo
             // 
@@ -172,7 +174,7 @@
 
         private Panel panel1;
         private Label label4;
-        private TextBox tbxWeight;
+        private TextBox tbxRPWeight;
         private Button btnProceed;
         private Label label3;
         private Label label2;
