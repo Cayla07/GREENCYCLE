@@ -13,7 +13,7 @@ namespace GREENCYCLE
     public partial class AdminMain1 : Form
     {
         private Form currentChildForm;
-        private MonitorUsers usersForm;
+        private UserList userListForm;
         private AdminDB adminDB;
         public AdminMain1()
         {
@@ -83,10 +83,10 @@ namespace GREENCYCLE
             HighlightButton(btnUsers);
             paneldisplayDB.Visible = true;
 
-            if (usersForm == null || usersForm.IsDisposed)
-                usersForm = new MonitorUsers(this);
+            if (userListForm == null || userListForm.IsDisposed)
+                userListForm = new UserList(this);
 
-            LoadFormIntoPanel(usersForm);
+            LoadFormIntoPanel(userListForm);
         }
 
         private void btnEditRates_Click(object sender, EventArgs e)

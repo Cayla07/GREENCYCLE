@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserList));
-            cbxPurok = new ComboBox();
             cbxBarangay = new ComboBox();
             tbxUserID = new TextBox();
             label10 = new Label();
@@ -54,18 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvUserList).BeginInit();
             SuspendLayout();
             // 
-            // cbxPurok
-            // 
-            cbxPurok.BackColor = Color.LemonChiffon;
-            cbxPurok.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxPurok.FormattingEnabled = true;
-            cbxPurok.Location = new Point(564, 29);
-            cbxPurok.Name = "cbxPurok";
-            cbxPurok.Size = new Size(175, 29);
-            cbxPurok.TabIndex = 70;
-            cbxPurok.Text = "         Purok";
-            cbxPurok.SelectedIndexChanged += cbxPurok_SelectedIndexChanged;
-            // 
             // cbxBarangay
             // 
             cbxBarangay.BackColor = Color.LemonChiffon;
@@ -84,6 +71,7 @@
             tbxUserID.Name = "tbxUserID";
             tbxUserID.Size = new Size(102, 27);
             tbxUserID.TabIndex = 68;
+            tbxUserID.TextAlign = HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -289,7 +277,6 @@
             Controls.Add(cbxProvince);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(cbxPurok);
             Controls.Add(cbxBarangay);
             Controls.Add(tbxUserID);
             Controls.Add(label10);
@@ -308,15 +295,13 @@
             Name = "UserList";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Load += MonitorUsers_Load;
+            Load += UserList_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvUserList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ComboBox cbxPurok;
         private ComboBox cbxBarangay;
         private TextBox tbxUserID;
         private Label label10;
