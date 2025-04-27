@@ -32,7 +32,7 @@ namespace GREENCYCLE
                     FormBorderStyle = FormBorderStyle.None,
                     Opacity = 0.5d,
                     BackColor = Color.Black,
-                    Size = new Size(1452, 7659),
+                    Size = new Size(743, 180),
                     Location = owner.Location,
                     ShowInTaskbar = false
                 };
@@ -118,9 +118,9 @@ namespace GREENCYCLE
             {
                 Panel materialPanel = new Panel
                 {
-                    Size = new Size(743, 50),
-                    BackColor = Color.LightGreen,
-                    Margin = new Padding(5)
+                    Size = new Size(735, 50),
+                    BackColor = Color.Turquoise,
+                    Margin = new Padding(3)
                 };
 
                 Label lblMaterial = new Label
@@ -128,8 +128,8 @@ namespace GREENCYCLE
                     Text = item.Key,
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
-                    Size = new Size(160, 30),
-                    Location = new Point(10, 10),
+                    Size = new Size(250, 30),
+                    Location = new Point(3, 6),
                     TextAlign = ContentAlignment.MiddleLeft
                 };
 
@@ -139,7 +139,7 @@ namespace GREENCYCLE
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
                     Size = new Size(120, 30),
-                    Location = new Point(180, 10),
+                    Location = new Point(303, 4),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
@@ -152,7 +152,7 @@ namespace GREENCYCLE
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
                     Size = new Size(120, 30),
-                    Location = new Point(320, 10),
+                    Location = new Point(603, 4),
                     TextAlign = ContentAlignment.MiddleRight
                 };
 

@@ -40,9 +40,14 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             label2 = new Label();
             FLPanelRecycle = new FlowLayoutPanel();
+            panel1 = new Panel();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             btnSubmit = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnPlastics
@@ -173,15 +178,17 @@
             tableLayoutPanel2.AutoScroll = true;
             tableLayoutPanel2.BackColor = Color.PaleTurquoise;
             tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(FLPanelRecycle, 0, 2);
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Controls.Add(FLPanelRecycle, 0, 1);
-            tableLayoutPanel2.Location = new Point(12, 462);
+            tableLayoutPanel2.Controls.Add(panel1, 0, 1);
+            tableLayoutPanel2.Location = new Point(12, 448);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 19.6347027F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 80.3652954F));
-            tableLayoutPanel2.Size = new Size(749, 235);
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 13.0898008F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.7659578F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 74.46809F));
+            tableLayoutPanel2.Size = new Size(749, 249);
             tableLayoutPanel2.TabIndex = 8;
             // 
             // label2
@@ -190,7 +197,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(280, 10);
+            label2.Location = new Point(280, 3);
             label2.Name = "label2";
             label2.Size = new Size(188, 26);
             label2.TabIndex = 1;
@@ -199,14 +206,65 @@
             // 
             // FLPanelRecycle
             // 
-            FLPanelRecycle.Anchor = AnchorStyles.None;
             FLPanelRecycle.AutoScroll = true;
+            FLPanelRecycle.Dock = DockStyle.Fill;
             FLPanelRecycle.FlowDirection = FlowDirection.TopDown;
-            FLPanelRecycle.Location = new Point(3, 49);
+            FLPanelRecycle.ForeColor = Color.Black;
+            FLPanelRecycle.Location = new Point(3, 66);
             FLPanelRecycle.Name = "FLPanelRecycle";
-            FLPanelRecycle.Size = new Size(743, 183);
+            FLPanelRecycle.Size = new Size(743, 180);
             FLPanelRecycle.TabIndex = 0;
             FLPanelRecycle.WrapContents = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label5);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(3, 35);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(743, 25);
+            panel1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial", 8F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(3, 6);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 16);
+            label3.TabIndex = 0;
+            label3.Text = "Material ";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial", 8F, FontStyle.Bold);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(337, 4);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 16);
+            label4.TabIndex = 1;
+            label4.Text = "Weight";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial", 8F, FontStyle.Bold);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(684, 4);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 16);
+            label5.TabIndex = 2;
+            label5.Text = "Points";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnSubmit
             // 
@@ -241,6 +299,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -259,5 +319,9 @@
         private FlowLayoutPanel FLPanelRecycle;
         private Label label2;
         private Button btnSubmit;
+        private Panel panel1;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
