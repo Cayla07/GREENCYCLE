@@ -59,7 +59,7 @@
             cbxBarangay.BackColor = Color.White;
             cbxBarangay.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxBarangay.FormattingEnabled = true;
-            cbxBarangay.Location = new Point(124, 436);
+            cbxBarangay.Location = new Point(126, 439);
             cbxBarangay.Name = "cbxBarangay";
             cbxBarangay.Size = new Size(253, 29);
             cbxBarangay.TabIndex = 69;
@@ -67,7 +67,7 @@
             // 
             // tbxUserID
             // 
-            tbxUserID.Location = new Point(103, 86);
+            tbxUserID.Location = new Point(105, 89);
             tbxUserID.Name = "tbxUserID";
             tbxUserID.Size = new Size(102, 27);
             tbxUserID.TabIndex = 68;
@@ -78,7 +78,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Cooper Black", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(52, 9);
+            label10.Location = new Point(54, 12);
             label10.Name = "label10";
             label10.Size = new Size(264, 32);
             label10.TabIndex = 67;
@@ -86,7 +86,7 @@
             // 
             // tbxPhoneNum
             // 
-            tbxPhoneNum.Location = new Point(188, 291);
+            tbxPhoneNum.Location = new Point(190, 294);
             tbxPhoneNum.Name = "tbxPhoneNum";
             tbxPhoneNum.Size = new Size(189, 27);
             tbxPhoneNum.TabIndex = 66;
@@ -96,7 +96,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Cooper Black", 12F);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(12, 291);
+            label6.Location = new Point(14, 294);
             label6.Name = "label6";
             label6.Size = new Size(170, 23);
             label6.TabIndex = 65;
@@ -104,7 +104,7 @@
             // 
             // tbxFullname
             // 
-            tbxFullname.Location = new Point(124, 216);
+            tbxFullname.Location = new Point(126, 219);
             tbxFullname.Name = "tbxFullname";
             tbxFullname.Size = new Size(253, 27);
             tbxFullname.TabIndex = 62;
@@ -114,7 +114,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Cooper Black", 12F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(12, 218);
+            label4.Location = new Point(14, 221);
             label4.Name = "label4";
             label4.Size = new Size(111, 23);
             label4.TabIndex = 61;
@@ -122,7 +122,7 @@
             // 
             // tbxPassword
             // 
-            tbxPassword.Location = new Point(124, 179);
+            tbxPassword.Location = new Point(126, 182);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.Size = new Size(253, 27);
             tbxPassword.TabIndex = 60;
@@ -132,7 +132,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Cooper Black", 12F);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(12, 183);
+            label3.Location = new Point(14, 186);
             label3.Name = "label3";
             label3.Size = new Size(117, 23);
             label3.TabIndex = 59;
@@ -140,7 +140,7 @@
             // 
             // tbxEmail
             // 
-            tbxEmail.Location = new Point(85, 146);
+            tbxEmail.Location = new Point(87, 149);
             tbxEmail.Name = "tbxEmail";
             tbxEmail.Size = new Size(292, 27);
             tbxEmail.TabIndex = 58;
@@ -150,7 +150,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 12F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(12, 150);
+            label2.Location = new Point(14, 153);
             label2.Name = "label2";
             label2.Size = new Size(74, 23);
             label2.TabIndex = 57;
@@ -161,7 +161,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 88);
+            label1.Location = new Point(14, 91);
             label1.Name = "label1";
             label1.Size = new Size(93, 23);
             label1.TabIndex = 56;
@@ -194,7 +194,7 @@
             // cbxMunicipality
             // 
             cbxMunicipality.FormattingEnabled = true;
-            cbxMunicipality.Location = new Point(163, 397);
+            cbxMunicipality.Location = new Point(165, 400);
             cbxMunicipality.Name = "cbxMunicipality";
             cbxMunicipality.Size = new Size(214, 28);
             cbxMunicipality.TabIndex = 74;
@@ -202,7 +202,7 @@
             // cbxProvince
             // 
             cbxProvince.FormattingEnabled = true;
-            cbxProvince.Location = new Point(124, 363);
+            cbxProvince.Location = new Point(126, 366);
             cbxProvince.Name = "cbxProvince";
             cbxProvince.Size = new Size(253, 28);
             cbxProvince.TabIndex = 73;
@@ -212,7 +212,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Cooper Black", 12F);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(12, 399);
+            label8.Location = new Point(14, 402);
             label8.Name = "label8";
             label8.Size = new Size(145, 23);
             label8.TabIndex = 72;
@@ -223,7 +223,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Cooper Black", 12F);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(12, 365);
+            label7.Location = new Point(14, 368);
             label7.Name = "label7";
             label7.Size = new Size(108, 23);
             label7.TabIndex = 71;
@@ -233,7 +233,7 @@
             // 
             btnClear.BackColor = Color.Salmon;
             btnClear.Font = new Font("Cooper Black", 12F);
-            btnClear.Location = new Point(267, 485);
+            btnClear.Location = new Point(271, 485);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(110, 42);
             btnClear.TabIndex = 75;
@@ -246,7 +246,7 @@
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(201, 86);
+            btnSearch.Location = new Point(203, 89);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(31, 27);
             btnSearch.TabIndex = 76;
@@ -257,10 +257,10 @@
             // 
             dgvUserList.BackgroundColor = Color.LemonChiffon;
             dgvUserList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUserList.Location = new Point(383, 9);
+            dgvUserList.Location = new Point(387, 12);
             dgvUserList.Name = "dgvUserList";
             dgvUserList.RowHeadersWidth = 51;
-            dgvUserList.Size = new Size(726, 518);
+            dgvUserList.Size = new Size(722, 515);
             dgvUserList.TabIndex = 77;
             dgvUserList.CellContentClick += dgvUserList_CellContentClick;
             // 
@@ -269,7 +269,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Cooper Black", 12F);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(12, 436);
+            label5.Location = new Point(14, 439);
             label5.Name = "label5";
             label5.Size = new Size(111, 23);
             label5.TabIndex = 78;

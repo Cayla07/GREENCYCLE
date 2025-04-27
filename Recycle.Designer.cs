@@ -157,8 +157,10 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(324, 9);
             label1.Name = "label1";
             label1.Size = new Size(533, 42);
@@ -187,6 +189,7 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(280, 10);
             label2.Name = "label2";
             label2.Size = new Size(188, 26);
@@ -225,9 +228,9 @@
             AutoScrollMargin = new Size(2, 2);
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 709);
+            Controls.Add(label1);
             Controls.Add(btnSubmit);
             Controls.Add(tableLayoutPanel2);
-            Controls.Add(label1);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Recycle";
