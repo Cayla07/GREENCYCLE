@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 using System.Windows.Forms;
 
 namespace GREENCYCLE
@@ -16,10 +8,11 @@ namespace GREENCYCLE
     {
         private Form activeForm = null;
 
-        // Forms for reuse
         private Recycle recycleForm;
         private UserDB userDBForm;
 
+        public string Email { get; set; } // ✅ Added Email property
+        public string FullName { get; set; }
         public UserMain1()
         {
             InitializeComponent();
@@ -89,25 +82,25 @@ namespace GREENCYCLE
         private void btnWallet_Click(object sender, EventArgs e)
         {
             HighlightButton(btnWallet);
-            // Add Wallet form logic here
+            // Wallet form logic
         }
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
             HighlightButton(btnTransaction);
-            // Add Transaction form logic here
+            // Transaction form logic
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
             HighlightButton(btnHistory);
-            // Add History form logic here
+            // History form logic
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
             HighlightButton(btnSettings);
-            // Add Settings form logic here
+            // Settings form logic
         }
 
         private void btnOut_Click(object sender, EventArgs e)
@@ -126,19 +119,14 @@ namespace GREENCYCLE
         private void btnMax_Click_1(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
-            {
                 this.WindowState = FormWindowState.Normal;
-            }
             else
-            {
                 this.WindowState = FormWindowState.Maximized;
-            }
         }
 
         private void btnMin_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
     }
 }

@@ -12,7 +12,6 @@ namespace GREENCYCLE
         private Dictionary<string, double> recycleBag;
         private Dictionary<string, int> materialPointMultipliers = new Dictionary<string, int>();
 
-        // ✅ Correct place for readonly connectionString
         private readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;Persist Security Info=False;";
 
         public Recycle(UserMain1 parent)
@@ -32,9 +31,9 @@ namespace GREENCYCLE
                     FormBorderStyle = FormBorderStyle.None,
                     Opacity = 0.5d,
                     BackColor = Color.Black,
-                    Size = new Size(743, 180),
+                    Size = new Size(1452, 765),
                     Location = owner.Location,
-                    ShowInTaskbar = false
+                    ShowInTaskbar = true
                 };
 
                 if (dialog != null)
@@ -56,7 +55,42 @@ namespace GREENCYCLE
             }
         }
 
-        // Material buttons
+        private void Recycle_Load(object sender, EventArgs e)
+        {
+            LoadMaterialPointsFromDatabase();
+            string userEmail = parentForm.Email; // (Just ready if you need it)
+        }
+
+        private void LoadMaterialPointsFromDatabase()
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT MaterialName, Points FROM [MaterialPoints]";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        materialPointMultipliers.Clear();
+
+                        while (reader.Read())
+                        {
+                            string materialName = reader["MaterialName"].ToString();
+                            int points = Convert.ToInt32(reader["Points"]);
+
+                            materialPointMultipliers[materialName] = points;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading material points: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnPlastics_Click(object sender, EventArgs e)
         {
             PBInfo pbInfoForm = new PBInfo("Plastic Bottles", this);
@@ -93,7 +127,6 @@ namespace GREENCYCLE
             Overlay.ShowOverlay(this, blInfoForm, null);
         }
 
-        // Add to recycle bag
         public void AddToRecycleBag(string materialName, double weight)
         {
             if (recycleBag.ContainsKey(materialName))
@@ -108,8 +141,6 @@ namespace GREENCYCLE
             UpdateRecycleBagDisplay();
         }
 
-        // Update recycle bag display
-        // Update recycle bag display
         private void UpdateRecycleBagDisplay()
         {
             FLPanelRecycle.Controls.Clear();
@@ -143,12 +174,12 @@ namespace GREENCYCLE
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
-                int pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10; // fallback 10 if not found
+                int pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
                 int points = (int)(item.Value * pointsPerKg);
 
                 Label lblPoints = new Label
                 {
-                    Text = $"{points} pts",
+                    Text = $"{points:N0} pts", // Formatting: thousands separated
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
                     Size = new Size(120, 30),
@@ -164,40 +195,30 @@ namespace GREENCYCLE
             }
         }
 
-        private void LoadMaterialPointsFromDatabase()
+        private int CalculateTotalPoints()
         {
-            try
+            int total = 0;
+            foreach (var item in recycleBag)
             {
-                using (OleDbConnection connection = new OleDbConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT MaterialName, Points FROM [MaterialPoints]"; // ✅ better table name
-                    OleDbCommand command = new OleDbCommand(query, connection);
-
-                    using (OleDbDataReader reader = command.ExecuteReader())
-                    {
-                        materialPointMultipliers.Clear(); // Clear old data
-
-                        while (reader.Read())
-                        {
-                            string materialName = reader["MaterialName"].ToString();
-                            int points = Convert.ToInt32(reader["Points"]);
-
-                            materialPointMultipliers[materialName] = points;
-                        }
-                    }
-                }
+                int pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
+                total += (int)(item.Value * pointsPerKg);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading material points: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            return total;
         }
 
-        private void Recycle_Load(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-            LoadMaterialPointsFromDatabase();
+            string fullName = parentForm.FullName;
+            string email = parentForm.Email;
+            int totalPoints = CalculateTotalPoints();
+
+            Receipt receiptForm = new Receipt(fullName, email, recycleBag, totalPoints, materialPointMultipliers);
+
+            Overlay.ShowOverlay(this, receiptForm, null);
+
+            // Optional: Clear the bag after submit
+            recycleBag.Clear();
+            UpdateRecycleBagDisplay();
         }
     }
 }

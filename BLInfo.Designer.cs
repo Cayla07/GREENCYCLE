@@ -87,7 +87,6 @@
             btnProceed.TabIndex = 2;
             btnProceed.Text = "Add to Recycle Bag";
             btnProceed.UseVisualStyleBackColor = false;
-         //   btnProceed.Click += btnProceed_Click;
             // 
             // label3
             // 
@@ -145,7 +144,6 @@
             btnBack.Size = new Size(44, 41);
             btnBack.TabIndex = 34;
             btnBack.UseVisualStyleBackColor = false;
-            //btnBack.Click += btnBack_Click;
             // 
             // BLInfo
             // 

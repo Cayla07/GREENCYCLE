@@ -38,8 +38,8 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            label2 = new Label();
             FLPanelRecycle = new FlowLayoutPanel();
+            label2 = new Label();
             panel1 = new Panel();
             label3 = new Label();
             label4 = new Label();
@@ -166,7 +166,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(324, 9);
+            label1.Location = new Point(15, 9);
             label1.Name = "label1";
             label1.Size = new Size(533, 42);
             label1.TabIndex = 7;
@@ -191,6 +191,18 @@
             tableLayoutPanel2.Size = new Size(749, 249);
             tableLayoutPanel2.TabIndex = 8;
             // 
+            // FLPanelRecycle
+            // 
+            FLPanelRecycle.AutoScroll = true;
+            FLPanelRecycle.Dock = DockStyle.Fill;
+            FLPanelRecycle.FlowDirection = FlowDirection.TopDown;
+            FLPanelRecycle.ForeColor = Color.Black;
+            FLPanelRecycle.Location = new Point(3, 66);
+            FLPanelRecycle.Name = "FLPanelRecycle";
+            FLPanelRecycle.Size = new Size(743, 180);
+            FLPanelRecycle.TabIndex = 0;
+            FLPanelRecycle.WrapContents = false;
+            // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
@@ -203,18 +215,6 @@
             label2.TabIndex = 1;
             label2.Text = "RECYCLE BAG";
             label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // FLPanelRecycle
-            // 
-            FLPanelRecycle.AutoScroll = true;
-            FLPanelRecycle.Dock = DockStyle.Fill;
-            FLPanelRecycle.FlowDirection = FlowDirection.TopDown;
-            FLPanelRecycle.ForeColor = Color.Black;
-            FLPanelRecycle.Location = new Point(3, 66);
-            FLPanelRecycle.Name = "FLPanelRecycle";
-            FLPanelRecycle.Size = new Size(743, 180);
-            FLPanelRecycle.TabIndex = 0;
-            FLPanelRecycle.WrapContents = false;
             // 
             // panel1
             // 
@@ -278,6 +278,7 @@
             btnSubmit.TabIndex = 9;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // Recycle
             // 
