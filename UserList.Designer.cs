@@ -50,24 +50,24 @@
             btnClear = new Button();
             btnSearch = new Button();
             dgvUserList = new DataGridView();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvUserList).BeginInit();
             SuspendLayout();
             // 
             // cbxBarangay
             // 
-            cbxBarangay.BackColor = Color.LemonChiffon;
+            cbxBarangay.BackColor = Color.White;
             cbxBarangay.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbxBarangay.FormattingEnabled = true;
-            cbxBarangay.Location = new Point(383, 30);
+            cbxBarangay.Location = new Point(124, 436);
             cbxBarangay.Name = "cbxBarangay";
-            cbxBarangay.Size = new Size(175, 29);
+            cbxBarangay.Size = new Size(253, 29);
             cbxBarangay.TabIndex = 69;
-            cbxBarangay.Text = "     Barangay";
             cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
             // 
             // tbxUserID
             // 
-            tbxUserID.Location = new Point(103, 141);
+            tbxUserID.Location = new Point(103, 86);
             tbxUserID.Name = "tbxUserID";
             tbxUserID.Size = new Size(102, 27);
             tbxUserID.TabIndex = 68;
@@ -78,7 +78,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Cooper Black", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(52, 64);
+            label10.Location = new Point(52, 9);
             label10.Name = "label10";
             label10.Size = new Size(264, 32);
             label10.TabIndex = 67;
@@ -86,25 +86,25 @@
             // 
             // tbxPhoneNum
             // 
-            tbxPhoneNum.Location = new Point(170, 333);
+            tbxPhoneNum.Location = new Point(188, 291);
             tbxPhoneNum.Name = "tbxPhoneNum";
-            tbxPhoneNum.Size = new Size(207, 27);
+            tbxPhoneNum.Size = new Size(189, 27);
             tbxPhoneNum.TabIndex = 66;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Cooper Black", 12F);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(12, 333);
+            label6.Location = new Point(12, 291);
             label6.Name = "label6";
-            label6.Size = new Size(152, 21);
+            label6.Size = new Size(170, 23);
             label6.TabIndex = 65;
             label6.Text = "Phone Number:";
             // 
             // tbxFullname
             // 
-            tbxFullname.Location = new Point(124, 271);
+            tbxFullname.Location = new Point(124, 216);
             tbxFullname.Name = "tbxFullname";
             tbxFullname.Size = new Size(253, 27);
             tbxFullname.TabIndex = 62;
@@ -112,17 +112,17 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Cooper Black", 12F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(12, 273);
+            label4.Location = new Point(12, 218);
             label4.Name = "label4";
-            label4.Size = new Size(102, 21);
+            label4.Size = new Size(111, 23);
             label4.TabIndex = 61;
             label4.Text = "Fullname:";
             // 
             // tbxPassword
             // 
-            tbxPassword.Location = new Point(124, 234);
+            tbxPassword.Location = new Point(124, 179);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.Size = new Size(253, 27);
             tbxPassword.TabIndex = 60;
@@ -130,17 +130,17 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Cooper Black", 12F);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(12, 236);
+            label3.Location = new Point(12, 183);
             label3.Name = "label3";
-            label3.Size = new Size(106, 21);
+            label3.Size = new Size(117, 23);
             label3.TabIndex = 59;
             label3.Text = "Password:";
             // 
             // tbxEmail
             // 
-            tbxEmail.Location = new Point(85, 201);
+            tbxEmail.Location = new Point(85, 146);
             tbxEmail.Name = "tbxEmail";
             tbxEmail.Size = new Size(292, 27);
             tbxEmail.TabIndex = 58;
@@ -148,22 +148,22 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Cooper Black", 12F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(12, 201);
+            label2.Location = new Point(12, 150);
             label2.Name = "label2";
-            label2.Size = new Size(67, 21);
+            label2.Size = new Size(74, 23);
             label2.TabIndex = 57;
             label2.Text = "Email:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 143);
+            label1.Location = new Point(12, 88);
             label1.Name = "label1";
-            label1.Size = new Size(85, 21);
+            label1.Size = new Size(93, 23);
             label1.TabIndex = 56;
             label1.Text = "User ID:";
             // 
@@ -171,7 +171,7 @@
             // 
             btnLoadFile.BackColor = Color.Salmon;
             btnLoadFile.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLoadFile.Location = new Point(564, 533);
+            btnLoadFile.Location = new Point(568, 605);
             btnLoadFile.Name = "btnLoadFile";
             btnLoadFile.Size = new Size(173, 54);
             btnLoadFile.TabIndex = 55;
@@ -183,7 +183,7 @@
             // 
             btnConnection.BackColor = Color.Salmon;
             btnConnection.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnConnection.Location = new Point(385, 533);
+            btnConnection.Location = new Point(387, 605);
             btnConnection.Name = "btnConnection";
             btnConnection.Size = new Size(173, 54);
             btnConnection.TabIndex = 54;
@@ -194,48 +194,48 @@
             // cbxMunicipality
             // 
             cbxMunicipality.FormattingEnabled = true;
-            cbxMunicipality.Location = new Point(148, 433);
+            cbxMunicipality.Location = new Point(163, 397);
             cbxMunicipality.Name = "cbxMunicipality";
-            cbxMunicipality.Size = new Size(229, 28);
+            cbxMunicipality.Size = new Size(214, 28);
             cbxMunicipality.TabIndex = 74;
             // 
             // cbxProvince
             // 
             cbxProvince.FormattingEnabled = true;
-            cbxProvince.Location = new Point(114, 399);
+            cbxProvince.Location = new Point(124, 363);
             cbxProvince.Name = "cbxProvince";
-            cbxProvince.Size = new Size(263, 28);
+            cbxProvince.Size = new Size(253, 28);
             cbxProvince.TabIndex = 73;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Cooper Black", 12F);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(12, 435);
+            label8.Location = new Point(12, 399);
             label8.Name = "label8";
-            label8.Size = new Size(130, 21);
+            label8.Size = new Size(145, 23);
             label8.TabIndex = 72;
             label8.Text = "Municipality:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Cooper Black", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Cooper Black", 12F);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(12, 401);
+            label7.Location = new Point(12, 365);
             label7.Name = "label7";
-            label7.Size = new Size(96, 21);
+            label7.Size = new Size(108, 23);
             label7.TabIndex = 71;
             label7.Text = "Province:";
             // 
             // btnClear
             // 
             btnClear.BackColor = Color.Salmon;
-            btnClear.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClear.Location = new Point(114, 504);
+            btnClear.Font = new Font("Cooper Black", 12F);
+            btnClear.Location = new Point(267, 485);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(118, 32);
+            btnClear.Size = new Size(110, 42);
             btnClear.TabIndex = 75;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -246,7 +246,7 @@
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(201, 141);
+            btnSearch.Location = new Point(201, 86);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(31, 27);
             btnSearch.TabIndex = 76;
@@ -257,12 +257,23 @@
             // 
             dgvUserList.BackgroundColor = Color.LemonChiffon;
             dgvUserList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUserList.Location = new Point(383, 69);
+            dgvUserList.Location = new Point(383, 9);
             dgvUserList.Name = "dgvUserList";
             dgvUserList.RowHeadersWidth = 51;
-            dgvUserList.Size = new Size(726, 458);
+            dgvUserList.Size = new Size(726, 518);
             dgvUserList.TabIndex = 77;
             dgvUserList.CellContentClick += dgvUserList_CellContentClick;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Cooper Black", 12F);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(12, 436);
+            label5.Name = "label5";
+            label5.Size = new Size(111, 23);
+            label5.TabIndex = 78;
+            label5.Text = "Barangay:";
             // 
             // UserList
             // 
@@ -270,6 +281,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1121, 671);
+            Controls.Add(label5);
             Controls.Add(dgvUserList);
             Controls.Add(btnSearch);
             Controls.Add(btnClear);
@@ -323,5 +335,6 @@
         private Button btnClear;
         private Button btnSearch;
         private DataGridView dgvUserList;
+        private Label label5;
     }
 }

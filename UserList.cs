@@ -40,7 +40,7 @@ namespace GREENCYCLE
 
             LoadProvinces();
         }
-        
+
         private void btnConnection_Click_1(object sender, EventArgs e)
         {
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
@@ -360,6 +360,11 @@ namespace GREENCYCLE
             {
                 MessageBox.Show("Error searching user: " + ex.Message);
             }
+        }
+
+        private void cbxProvince_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
