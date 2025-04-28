@@ -57,11 +57,11 @@
             // cbxBarangay
             // 
             cbxBarangay.BackColor = Color.White;
-            cbxBarangay.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxBarangay.Font = new Font("Segoe UI", 9F);
             cbxBarangay.FormattingEnabled = true;
             cbxBarangay.Location = new Point(126, 439);
             cbxBarangay.Name = "cbxBarangay";
-            cbxBarangay.Size = new Size(253, 29);
+            cbxBarangay.Size = new Size(253, 28);
             cbxBarangay.TabIndex = 69;
             cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
             // 
@@ -260,7 +260,7 @@
             dgvUserList.Location = new Point(387, 12);
             dgvUserList.Name = "dgvUserList";
             dgvUserList.RowHeadersWidth = 51;
-            dgvUserList.Size = new Size(722, 515);
+            dgvUserList.Size = new Size(754, 515);
             dgvUserList.TabIndex = 77;
             dgvUserList.CellContentClick += dgvUserList_CellContentClick;
             // 
@@ -280,7 +280,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
-            ClientSize = new Size(1121, 671);
+            ClientSize = new Size(1153, 703);
             Controls.Add(label5);
             Controls.Add(dgvUserList);
             Controls.Add(btnSearch);

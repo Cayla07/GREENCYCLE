@@ -11,10 +11,10 @@
         public string FullName { get; set; }
         public string Email { get; set; }
         public Dictionary<string, double> RecycleBag { get; set; }
-        public int TotalPoints { get; set; }
-        public Dictionary<string, int> MaterialPointMultipliers { get; set; }
+        public double TotalPoints { get; set; }
+        public Dictionary<string, double> MaterialPointMultipliers { get; set; }
 
-        public Receipt(string fullName, string email, Dictionary<string, double> recycleBag, int totalPoints, Dictionary<string, int> materialPointMultipliers)
+        public Receipt(string fullName, string email, Dictionary<string, double> recycleBag, double totalPoints, Dictionary<string, double> materialPointMultipliers)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@
         {
             lblFullName.Text = FullName;
             lblEmail.Text = Email;
-            lblTotal.Text = TotalPoints.ToString();
+            lblTotal.Text = TotalPoints.ToString("F1");
 
             PopulateMaterials();
         }
@@ -76,7 +76,7 @@
                 int points = (int)(item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10));
                 Label lblPoints = new Label
                 {
-                    Text = $"{points}",
+                    Text = $"{points:F1}points",
                     AutoSize = false,
                     Size = new Size(50, 25),
                     Location = new Point(483, 7),

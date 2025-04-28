@@ -10,7 +10,7 @@ namespace GREENCYCLE
     {
         private UserMain1 parentForm;
         private Dictionary<string, double> recycleBag;
-        private Dictionary<string, int> materialPointMultipliers = new Dictionary<string, int>();
+        private Dictionary<string, double> materialPointMultipliers = new Dictionary<string, double>();
 
         private readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;Persist Security Info=False;";
 
@@ -78,7 +78,7 @@ namespace GREENCYCLE
                         while (reader.Read())
                         {
                             string materialName = reader["MaterialName"].ToString();
-                            int points = Convert.ToInt32(reader["Points"]);
+                            double points = double.Parse(reader["Points"].ToString());
 
                             materialPointMultipliers[materialName] = points;
                         }
@@ -159,7 +159,7 @@ namespace GREENCYCLE
                     Text = item.Key,
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
-                    Size = new Size(250, 30),
+                    Size = new Size(240, 30),
                     Location = new Point(3, 6),
                     TextAlign = ContentAlignment.MiddleLeft
                 };
@@ -169,20 +169,20 @@ namespace GREENCYCLE
                     Text = $"{item.Value} kg",
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
-                    Size = new Size(120, 30),
+                    Size = new Size(110, 30),
                     Location = new Point(303, 4),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
-                int pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
-                int points = (int)(item.Value * pointsPerKg);
+                double pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
+                double points = (double)(item.Value * pointsPerKg);
 
                 Label lblPoints = new Label
                 {
-                    Text = $"{points:N0} pts", // Formatting: thousands separated
+                    Text = $"{points:F1} pts", // Formatting: thousands separated
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
-                    Size = new Size(120, 30),
+                    Size = new Size(110, 30),
                     Location = new Point(603, 4),
                     TextAlign = ContentAlignment.MiddleRight
                 };
@@ -197,20 +197,20 @@ namespace GREENCYCLE
 
         private int CalculateTotalPoints()
         {
-            int total = 0;
+            double total = 0;
             foreach (var item in recycleBag)
             {
-                int pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
-                total += (int)(item.Value * pointsPerKg);
+                double pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
+                total += (double)(item.Value * pointsPerKg);
             }
-            return total;
+            return (int)total;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string fullName = parentForm.FullName;
             string email = parentForm.Email;
-            int totalPoints = CalculateTotalPoints();
+            double totalPoints = CalculateTotalPoints();
 
             Receipt receiptForm = new Receipt(fullName, email, recycleBag, totalPoints, materialPointMultipliers);
 

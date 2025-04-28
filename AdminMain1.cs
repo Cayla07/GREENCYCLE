@@ -15,6 +15,7 @@ namespace GREENCYCLE
         private Form currentChildForm;
         private UserList userListForm;
         private AdminDB adminDB;
+        private EditRates editRates;
         public AdminMain1()
         {
             InitializeComponent();
@@ -91,7 +92,13 @@ namespace GREENCYCLE
 
         private void btnEditRates_Click(object sender, EventArgs e)
         {
-            
+            HighlightButton(btnEditRates);
+            paneldisplayDB.Visible = true;
+
+            if(editRates == null || editRates.IsDisposed)
+                editRates = new EditRates(this);
+
+            LoadFormIntoPanel(editRates);  
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
