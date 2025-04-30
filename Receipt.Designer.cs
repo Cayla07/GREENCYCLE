@@ -44,8 +44,10 @@
             lblFullName = new Label();
             lblEmail = new Label();
             panel4 = new Panel();
+            btnPDF = new Button();
             btnExit = new Button();
             panelReceipt = new FlowLayoutPanel();
+            btnSubmit = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -218,12 +220,26 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(btnPDF);
             panel4.Controls.Add(btnExit);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(551, 37);
             panel4.TabIndex = 5;
+            // 
+            // btnPDF
+            // 
+            btnPDF.BackColor = Color.PaleGreen;
+            btnPDF.FlatAppearance.BorderSize = 0;
+            btnPDF.FlatStyle = FlatStyle.Flat;
+            btnPDF.Image = (Image)resources.GetObject("btnPDF.Image");
+            btnPDF.Location = new Point(454, 3);
+            btnPDF.Name = "btnPDF";
+            btnPDF.Size = new Size(44, 31);
+            btnPDF.TabIndex = 36;
+            btnPDF.UseVisualStyleBackColor = false;
+            btnPDF.Click += btnPDF_Click;
             // 
             // btnExit
             // 
@@ -247,12 +263,26 @@
             panelReceipt.Size = new Size(551, 266);
             panelReceipt.TabIndex = 6;
             // 
+            // btnSubmit
+            // 
+            btnSubmit.Anchor = AnchorStyles.None;
+            btnSubmit.BackColor = Color.Red;
+            btnSubmit.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Location = new Point(462, 623);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(107, 41);
+            btnSubmit.TabIndex = 10;
+            btnSubmit.Text = "Submit";
+            btnSubmit.UseVisualStyleBackColor = false;
+            // 
             // Receipt
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
-            ClientSize = new Size(581, 620);
+            ClientSize = new Size(583, 676);
+            Controls.Add(btnSubmit);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Receipt";
@@ -290,5 +320,7 @@
         private Button btnExit;
         private Panel panel4;
         private FlowLayoutPanel panelReceipt;
+        private Button btnPDF;
+        private Button btnSubmit;
     }
 }

@@ -10,6 +10,7 @@ namespace GREENCYCLE
 
         private Recycle recycleForm;
         private UserDB userDBForm;
+        private History historyForm;
 
         public string Email { get; set; } // ✅ Added Email property
         public string FullName { get; set; }
@@ -94,7 +95,10 @@ namespace GREENCYCLE
         private void btnHistory_Click(object sender, EventArgs e)
         {
             HighlightButton(btnHistory);
-            // History form logic
+            if (historyForm == null || historyForm.IsDisposed)
+                historyForm = new History(this.Email, this);
+
+            LoadFormIntoPanel(historyForm);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -114,14 +118,6 @@ namespace GREENCYCLE
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnMax_Click_1(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnMin_Click_1(object sender, EventArgs e)

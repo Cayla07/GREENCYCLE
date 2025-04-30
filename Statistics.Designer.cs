@@ -28,13 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistics));
             comboBox1 = new ComboBox();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            panel5 = new Panel();
-            panel6 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
             SuspendLayout();
             // 
             // comboBox1
@@ -46,84 +41,37 @@
             comboBox1.Size = new Size(151, 28);
             comboBox1.TabIndex = 38;
             // 
-            // label5
+            // tableLayoutPanel1
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Arial Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.DarkGreen;
-            label5.Location = new Point(116, 104);
-            label5.Name = "label5";
-            label5.Size = new Size(390, 48);
-            label5.TabIndex = 37;
-            label5.Text = "Recycling Statistics";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.DarkGreen;
-            label6.Location = new Point(524, 289);
-            label6.Name = "label6";
-            label6.Size = new Size(230, 28);
-            label6.TabIndex = 36;
-            label6.Text = "Waste Recycle Rate";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Arial Black", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.DarkGreen;
-            label7.Location = new Point(115, 289);
-            label7.Name = "label7";
-            label7.Size = new Size(184, 28);
-            label7.TabIndex = 35;
-            label7.Text = "Waste Outcome";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.White;
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
-            panel5.BackgroundImageLayout = ImageLayout.Center;
-            panel5.Location = new Point(521, 321);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(676, 312);
-            panel5.TabIndex = 34;
-            // 
-            // panel6
-            // 
-            panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
-            panel6.BackgroundImageLayout = ImageLayout.Center;
-            panel6.Location = new Point(115, 329);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(383, 304);
-            panel6.TabIndex = 33;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Location = new Point(12, 12);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1289, 712);
+            tableLayoutPanel1.TabIndex = 39;
             // 
             // Statistics
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.PaleGreen;
             ClientSize = new Size(1313, 736);
             Controls.Add(comboBox1);
-            Controls.Add(label5);
-            Controls.Add(label6);
-            Controls.Add(label7);
-            Controls.Add(panel5);
-            Controls.Add(panel6);
+            Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Statistics";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private ComboBox comboBox1;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Panel panel5;
-        private Panel panel6;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GREENCYCLE.Classes
 {
-
-    public interface Users
-    {
-
-    }
     public abstract class InformationClass
     {
-        
+ 
+    }
+
+    public class UserLoginInfo : InformationClass
+    {
+        public string UserEmail { get; set; }
+    }
+
+    public class AdminLoginInfo : InformationClass
+    {
+        public string AdminEmail { get; set; }
     }
 }

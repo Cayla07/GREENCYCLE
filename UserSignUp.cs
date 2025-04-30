@@ -126,7 +126,7 @@ namespace GREENCYCLE
 
         private void cbShowPassA_CheckedChanged(object sender, EventArgs e)
         {
-            tbxPassC.UseSystemPasswordChar = !cbShowPassA.Checked;
+            tbxPassC.UseSystemPasswordChar = cbShowPassA.Checked;
         }
     }
 }

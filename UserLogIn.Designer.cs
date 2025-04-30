@@ -144,6 +144,7 @@
             tbxPassL.Location = new Point(127, 274);
             tbxPassL.Multiline = true;
             tbxPassL.Name = "tbxPassL";
+            tbxPassL.PasswordChar = '*';
             tbxPassL.PlaceholderText = "Password";
             tbxPassL.Size = new Size(341, 34);
             tbxPassL.TabIndex = 45;

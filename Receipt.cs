@@ -76,7 +76,7 @@
                 int points = (int)(item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10));
                 Label lblPoints = new Label
                 {
-                    Text = $"{points:F1}points",
+                    Text = $"{points:F1}",
                     AutoSize = false,
                     Size = new Size(50, 25),
                     Location = new Point(483, 7),
@@ -95,6 +95,11 @@
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

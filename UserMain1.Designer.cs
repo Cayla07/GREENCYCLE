@@ -39,7 +39,6 @@
             btnRecycle = new Button();
             btnDashboard = new Button();
             paneldisplayDB = new Panel();
-            btnMax = new Button();
             btnMin = new Button();
             btnExit = new Button();
             panelMenu.SuspendLayout();
@@ -227,21 +226,6 @@
             paneldisplayDB.Size = new Size(1153, 709);
             paneldisplayDB.TabIndex = 26;
             // 
-            // btnMax
-            // 
-            btnMax.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax.BackColor = Color.PaleGreen;
-            btnMax.BackgroundImageLayout = ImageLayout.Center;
-            btnMax.FlatAppearance.BorderSize = 0;
-            btnMax.FlatStyle = FlatStyle.Flat;
-            btnMax.Image = (Image)resources.GetObject("btnMax.Image");
-            btnMax.Location = new Point(1378, 9);
-            btnMax.Name = "btnMax";
-            btnMax.Size = new Size(29, 30);
-            btnMax.TabIndex = 24;
-            btnMax.UseVisualStyleBackColor = false;
-            btnMax.Click += btnMax_Click_1;
-            // 
             // btnMin
             // 
             btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -250,7 +234,7 @@
             btnMin.FlatAppearance.BorderSize = 0;
             btnMin.FlatStyle = FlatStyle.Flat;
             btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1334, 7);
+            btnMin.Location = new Point(1369, 7);
             btnMin.Name = "btnMin";
             btnMin.Size = new Size(38, 34);
             btnMin.TabIndex = 25;
@@ -280,7 +264,6 @@
             ClientSize = new Size(1452, 765);
             Controls.Add(paneldisplayDB);
             Controls.Add(btnMin);
-            Controls.Add(btnMax);
             Controls.Add(btnExit);
             Controls.Add(panelMenu);
             ForeColor = Color.White;
@@ -303,7 +286,6 @@
         private Button btnSettings;
         private Panel paneldisplayDB;
         private Button btnHome;
-        private Button btnMax;
         private Button btnMin;
         private Button btnExit;
     }

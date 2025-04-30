@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditRates));
             label10 = new Label();
             dgvEditRates = new DataGridView();
             tbxPoints = new TextBox();
@@ -40,6 +41,7 @@
             btnDelete = new Button();
             tbxID = new TextBox();
             label1 = new Label();
+            btnSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvEditRates).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Cooper Black", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(101, 47);
+            label10.Location = new Point(244, 74);
             label10.Name = "label10";
             label10.Size = new Size(160, 32);
             label10.TabIndex = 68;
@@ -58,16 +60,16 @@
             // 
             dgvEditRates.BackgroundColor = Color.LemonChiffon;
             dgvEditRates.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEditRates.Location = new Point(387, 47);
+            dgvEditRates.Location = new Point(604, 64);
             dgvEditRates.Name = "dgvEditRates";
             dgvEditRates.RowHeadersWidth = 51;
-            dgvEditRates.Size = new Size(567, 515);
+            dgvEditRates.Size = new Size(354, 362);
             dgvEditRates.TabIndex = 78;
             dgvEditRates.CellContentClick += dgvEditRates_CellContentClick;
             // 
             // tbxPoints
             // 
-            tbxPoints.Location = new Point(103, 258);
+            tbxPoints.Location = new Point(246, 285);
             tbxPoints.Name = "tbxPoints";
             tbxPoints.Size = new Size(158, 27);
             tbxPoints.TabIndex = 82;
@@ -77,7 +79,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Cooper Black", 12F);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(16, 262);
+            label3.Location = new Point(159, 289);
             label3.Name = "label3";
             label3.Size = new Size(81, 23);
             label3.TabIndex = 81;
@@ -85,7 +87,7 @@
             // 
             // tbxMaterial
             // 
-            tbxMaterial.Location = new Point(186, 212);
+            tbxMaterial.Location = new Point(329, 239);
             tbxMaterial.Name = "tbxMaterial";
             tbxMaterial.Size = new Size(195, 27);
             tbxMaterial.TabIndex = 80;
@@ -95,7 +97,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 12F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(16, 216);
+            label2.Location = new Point(159, 243);
             label2.Name = "label2";
             label2.Size = new Size(164, 23);
             label2.TabIndex = 79;
@@ -129,9 +131,9 @@
             // 
             btnUpdate.BackColor = Color.Salmon;
             btnUpdate.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnUpdate.Location = new Point(16, 328);
+            btnUpdate.Location = new Point(216, 362);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(173, 54);
+            btnUpdate.Size = new Size(138, 37);
             btnUpdate.TabIndex = 87;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -141,9 +143,9 @@
             // 
             btnDelete.BackColor = Color.Salmon;
             btnDelete.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(208, 328);
+            btnDelete.Location = new Point(386, 362);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(173, 54);
+            btnDelete.Size = new Size(138, 37);
             btnDelete.TabIndex = 88;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -151,7 +153,7 @@
             // 
             // tbxID
             // 
-            tbxID.Location = new Point(152, 129);
+            tbxID.Location = new Point(295, 156);
             tbxID.Name = "tbxID";
             tbxID.Size = new Size(98, 27);
             tbxID.TabIndex = 90;
@@ -161,11 +163,23 @@
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 12F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(16, 133);
+            label1.Location = new Point(159, 160);
             label1.Name = "label1";
             label1.Size = new Size(130, 23);
             label1.TabIndex = 89;
             label1.Text = "Material ID:";
+            // 
+            // btnSearch
+            // 
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
+            btnSearch.Location = new Point(390, 156);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(31, 27);
+            btnSearch.TabIndex = 91;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // EditRates
             // 
@@ -173,6 +187,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(1153, 703);
+            Controls.Add(btnSearch);
             Controls.Add(tbxID);
             Controls.Add(label1);
             Controls.Add(btnDelete);
@@ -208,5 +223,6 @@
         private Button btnDelete;
         private TextBox tbxID;
         private Label label1;
+        private Button btnSearch;
     }
 }

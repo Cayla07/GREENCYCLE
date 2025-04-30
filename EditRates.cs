@@ -24,7 +24,7 @@ namespace GREENCYCLE
 
         private void EditRates_Load(object sender, EventArgs e)
         {
-            LoadMaterialPoints();
+
         }
 
         private void btnConnection_Click(object sender, EventArgs e)
@@ -76,6 +76,7 @@ namespace GREENCYCLE
 
             MessageBox.Show("Record updated successfully!");
             LoadMaterialPoints(); // Refresh DataGridView
+            ClearFields();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -114,6 +115,49 @@ namespace GREENCYCLE
                 tbxID.Text = row.Cells["ID"].Value.ToString();
                 tbxMaterial.Text = row.Cells["MaterialName"].Value.ToString();
                 tbxPoints.Text = row.Cells["Points"].Value.ToString();
+            }
+        }
+        private void ClearFields()
+        {
+            tbxID.Clear();
+            tbxMaterial.Clear();
+            tbxPoints.Clear();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchID = tbxID.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(searchID))
+            {
+                return;
+            }
+
+            try
+            {
+                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
+
+                string query = "SELECT MaterialID, MaterialName, Points FROM MaterialPoints WHERE MaterialID = ?";
+
+                using (OleDbConnection conn = new OleDbConnection(connString))
+                {
+                    conn.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", searchID);
+
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds, "MaterialSearch");
+
+                        dgvEditRates.DataSource = ds.Tables["MaterialSearch"];
+                        dgvEditRates.Columns["MaterialID"].Visible = false; // Optional: hide ID
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching material: " + ex.Message);
             }
         }
     }

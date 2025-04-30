@@ -618,6 +618,17 @@
         QVIAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnPDF.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADrSURBVFhH7ZVP
+        DsFAGMVrQdyAC/gTG04h9riMjQXhHlZYSSTuwp44gNgJ71W/aKZTm+mMhe+X/JKZ8bXvVZo0Uhzpwe57
+        GR4GPxJ/UmIMn4lcB0cLaAEt8D8FRnAFG/Huw7cCnOU1w3jnQAneIUMusA2FvAKc4SzPbzxwZQMliDdu
+        QWIrwN8knK6hMxW4g3LTK+xAs0ATnlNnB1iFhWArMU3tJ9BbuMASeygh/Azb1pzhrBfMf8LUy5Ob5JUI
+        Ei6YJYKGCywxh7NkrThThku49ewCMivDAKbfap/2YYY6PEHbBUV6hDWoKCCKXoRhprD/LH8jAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
   <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAB01JREFUWEe9

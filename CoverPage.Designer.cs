@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoverPage));
             label1 = new Label();
             btnExit = new Button();
-            button1 = new Button();
             btnMin = new Button();
             btnStart = new Button();
             SuspendLayout();
@@ -64,21 +63,6 @@
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
             // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.BackColor = Color.PaleGreen;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(1257, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(29, 30);
-            button1.TabIndex = 7;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnMax_Click;
-            // 
             // btnMin
             // 
             btnMin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -87,7 +71,7 @@
             btnMin.FlatAppearance.BorderSize = 0;
             btnMin.FlatStyle = FlatStyle.Flat;
             btnMin.Image = (Image)resources.GetObject("btnMin.Image");
-            btnMin.Location = new Point(1213, 7);
+            btnMin.Location = new Point(1248, 7);
             btnMin.Name = "btnMin";
             btnMin.Size = new Size(38, 34);
             btnMin.TabIndex = 8;
@@ -123,7 +107,6 @@
             ClientSize = new Size(1331, 783);
             Controls.Add(btnStart);
             Controls.Add(btnMin);
-            Controls.Add(button1);
             Controls.Add(btnExit);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -137,7 +120,6 @@
         #endregion
         private Label label1;
         private Button btnExit;
-        private Button button1;
         private Button btnMin;
         private Button btnStart;
     }

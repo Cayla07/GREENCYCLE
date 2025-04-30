@@ -52,28 +52,10 @@ namespace GREENCYCLE
             Application.Exit();
         }
 
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                this.StartPosition = FormStartPosition.CenterScreen;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Maximized;
-                this.StartPosition = FormStartPosition.CenterScreen;
-            }
-            AppSettings.LastWindowState = this.WindowState;
-        }
-
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
     }
 }
-    public static class AppSettings
-    {
-        public static FormWindowState LastWindowState = FormWindowState.Normal;
-    }
+
