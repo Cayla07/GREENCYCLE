@@ -241,7 +241,7 @@ namespace GREENCYCLE
             }
         }
 
-        private int CalculateTotalPoints()
+        private double CalculateTotalPoints()
         {
             double total = 0;
             foreach (var item in recycleBag)
@@ -249,7 +249,7 @@ namespace GREENCYCLE
                 double pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
                 total += item.Value * pointsPerKg;
             }
-            return (int)total;
+            return total;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -258,6 +258,17 @@ namespace GREENCYCLE
             string email = parentForm.Email;
             double totalPoints = CalculateTotalPoints();
 
+            string details = "";
+            foreach (var item in recycleBag)
+            {
+                details += $"{item.Value} kg {item.Key}, ";
+            }
+            if (details.EndsWith(", "))
+            {
+                details = details.Substring(0, details.Length - 2); // Remove the trailing ", "
+            }
+
+            // Save to history BEFORE clearing the recycle bag
             Receipt receiptForm = new Receipt(fullName, email, recycleBag, totalPoints, materialPointMultipliers);
 
             Overlay.ShowOverlay(this, receiptForm, null);
@@ -266,6 +277,7 @@ namespace GREENCYCLE
             recycleBag.Clear();
             UpdateRecycleBagDisplay();
         }
+
 
         private void ClearRecycleBagFromDatabase()
         {
@@ -307,13 +319,12 @@ namespace GREENCYCLE
             DCInfo dcInfoForm = new DCInfo("Drink Cans", this);
             Overlay.ShowOverlay(this, dcInfoForm, null);
         }
-
-        private void btnCartons_Click(object sender, EventArgs e)
+        private void btnCartons_Click_1(object sender, EventArgs e)
         {
             CartonInfo cartonInfoForm = new CartonInfo("Drink Cartons", this);
             Overlay.ShowOverlay(this, cartonInfoForm, null);
         }
-
+       
         private void btnPapers_Click(object sender, EventArgs e)
         {
             RPInfo rpInfoForm = new RPInfo("Recycled Papers", this);

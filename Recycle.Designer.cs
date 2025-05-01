@@ -108,7 +108,7 @@
             btnCartons.Text = "Drink Cartons";
             btnCartons.TextAlign = ContentAlignment.BottomCenter;
             btnCartons.UseVisualStyleBackColor = false;
-            btnCartons.Click += btnCartons_Click;
+            btnCartons.Click += btnCartons_Click_1;
             // 
             // btnPapers
             // 

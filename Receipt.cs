@@ -1,13 +1,15 @@
-﻿namespace GREENCYCLE
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Linq;
-    using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using System.Data.OleDb;
 
+namespace GREENCYCLE
+{
     public partial class Receipt : Form
     {
+        private readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;Persist Security Info=False;";
         public string FullName { get; set; }
         public string Email { get; set; }
         public Dictionary<string, double> RecycleBag { get; set; }
@@ -24,7 +26,6 @@
             TotalPoints = totalPoints;
             MaterialPointMultipliers = materialPointMultipliers;
 
-            // We manually call the setup here instead of using the Load event
             InitializeReceipt();
         }
 
@@ -39,17 +40,17 @@
 
         private void PopulateMaterials()
         {
-            panelReceipt.Controls.Clear(); // Clear previous items first!
-            panelReceipt.FlowDirection = FlowDirection.TopDown; // Arrange items vertically
-            panelReceipt.WrapContents = false; // Disable wrapping
-            panelReceipt.AutoScroll = true; // Enable scrolling
+            panelReceipt.Controls.Clear();
+            panelReceipt.FlowDirection = FlowDirection.TopDown;
+            panelReceipt.WrapContents = false;
+            panelReceipt.AutoScroll = true;
 
             foreach (var item in RecycleBag)
             {
                 Panel materialPanel = new Panel
                 {
-                    Size = new Size(panelReceipt.ClientSize.Width - 10, 30), // Adjusted panel size
-                    BackColor = Color.Transparent, // Optional: add background color
+                    Size = new Size(panelReceipt.ClientSize.Width - 10, 30),
+                    BackColor = Color.Transparent,
                     Margin = new Padding(5)
                 };
 
@@ -65,7 +66,7 @@
 
                 Label lblWeight = new Label
                 {
-                    Text = $"{item.Value:F2} kg", // nicer formatting
+                    Text = $"{item.Value:F2} kg",
                     AutoSize = false,
                     Size = new Size(95, 25),
                     Location = new Point(243, 8),
@@ -73,7 +74,7 @@
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
-                int points = (int)(item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10));
+                double points = (double)(item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10));
                 Label lblPoints = new Label
                 {
                     Text = $"{points:F1}",
@@ -99,7 +100,51 @@
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
+            // Implement PDF generation logic here if needed
+        }
 
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            SaveSubmissionToHistory(Email, TotalPoints, GetSubmissionDetails());
+            this.Close();
+        }
+
+        private string GetSubmissionDetails()
+        {
+            string details = "";
+            foreach (var item in RecycleBag)
+            {
+                details += $"{item.Value} kg {item.Key}, ";
+            }
+            if (details.EndsWith(", "))
+            {
+                details = details.Substring(0, details.Length - 2);
+            }
+            return details;
+        }
+
+        private void SaveSubmissionToHistory(string email, double totalPoints, string details)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "INSERT INTO RecycleHistory (Email, SubmissionDate, TotalPoints, Details) VALUES (@Email, @SubmissionDate, @TotalPoints, @Details)";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+
+                    command.Parameters.Add("@Email", OleDbType.VarWChar).Value = email;
+                    command.Parameters.Add("@SubmissionDate", OleDbType.DBDate).Value = DateTime.Now.Date; // Use DBDate if you only need the date
+                    command.Parameters.Add("@TotalPoints", OleDbType.Double).Value = totalPoints;
+                    command.Parameters.Add("@Details", OleDbType.LongVarWChar).Value = details;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show($"Error saving to history: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

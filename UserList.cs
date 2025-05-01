@@ -1,35 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GREENCYCLE
 {
     public partial class UserList : Form
     {
-        private AdminMain1 parentForm;
+        private readonly AdminMain1 parentForm;
+        private OleDbConnection? myConn;
+        private OleDbDataAdapter? da;
+        private OleDbCommand? cmd;
+        private DataSet? ds;
+        private int indexRow;
 
-        OleDbConnection? myConn;
-        OleDbDataAdapter? da;
-        OleDbCommand? cmd;
-        DataSet? ds;
-        int indexRow;
+        private const string ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb";
 
         public UserList(AdminMain1 parent)
         {
             InitializeComponent();
-            this.parentForm = parent;
+            parentForm = parent;
         }
 
         private void UserList_Load_1(object sender, EventArgs e)
         {
-            this.KeyPreview = true;
+            KeyPreview = true;
             tbxEmail.KeyDown += tbxEmail_KeyDown;
             tbxPassword.KeyDown += tbxPassword_KeyDown;
             tbxFullname.KeyDown += tbxFullname_KeyDown;
@@ -43,26 +38,42 @@ namespace GREENCYCLE
 
         private void btnConnection_Click_1(object sender, EventArgs e)
         {
-            myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
-            ds = new DataSet();
-            myConn.Open();
-            MessageBox.Show("Connected successfully!");
-            myConn.Close();
+            try
+            {
+                using var conn = new OleDbConnection(ConnectionString);
+                conn.Open();
+                MessageBox.Show("Connected successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Connection failed: " + ex.Message);
+            }
         }
 
         private void btnLoadFile_Click_1(object sender, EventArgs e)
         {
-            myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source= C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb");
-            da = new OleDbDataAdapter(
-                "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, UserInfo.FullName, UserInfo.PhoneNumber, UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID;",
-                myConn);
-            ds = new DataSet();
-            myConn.Open();
-            da.Fill(ds, "UserQuery");
-            dgvUserList.DataSource = ds.Tables["UserQuery"];
-            myConn.Close();
+            string query = @"
+                SELECT UserAccounts.AccountID, UserAccounts.Email, UserAccounts.Password,
+                       UserInfos.FullName, UserInfos.PhoneNumber, UserInfos.Province,
+                       UserInfos.Municipality, UserInfos.Barangay
+                FROM UserInfos
+                INNER JOIN UserAccounts ON UserInfos.UserInfosID = UserAccounts.AccountID";
 
-            dgvUserList.Columns["ID"].Visible = false;
+            ds = new DataSet();
+
+            try
+            {
+                using var conn = new OleDbConnection(ConnectionString);
+                da = new OleDbDataAdapter(query, conn);
+                conn.Open();
+                da.Fill(ds, "UserQuery");
+                dgvUserList.DataSource = ds.Tables["UserQuery"];
+                dgvUserList.Columns["AccountID"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tbxEmail_KeyDown(object sender, KeyEventArgs e)
@@ -103,22 +114,16 @@ namespace GREENCYCLE
 
         private void LoadProvinces()
         {
+            cbxProvince.Items.Clear();
             try
             {
-                cbxProvince.Items.Clear();
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "SELECT ProvinceName FROM Province";
-
-                using (OleDbConnection conn = new OleDbConnection(connString))
+                using var conn = new OleDbConnection(ConnectionString);
+                conn.Open();
+                using var cmd = new OleDbCommand("SELECT ProvinceName FROM Province", conn);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
-                    OleDbCommand cmd = new OleDbCommand(query, conn);
-                    OleDbDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        cbxProvince.Items.Add(reader["ProvinceName"].ToString());
-                    }
+                    cbxProvince.Items.Add(reader["ProvinceName"].ToString());
                 }
             }
             catch (Exception ex)
@@ -135,23 +140,16 @@ namespace GREENCYCLE
             cbxBarangay.Text = "";
 
             string selectedProvince = cbxProvince.Text;
-
             try
             {
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "SELECT MunicipalityName FROM Municipality WHERE ProvinceName = ?";
-
-                using (OleDbConnection conn = new OleDbConnection(connString))
+                using var conn = new OleDbConnection(ConnectionString);
+                conn.Open();
+                using var cmd = new OleDbCommand("SELECT MunicipalityName FROM Municipality WHERE ProvinceName = ?", conn);
+                cmd.Parameters.AddWithValue("?", selectedProvince);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
-                    OleDbCommand cmd = new OleDbCommand(query, conn);
-                    cmd.Parameters.AddWithValue("?", selectedProvince);
-                    OleDbDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        cbxMunicipality.Items.Add(reader["MunicipalityName"].ToString());
-                    }
+                    cbxMunicipality.Items.Add(reader["MunicipalityName"].ToString());
                 }
             }
             catch (Exception ex)
@@ -166,23 +164,16 @@ namespace GREENCYCLE
             cbxBarangay.Text = "";
 
             string selectedMunicipality = cbxMunicipality.Text;
-
             try
             {
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "SELECT BarangayName FROM Barangay WHERE MunicipalityName = ?";
-
-                using (OleDbConnection conn = new OleDbConnection(connString))
+                using var conn = new OleDbConnection(ConnectionString);
+                conn.Open();
+                using var cmd = new OleDbCommand("SELECT BarangayName FROM Barangay WHERE MunicipalityName = ?", conn);
+                cmd.Parameters.AddWithValue("?", selectedMunicipality);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
-                    OleDbCommand cmd = new OleDbCommand(query, conn);
-                    cmd.Parameters.AddWithValue("?", selectedMunicipality);
-                    OleDbDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        cbxBarangay.Items.Add(reader["BarangayName"].ToString());
-                    }
+                    cbxBarangay.Items.Add(reader["BarangayName"].ToString());
                 }
             }
             catch (Exception ex)
@@ -193,74 +184,63 @@ namespace GREENCYCLE
 
         private void dgvUserList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvUserList.Rows[e.RowIndex];
+            if (e.RowIndex < 0) return;
 
-                // ✅ Set UserID
-                tbxUserID.Text = row.Cells["ID"].Value?.ToString();
+            DataGridViewRow row = dgvUserList.Rows[e.RowIndex];
 
-                // Other fields
-                tbxEmail.Text = row.Cells["Email"].Value?.ToString();
-                tbxPassword.Text = row.Cells["Password"].Value?.ToString();
-                tbxFullname.Text = row.Cells["FullName"].Value?.ToString();
-                tbxPhoneNum.Text = row.Cells["PhoneNumber"].Value?.ToString();
+            tbxUserID.Text = row.Cells["AccountID"].Value?.ToString();
+            tbxEmail.Text = row.Cells["Email"].Value?.ToString();
+            tbxPassword.Text = row.Cells["Password"].Value?.ToString();
+            tbxFullname.Text = row.Cells["FullName"].Value?.ToString();
+            tbxPhoneNum.Text = row.Cells["PhoneNumber"].Value?.ToString();
 
-                string province = row.Cells["Province"].Value?.ToString();
-                string municipality = row.Cells["Municipality"].Value?.ToString();
-                string barangay = row.Cells["Barangay"].Value?.ToString();
+            string province = row.Cells["Province"].Value?.ToString();
+            string municipality = row.Cells["Municipality"].Value?.ToString();
+            string barangay = row.Cells["Barangay"].Value?.ToString();
 
-                cbxProvince.SelectedItem = province;
+            cbxProvince.SelectedItem = province;
 
-                // Load Municipality
-                if (!string.IsNullOrWhiteSpace(province))
-                {
-                    cbxMunicipality.Items.Clear();
-                    string queryMunicipality = "SELECT MunicipalityName FROM Municipality WHERE ProvinceName = @Province";
+            if (!string.IsNullOrWhiteSpace(province))
+                LoadMunicipalities(province, municipality);
 
-                    using (OleDbConnection conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb"))
-                    {
-                        conn.Open();
-                        using (OleDbCommand cmd = new OleDbCommand(queryMunicipality, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Province", province);
-                            OleDbDataReader reader = cmd.ExecuteReader();
-                            while (reader.Read())
-                            {
-                                cbxMunicipality.Items.Add(reader["MunicipalityName"].ToString());
-                            }
-                        }
-                    }
+            if (!string.IsNullOrWhiteSpace(municipality))
+                LoadBarangays(municipality, barangay);
 
-                    cbxMunicipality.SelectedItem = municipality;
-                }
-
-                // Load Barangay
-                if (!string.IsNullOrWhiteSpace(municipality))
-                {
-                    cbxBarangay.Items.Clear();
-                    string queryBarangay = "SELECT BarangayName FROM Barangay WHERE MunicipalityName = @Municipality";
-
-                    using (OleDbConnection conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb"))
-                    {
-                        conn.Open();
-                        using (OleDbCommand cmd = new OleDbCommand(queryBarangay, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Municipality", municipality);
-                            OleDbDataReader reader = cmd.ExecuteReader();
-                            while (reader.Read())
-                            {
-                                cbxBarangay.Items.Add(reader["BarangayName"].ToString());
-                            }
-                        }
-                    }
-
-                    cbxBarangay.SelectedItem = barangay;
-                }
-
-                indexRow = e.RowIndex;
-            }
+            indexRow = e.RowIndex;
         }
+
+        private void LoadMunicipalities(string province, string? select = null)
+        {
+            cbxMunicipality.Items.Clear();
+            using var conn = new OleDbConnection(ConnectionString);
+            conn.Open();
+            using var cmd = new OleDbCommand("SELECT MunicipalityName FROM Municipality WHERE ProvinceName = ?", conn);
+            cmd.Parameters.AddWithValue("?", province);
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string name = reader["MunicipalityName"].ToString();
+                cbxMunicipality.Items.Add(name);
+            }
+            cbxMunicipality.SelectedItem = select;
+        }
+
+        private void LoadBarangays(string municipality, string? select = null)
+        {
+            cbxBarangay.Items.Clear();
+            using var conn = new OleDbConnection(ConnectionString);
+            conn.Open();
+            using var cmd = new OleDbCommand("SELECT BarangayName FROM Barangay WHERE MunicipalityName = ?", conn);
+            cmd.Parameters.AddWithValue("?", municipality);
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string name = reader["BarangayName"].ToString();
+                cbxBarangay.Items.Add(name);
+            }
+            cbxBarangay.SelectedItem = select;
+        }
+
         private void ClearFields()
         {
             tbxUserID.Clear();
@@ -280,41 +260,32 @@ namespace GREENCYCLE
 
         private void cbxBarangay_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedProvince = cbxProvince.Text;
-            string selectedMunicipality = cbxMunicipality.Text;
-            string selectedBarangay = cbxBarangay.Text;
-
-            if (string.IsNullOrWhiteSpace(selectedProvince) ||
-                string.IsNullOrWhiteSpace(selectedMunicipality) ||
-                string.IsNullOrWhiteSpace(selectedBarangay))
-                return;
+            if (string.IsNullOrWhiteSpace(cbxProvince.Text) ||
+                string.IsNullOrWhiteSpace(cbxMunicipality.Text) ||
+                string.IsNullOrWhiteSpace(cbxBarangay.Text)) return;
 
             try
             {
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, " +
-                               "UserInfo.FullName, UserInfo.PhoneNumber, " +
-                               "UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay " +
-                               "FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID " +
-                               "WHERE UserInfo.Province = ? AND UserInfo.Municipality = ? AND UserInfo.Barangay = ?";
+                using var conn = new OleDbConnection(ConnectionString);
+                string query = @"
+                    SELECT UserAccounts.AccountID, UserAccounts.Email, UserAccounts.Password,
+                           UserInfos.FullName, UserInfos.PhoneNumber,
+                           UserInfos.Province, UserInfos.Municipality, UserInfos.Barangay
+                    FROM UserAccounts
+                    INNER JOIN UserInfos ON UserAccounts.AccountID = UserInfos.UserInfosID
+                    WHERE UserInfos.Province = ? AND UserInfos.Municipality = ? AND UserInfos.Barangay = ?";
 
-                using (OleDbConnection conn = new OleDbConnection(connString))
-                {
-                    conn.Open();
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("?", selectedProvince);
-                        cmd.Parameters.AddWithValue("?", selectedMunicipality);
-                        cmd.Parameters.AddWithValue("?", selectedBarangay);
+                using var cmd = new OleDbCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", cbxProvince.Text);
+                cmd.Parameters.AddWithValue("?", cbxMunicipality.Text);
+                cmd.Parameters.AddWithValue("?", cbxBarangay.Text);
 
-                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
-                        DataSet filteredData = new DataSet();
-                        adapter.Fill(filteredData, "FilteredUsers");
+                var adapter = new OleDbDataAdapter(cmd);
+                var filteredData = new DataSet();
+                adapter.Fill(filteredData, "FilteredUsers");
 
-                        dgvUserList.DataSource = filteredData.Tables["FilteredUsers"];
-                        dgvUserList.Columns["ID"].Visible = false;
-                    }
-                }
+                dgvUserList.DataSource = filteredData.Tables["FilteredUsers"];
+                dgvUserList.Columns["AccountID"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -324,47 +295,33 @@ namespace GREENCYCLE
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchID = tbxUserID.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(searchID))
-            {
-                return;
-            }
+            if (string.IsNullOrWhiteSpace(tbxUserID.Text)) return;
 
             try
             {
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "SELECT UserAccount.ID, UserAccount.Email, UserAccount.Password, " +
-                               "UserInfo.FullName, UserInfo.PhoneNumber, " +
-                               "UserInfo.Province, UserInfo.Municipality, UserInfo.Barangay " +
-                               "FROM UserAccount INNER JOIN UserInfo ON UserAccount.ID = UserInfo.ID " +
-                               "WHERE UserAccount.ID = ?";
+                using var conn = new OleDbConnection(ConnectionString);
+                string query = @"
+                    SELECT UserAccounts.AccountID, UserAccounts.Email, UserAccounts.Password,
+                           UserInfos.FullName, UserInfos.PhoneNumber,
+                           UserInfos.Province, UserInfos.Municipality, UserInfos.Barangay
+                    FROM UserAccounts
+                    INNER JOIN UserInfos ON UserAccounts.AccountID = UserInfos.UserInfosID
+                    WHERE UserAccounts.AccountID = ?";
 
-                using (OleDbConnection conn = new OleDbConnection(connString))
-                {
-                    conn.Open();
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("?", searchID);
+                using var cmd = new OleDbCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", tbxUserID.Text);
 
-                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds, "UserSearch");
+                var adapter = new OleDbDataAdapter(cmd);
+                var ds = new DataSet();
+                adapter.Fill(ds, "UserSearch");
 
-                        dgvUserList.DataSource = ds.Tables["UserSearch"];
-                        dgvUserList.Columns["ID"].Visible = false;
-                    }
-                }
+                dgvUserList.DataSource = ds.Tables["UserSearch"];
+                dgvUserList.Columns["AccountID"].Visible = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error searching user: " + ex.Message);
             }
-        }
-
-        private void cbxProvince_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

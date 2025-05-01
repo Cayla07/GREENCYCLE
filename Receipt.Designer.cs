@@ -47,7 +47,7 @@
             btnPDF = new Button();
             btnExit = new Button();
             panelReceipt = new FlowLayoutPanel();
-            btnSubmit = new Button();
+            btnDone = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -263,18 +263,19 @@
             panelReceipt.Size = new Size(551, 266);
             panelReceipt.TabIndex = 6;
             // 
-            // btnSubmit
+            // btnDone
             // 
-            btnSubmit.Anchor = AnchorStyles.None;
-            btnSubmit.BackColor = Color.Red;
-            btnSubmit.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(462, 623);
-            btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(107, 41);
-            btnSubmit.TabIndex = 10;
-            btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = false;
+            btnDone.Anchor = AnchorStyles.None;
+            btnDone.BackColor = Color.Red;
+            btnDone.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDone.ForeColor = Color.White;
+            btnDone.Location = new Point(462, 623);
+            btnDone.Name = "btnDone";
+            btnDone.Size = new Size(107, 41);
+            btnDone.TabIndex = 10;
+            btnDone.Text = "Done";
+            btnDone.UseVisualStyleBackColor = false;
+            btnDone.Click += btnDone_Click;
             // 
             // Receipt
             // 
@@ -282,7 +283,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleGreen;
             ClientSize = new Size(583, 676);
-            Controls.Add(btnSubmit);
+            Controls.Add(btnDone);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Receipt";
@@ -321,6 +322,6 @@
         private Panel panel4;
         private FlowLayoutPanel panelReceipt;
         private Button btnPDF;
-        private Button btnSubmit;
+        private Button btnDone;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
@@ -8,79 +7,47 @@ namespace GREENCYCLE
     public partial class History : Form
     {
         private UserMain1 parentForm;
-        private OleDbConnection connection;
-        private string userEmail; // Save the email of the logged-in user
+        private readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;Persist Security Info=False;";
+        private string userEmail;
 
         public History(string email, UserMain1 parent)
         {
             InitializeComponent();
             this.parentForm = parent;
             userEmail = email;
-            connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;");
+            LoadHistory();
         }
 
-        private void History_Load(object sender, EventArgs e)
-        {
-            LoadRecycleHistory();
-        }
-
-        private void LoadRecycleHistory()
+        private void LoadHistory()
         {
             try
             {
-                connection.Open();
-                string query = "SELECT RecycleActivities.ActivityDate, Recycles.MaterialName, " +
-                    "Recycles.Weight, Recycles.Points " + "FROM (UserAccount INNER JOIN RecycleActivities ON UserAccount.AccountID = RecycleActivities.AccountID) " +
-               "INNER JOIN Recycles ON RecycleActivities.ActivityID = Recycles.ActivityID " +
-               "WHERE UserAccount.Email = '" + userEmail + "' " +
-               "ORDER BY RecycleActivities.ActivityDate DESC";
-
-
-                OleDbDataAdapter adapter = new OleDbDataAdapter(query, connection);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                // Create and set up a DataGridView
-                DataGridView dgvHistory = new DataGridView();
-                dgvHistory.DataSource = dt;
-                dgvHistory.Dock = DockStyle.Fill;
-                dgvHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgvHistory.ReadOnly = true;
-                dgvHistory.AllowUserToAddRows = false;
-                dgvHistory.RowHeadersVisible = false;
-                this.Controls.Add(dgvHistory);
-
-                // Optionally: Calculate Total Points
-                int totalPoints = 0;
-                foreach (DataRow row in dt.Rows)
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
                 {
-                    if (row["PointsEarned"] != DBNull.Value)
-                    {
-                        totalPoints += Convert.ToInt32(row["PointsEarned"]);
-                    }
+                    connection.Open();
+                    string query = "SELECT SubmissionDate, TotalPoints, Details FROM RecycleHistory WHERE Email = ? ORDER BY SubmissionDate DESC";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("?", userEmail);
+
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                    System.Data.DataTable historyTable = new System.Data.DataTable();
+                    adapter.Fill(historyTable);
+
+                    dgvHistory.DataSource = historyTable;
+
+                    // Optional: Customize column headers
+                    if (dgvHistory.Columns.Contains("SubmissionDate"))
+                        dgvHistory.Columns["SubmissionDate"].HeaderText = "Submission Date";
+                    if (dgvHistory.Columns.Contains("TotalPoints"))
+                        dgvHistory.Columns["TotalPoints"].HeaderText = "Total Points";
+                    if (dgvHistory.Columns.Contains("Details"))
+                        dgvHistory.Columns["Details"].HeaderText = "Items Submitted";
                 }
-
-                // Create and show Total Points label
-                Label lblTotalPoints = new Label();
-                lblTotalPoints.Text = "Total Points: " + totalPoints.ToString();
-                lblTotalPoints.Dock = DockStyle.Bottom;
-                lblTotalPoints.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                lblTotalPoints.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold);
-                this.Controls.Add(lblTotalPoints);
             }
-            catch (Exception ex)
+            catch (OleDbException ex)
             {
-                MessageBox.Show("Error loading recycle history: " + ex.Message);
+                MessageBox.Show($"Error loading history: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        private void dgvHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
