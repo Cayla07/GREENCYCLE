@@ -58,12 +58,15 @@
             // 
             // dgvEditRates
             // 
+            dgvEditRates.Anchor = AnchorStyles.None;
+            dgvEditRates.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEditRates.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvEditRates.BackgroundColor = Color.LemonChiffon;
             dgvEditRates.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEditRates.Location = new Point(604, 64);
             dgvEditRates.Name = "dgvEditRates";
             dgvEditRates.RowHeadersWidth = 51;
-            dgvEditRates.Size = new Size(354, 362);
+            dgvEditRates.Size = new Size(439, 362);
             dgvEditRates.TabIndex = 78;
             dgvEditRates.CellContentClick += dgvEditRates_CellContentClick;
             // 

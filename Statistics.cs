@@ -12,9 +12,16 @@ namespace GREENCYCLE
 {
     public partial class Statistics : Form
     {
-        public Statistics()
+        private AdminMain1 parentForm;
+        public Statistics(AdminMain1 parent)
         {
             InitializeComponent();
+            this.parentForm = parent;
+        }
+
+        private void Statistics_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

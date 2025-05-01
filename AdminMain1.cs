@@ -16,6 +16,7 @@ namespace GREENCYCLE
         private UserList userListForm;
         private AdminDB adminDB;
         private EditRates editRates;
+        private Statistics statistics;
         public AdminMain1()
         {
             InitializeComponent();
@@ -103,7 +104,11 @@ namespace GREENCYCLE
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            
+            HighlightButton(btnStatistics);
+            paneldisplayDB.Visible = true;
+            if(statistics == null || statistics.IsDisposed)
+                statistics = new Statistics(this);
+            LoadFormIntoPanel(statistics);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
