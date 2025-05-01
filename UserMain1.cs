@@ -12,13 +12,14 @@ namespace GREENCYCLE
         private UserDB userDBForm;
         private History historyForm;
 
+        public int LoggedInAccountID { get; private set; }
         public string Email { get; set; } // ✅ Added Email property
         public string FullName { get; set; }
-        public UserMain1()
+        public UserMain1(int AccountID)
         {
             InitializeComponent();
             HighlightButton(btnDashboard);
-
+            LoggedInAccountID = AccountID;
             userDBForm = new UserDB(this);
             LoadFormIntoPanel(userDBForm);
         }
@@ -123,6 +124,11 @@ namespace GREENCYCLE
         private void btnMin_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void UserMain1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

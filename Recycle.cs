@@ -13,6 +13,7 @@ namespace GREENCYCLE
         private Dictionary<string, double> materialPointMultipliers = new Dictionary<string, double>();
 
         private readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;Persist Security Info=False;";
+        private string loggedInEmail; // To store the logged-in user's email
 
         public Recycle(UserMain1 parent)
         {
@@ -58,7 +59,11 @@ namespace GREENCYCLE
         private void Recycle_Load(object sender, EventArgs e)
         {
             LoadMaterialPointsFromDatabase();
-            string userEmail = parentForm.Email; // (Just ready if you need it)
+            if (parentForm != null)
+            {
+                loggedInEmail = parentForm.Email;
+                LoadRecycleBagFromDatabase();
+            }
         }
 
         private void LoadMaterialPointsFromDatabase()
@@ -91,40 +96,47 @@ namespace GREENCYCLE
             }
         }
 
-        private void btnPlastics_Click(object sender, EventArgs e)
+        private void LoadRecycleBagFromDatabase()
         {
-            PBInfo pbInfoForm = new PBInfo("Plastic Bottles", this);
-            Overlay.ShowOverlay(this, pbInfoForm, null);
-        }
+            try
+            {
+                recycleBag.Clear();
+                if (!string.IsNullOrEmpty(loggedInEmail))
+                {
+                    using (OleDbConnection connection = new OleDbConnection(connectionString))
+                    {
+                        connection.Open();
+                        string query = "SELECT MaterialName, Points FROM RecycleBag WHERE Email = ?";
+                        OleDbCommand command = new OleDbCommand(query, connection);
+                        command.Parameters.AddWithValue("?", loggedInEmail);
 
-        private void btnGlass_Click(object sender, EventArgs e)
-        {
-            GBInfo gbInfoForm = new GBInfo("Glass Bottles", this);
-            Overlay.ShowOverlay(this, gbInfoForm, null);
-        }
+                        using (OleDbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string material = reader["MaterialName"].ToString();
+                                double points = Convert.ToDouble(reader["Points"]);
+                                double multiplier = materialPointMultipliers.ContainsKey(material) ? materialPointMultipliers[material] : 10;
+                                double weight = points / multiplier;
 
-        private void btnCans_Click(object sender, EventArgs e)
-        {
-            DCInfo dcInfoForm = new DCInfo("Drink Cans", this);
-            Overlay.ShowOverlay(this, dcInfoForm, null);
-        }
-
-        private void btnCartons_Click(object sender, EventArgs e)
-        {
-            CartonInfo cartonInfoForm = new CartonInfo("Drink Cartons", this);
-            Overlay.ShowOverlay(this, cartonInfoForm, null);
-        }
-
-        private void btnPapers_Click(object sender, EventArgs e)
-        {
-            RPInfo rpInfoForm = new RPInfo("Recycled Papers", this);
-            Overlay.ShowOverlay(this, rpInfoForm, null);
-        }
-
-        private void btnLids_Click(object sender, EventArgs e)
-        {
-            BLInfo blInfoForm = new BLInfo("Bottle Lids", this);
-            Overlay.ShowOverlay(this, blInfoForm, null);
+                                if (recycleBag.ContainsKey(material))
+                                {
+                                    recycleBag[material] += weight;
+                                }
+                                else
+                                {
+                                    recycleBag[material] = weight;
+                                }
+                            }
+                        }
+                    }
+                }
+                UpdateRecycleBagDisplay();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading recycle bag: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void AddToRecycleBag(string materialName, double weight)
@@ -135,10 +147,44 @@ namespace GREENCYCLE
             }
             else
             {
-                recycleBag.Add(materialName, weight);
+                recycleBag[materialName] = weight;
             }
 
+            SaveMaterialToDatabase(materialName, recycleBag[materialName]);
             UpdateRecycleBagDisplay();
+        }
+
+        private void SaveMaterialToDatabase(string materialName, double totalWeight)
+        {
+            if (!string.IsNullOrEmpty(loggedInEmail))
+            {
+                try
+                {
+                    double points = totalWeight * (materialPointMultipliers.ContainsKey(materialName) ? materialPointMultipliers[materialName] : 10);
+
+                    using (OleDbConnection connection = new OleDbConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        string deleteQuery = "DELETE FROM RecycleBag WHERE Email = ? AND MaterialName = ?";
+                        OleDbCommand deleteCmd = new OleDbCommand(deleteQuery, connection);
+                        deleteCmd.Parameters.AddWithValue("?", loggedInEmail);
+                        deleteCmd.Parameters.AddWithValue("?", materialName);
+                        deleteCmd.ExecuteNonQuery();
+
+                        string insertQuery = "INSERT INTO RecycleBag (Email, MaterialName, Points) VALUES (?, ?, ?)";
+                        OleDbCommand insertCmd = new OleDbCommand(insertQuery, connection);
+                        insertCmd.Parameters.AddWithValue("?", loggedInEmail);
+                        insertCmd.Parameters.AddWithValue("?", materialName);
+                        insertCmd.Parameters.AddWithValue("?", points);
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving material: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void UpdateRecycleBagDisplay()
@@ -175,11 +221,11 @@ namespace GREENCYCLE
                 };
 
                 double pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
-                double points = (double)(item.Value * pointsPerKg);
+                double points = item.Value * pointsPerKg;
 
                 Label lblPoints = new Label
                 {
-                    Text = $"{points:F1} pts", // Formatting: thousands separated
+                    Text = $"{points:F1} pts",
                     Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
                     AutoSize = false,
                     Size = new Size(110, 30),
@@ -201,7 +247,7 @@ namespace GREENCYCLE
             foreach (var item in recycleBag)
             {
                 double pointsPerKg = materialPointMultipliers.ContainsKey(item.Key) ? materialPointMultipliers[item.Key] : 10;
-                total += (double)(item.Value * pointsPerKg);
+                total += item.Value * pointsPerKg;
             }
             return (int)total;
         }
@@ -216,9 +262,68 @@ namespace GREENCYCLE
 
             Overlay.ShowOverlay(this, receiptForm, null);
 
-            // Optional: Clear the bag after submit
+            ClearRecycleBagFromDatabase();
             recycleBag.Clear();
             UpdateRecycleBagDisplay();
+        }
+
+        private void ClearRecycleBagFromDatabase()
+        {
+            if (!string.IsNullOrEmpty(loggedInEmail))
+            {
+                try
+                {
+                    using (OleDbConnection connection = new OleDbConnection(connectionString))
+                    {
+                        connection.Open();
+                        string deleteQuery = "DELETE FROM RecycleBag WHERE Email = ?";
+                        OleDbCommand deleteCmd = new OleDbCommand(deleteQuery, connection);
+                        deleteCmd.Parameters.AddWithValue("?", loggedInEmail);
+                        deleteCmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error clearing recycle bag: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // Your material buttons remain unchanged
+        private void btnPlastics_Click(object sender, EventArgs e)
+        {
+            PBInfo pbInfoForm = new PBInfo("Plastic Bottles", this);
+            Overlay.ShowOverlay(this, pbInfoForm, null);
+        }
+
+        private void btnGlass_Click(object sender, EventArgs e)
+        {
+            GBInfo gbInfoForm = new GBInfo("Glass Bottles", this);
+            Overlay.ShowOverlay(this, gbInfoForm, null);
+        }
+
+        private void btnCans_Click(object sender, EventArgs e)
+        {
+            DCInfo dcInfoForm = new DCInfo("Drink Cans", this);
+            Overlay.ShowOverlay(this, dcInfoForm, null);
+        }
+
+        private void btnCartons_Click(object sender, EventArgs e)
+        {
+            CartonInfo cartonInfoForm = new CartonInfo("Drink Cartons", this);
+            Overlay.ShowOverlay(this, cartonInfoForm, null);
+        }
+
+        private void btnPapers_Click(object sender, EventArgs e)
+        {
+            RPInfo rpInfoForm = new RPInfo("Recycled Papers", this);
+            Overlay.ShowOverlay(this, rpInfoForm, null);
+        }
+
+        private void btnLids_Click(object sender, EventArgs e)
+        {
+            BLInfo blInfoForm = new BLInfo("Bottle Lids", this);
+            Overlay.ShowOverlay(this, blInfoForm, null);
         }
     }
 }

@@ -60,26 +60,48 @@ namespace GREENCYCLE
 
             using (OleDbConnection myConn = new OleDbConnection(connString))
             {
-                myConn.Open();
-
-                string loginQuery = "SELECT COUNT(*) FROM UserAccounts WHERE Email = @Email AND [Password] = @Password";
-                using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    myConn.Open();
 
-                    int count = (int)cmd.ExecuteScalar();
-                    if (count > 0)
+                    // Modified query to select accountID and Email
+                    string loginQuery = "SELECT AccountID, Email FROM UserAccounts WHERE Email = @Email AND [Password] = @Password";
+                    using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
                     {
-                        MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        UserMain1 userDashboard = new UserMain1();
-                        userDashboard.Show();
-                        mainForm.Close(); // Fully close Main0
-                        this.Hide(); // Hide login form
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int loggedInAccountID = Convert.ToInt32(reader["accountID"]);
+                                string loggedInEmail = reader["Email"].ToString();
+
+                                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                UserMain1 userDashboard = new UserMain1(loggedInAccountID); // Pass accountID
+                                userDashboard.Email = loggedInEmail; // Set the Email property
+                                                                     // You might want to fetch and set FullName here as well
+                                userDashboard.Show();
+                                mainForm?.Close();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Email or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
-                    else
+                }
+                catch (OleDbException ex)
+                {
+                    MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (myConn.State == ConnectionState.Open)
                     {
-                        MessageBox.Show("Invalid Email or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        myConn.Close();
                     }
                 }
             }

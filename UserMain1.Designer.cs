@@ -271,6 +271,7 @@
             Name = "UserMain1";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += UserMain1_Load;
             panelMenu.ResumeLayout(false);
             ResumeLayout(false);
         }

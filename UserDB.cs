@@ -20,5 +20,9 @@ namespace GREENCYCLE
             this.parentForm = parent;
         }
 
+        private void UserDB_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
