@@ -62,7 +62,7 @@ namespace GREENCYCLE
             {
                 myConn.Open();
 
-                string loginQuery = "SELECT COUNT(*) FROM UserAccount WHERE Email = @Email AND [Password] = @Password";
+                string loginQuery = "SELECT COUNT(*) FROM UserAccounts WHERE Email = @Email AND [Password] = @Password";
                 using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);
@@ -84,7 +84,7 @@ namespace GREENCYCLE
                 }
             }
         }
-   
+
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (mainForm != null)

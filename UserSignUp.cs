@@ -78,7 +78,7 @@ namespace GREENCYCLE
                     myConn.Open();
 
                     // 1️⃣ Check if email already exists
-                    string checkQuery = "SELECT COUNT(*) FROM UserAccount WHERE Email = @Email";
+                    string checkQuery = "SELECT COUNT(*) FROM UserAccounts WHERE Email = @Email";
                     using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, myConn))
                     {
                         checkCmd.Parameters.AddWithValue("@Email", email);
@@ -92,7 +92,7 @@ namespace GREENCYCLE
                     }
 
                     // 2️⃣ Insert new user if email is unique
-                    string insertQuery = "INSERT INTO UserAccount (Email, [Password]) VALUES (@Email, @Password)";
+                    string insertQuery = "INSERT INTO UserAccounts (Email, [Password]) VALUES (@Email, @Password)";
                     using (OleDbCommand insertCmd = new OleDbCommand(insertQuery, myConn))
                     {
                         insertCmd.Parameters.AddWithValue("@Email", email);

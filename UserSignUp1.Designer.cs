@@ -43,8 +43,6 @@
             label2 = new Label();
             tbxFullName = new TextBox();
             label6 = new Label();
-            label3 = new Label();
-            cbxPurok = new ComboBox();
             SuspendLayout();
             // 
             // cbxBarangay
@@ -55,7 +53,7 @@
             cbxBarangay.Name = "cbxBarangay";
             cbxBarangay.Size = new Size(213, 28);
             cbxBarangay.TabIndex = 57;
-            cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
+            //cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
             // 
             // label11
             // 
@@ -215,34 +213,12 @@
             label6.TabIndex = 39;
             label6.Text = "Full Name:";
             // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(300, 326);
-            label3.Name = "label3";
-            label3.Size = new Size(73, 24);
-            label3.TabIndex = 58;
-            label3.Text = "Purok:";
-            // 
-            // cbxPurok
-            // 
-            cbxPurok.Anchor = AnchorStyles.None;
-            cbxPurok.FormattingEnabled = true;
-            cbxPurok.Location = new Point(300, 353);
-            cbxPurok.Name = "cbxPurok";
-            cbxPurok.Size = new Size(213, 28);
-            cbxPurok.TabIndex = 59;
-            // 
             // UserSignUp1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(589, 569);
-            Controls.Add(cbxPurok);
-            Controls.Add(label3);
             Controls.Add(cbxBarangay);
             Controls.Add(label11);
             Controls.Add(cbxMunicipality);
@@ -284,7 +260,5 @@
         private Label label2;
         private TextBox tbxFullName;
         private Label label6;
-        private Label label3;
-        private ComboBox cbxPurok;
     }
 }

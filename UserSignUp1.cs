@@ -21,7 +21,6 @@ namespace GREENCYCLE
 
             cbxProvince.SelectedIndexChanged += cbxProvince_SelectedIndexChanged;
             cbxMunicipality.SelectedIndexChanged += cbxMunicipality_SelectedIndexChanged;
-            cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
 
             LoadProvinces();
         }
@@ -43,7 +42,7 @@ namespace GREENCYCLE
             {
                 var nextForm = new UserSignUp(functionalityForm);
                 functionalityForm.LoadFormIntoPanel(nextForm);
-            }
+            }// Pass ID to the next form
         }
 
         private void linkUserLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -86,8 +85,6 @@ namespace GREENCYCLE
             cbxBarangay.Items.Clear();
             cbxMunicipality.Text = "";
             cbxBarangay.Text = "";
-            cbxPurok.Items.Clear();
-            cbxPurok.Text = "";
 
             string selectedProvince = cbxProvince.Text;
 
@@ -144,68 +141,31 @@ namespace GREENCYCLE
             }
         }
 
-        private void cbxBarangay_SelectedIndexChanged(object sender, EventArgs e)
+        private int SaveUserInfo()
         {
-            cbxPurok.Items.Clear();
-            cbxPurok.Text = "";
+            int userInfoID = -1;
 
-            string selectedBarangay = cbxBarangay.Text;
+            string query = "INSERT INTO UserInfos (FullName, PhoneNumber, Province, Municipality, Barangay) " +
+                           "VALUES (?, ?, ?, ?, ?)";
 
-            try
+            using (OleDbConnection conn = new OleDbConnection(
+                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;"))
             {
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "SELECT PurokName FROM Purok WHERE BarangayName = ?";
+                conn.Open();
+                OleDbCommand cmd = new OleDbCommand(query, conn);
+                cmd.Parameters.AddWithValue("?", tbxFullName.Text);
+                cmd.Parameters.AddWithValue("?", tbxPhoneNum.Text);
+                cmd.Parameters.AddWithValue("?", cbxProvince.Text);
+                cmd.Parameters.AddWithValue("?", cbxMunicipality.Text);
+                cmd.Parameters.AddWithValue("?", cbxBarangay.Text);
+                cmd.ExecuteNonQuery();
 
-                using (OleDbConnection conn = new OleDbConnection(connString))
-                {
-                    conn.Open();
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("?", selectedBarangay);
-                        using (OleDbDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                cbxPurok.Items.Add(reader["PurokName"].ToString());
-                            }
-                        }
-                    }
-                }
+                // Get the last inserted ID
+                cmd = new OleDbCommand("SELECT @@IDENTITY", conn);
+                userInfoID = Convert.ToInt32(cmd.ExecuteScalar());
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading puroks: " + ex.Message);
-            }
-        }
 
-        private void SaveUserInfo()
-        {
-            string fullName = tbxFullName.Text;
-            string phone = tbxPhoneNum.Text;
-            string province = cbxProvince.Text;
-            string municipality = cbxMunicipality.Text;
-            string barangay = cbxBarangay.Text;
-            string purok = cbxPurok.Text;
-
-            try
-            {
-                string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb;";
-                string query = "INSERT INTO UserInfo (Fullname, PhoneNumber, Province, Municipality, Barangay, Purok) " +
-                               "VALUES ('" + fullName + "', '" + phone + "', 0, '" + province + "', '" + municipality + "', '" + barangay + "', '" + purok + "')";
-
-                using (OleDbConnection conn = new OleDbConnection(connString))
-                {
-                    conn.Open();
-                    OleDbCommand cmd = new OleDbCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("User information saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving user information: " + ex.Message);
-            }
+            return userInfoID;
         }
     }
 }

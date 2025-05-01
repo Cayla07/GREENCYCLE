@@ -162,7 +162,8 @@
   <Class Name="GREENCYCLE.UserList" Collapsed="true">
     <Position X="26.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>FAAAAIAAACIBABAAKCCAAAACAgAAAhAAAAABAAAAQAI=</HashCode>
+      <HashCode>FAEgAIQEAjIhADQAKCGABAAWAoAQIhAgAAADAAAQQAI=</HashCode>
+      <FileName>UserList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GREENCYCLE.UserLogIn" Collapsed="true">
@@ -189,7 +190,7 @@
   <Class Name="GREENCYCLE.UserSignUp1" Collapsed="true">
     <Position X="23" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>MAFAgYAEACAhABAACgCABAACAhAACEAAAKABAAAAAAA=</HashCode>
+      <HashCode>MAFAgYAEACABABAACgCABAACAhAACEAAAKABAAAAAAA=</HashCode>
       <FileName>UserSignUp1.cs</FileName>
     </TypeIdentifier>
   </Class>
