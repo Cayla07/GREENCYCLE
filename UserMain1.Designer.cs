@@ -32,10 +32,8 @@
             panelMenu = new Panel();
             btnHome = new Button();
             btnOut = new Button();
-            btnSettings = new Button();
             btnWallet = new Button();
             btnHistory = new Button();
-            btnTransaction = new Button();
             btnRecycle = new Button();
             btnDashboard = new Button();
             paneldisplayDB = new Panel();
@@ -49,10 +47,8 @@
             panelMenu.BackColor = Color.Green;
             panelMenu.Controls.Add(btnHome);
             panelMenu.Controls.Add(btnOut);
-            panelMenu.Controls.Add(btnSettings);
             panelMenu.Controls.Add(btnWallet);
             panelMenu.Controls.Add(btnHistory);
-            panelMenu.Controls.Add(btnTransaction);
             panelMenu.Controls.Add(btnRecycle);
             panelMenu.Controls.Add(btnDashboard);
             panelMenu.Dock = DockStyle.Left;
@@ -97,26 +93,6 @@
             btnOut.UseVisualStyleBackColor = false;
             btnOut.Click += btnOut_Click;
             // 
-            // btnSettings
-            // 
-            btnSettings.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSettings.BackColor = Color.Transparent;
-            btnSettings.BackgroundImageLayout = ImageLayout.None;
-            btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Font = new Font("Cooper Black", 12F);
-            btnSettings.ForeColor = Color.White;
-            btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
-            btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(107, 663);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Padding = new Padding(10, 0, 0, 0);
-            btnSettings.Size = new Size(200, 53);
-            btnSettings.TabIndex = 27;
-            btnSettings.Text = " PROFILE";
-            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSettings.UseVisualStyleBackColor = false;
-            btnSettings.Click += btnSettings_Click;
-            // 
             // btnWallet
             // 
             btnWallet.Anchor = AnchorStyles.Left;
@@ -147,7 +123,7 @@
             btnHistory.ForeColor = Color.White;
             btnHistory.Image = (Image)resources.GetObject("btnHistory.Image");
             btnHistory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistory.Location = new Point(0, 508);
+            btnHistory.Location = new Point(0, 437);
             btnHistory.Name = "btnHistory";
             btnHistory.Padding = new Padding(10, 0, 0, 0);
             btnHistory.Size = new Size(307, 65);
@@ -156,26 +132,6 @@
             btnHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnHistory.UseVisualStyleBackColor = false;
             btnHistory.Click += btnHistory_Click;
-            // 
-            // btnTransaction
-            // 
-            btnTransaction.Anchor = AnchorStyles.Left;
-            btnTransaction.BackColor = Color.Transparent;
-            btnTransaction.BackgroundImageLayout = ImageLayout.None;
-            btnTransaction.FlatStyle = FlatStyle.Flat;
-            btnTransaction.Font = new Font("Cooper Black", 12F);
-            btnTransaction.ForeColor = Color.White;
-            btnTransaction.Image = (Image)resources.GetObject("btnTransaction.Image");
-            btnTransaction.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTransaction.Location = new Point(0, 437);
-            btnTransaction.Name = "btnTransaction";
-            btnTransaction.Padding = new Padding(10, 0, 0, 0);
-            btnTransaction.Size = new Size(307, 65);
-            btnTransaction.TabIndex = 24;
-            btnTransaction.Text = "TRANSACTION";
-            btnTransaction.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnTransaction.UseVisualStyleBackColor = false;
-            btnTransaction.Click += btnTransaction_Click;
             // 
             // btnRecycle
             // 
@@ -282,9 +238,7 @@
         private Button btnRecycle;
         private Button btnWallet;
         private Button btnHistory;
-        private Button btnTransaction;
         private Button btnOut;
-        private Button btnSettings;
         private Panel paneldisplayDB;
         private Button btnHome;
         private Button btnMin;

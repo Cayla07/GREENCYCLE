@@ -38,7 +38,6 @@
             label13 = new Label();
             label14 = new Label();
             tbxPassL = new TextBox();
-            linkLabel1 = new LinkLabel();
             tbxEmailL = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -149,20 +148,6 @@
             tbxPassL.Size = new Size(341, 34);
             tbxPassL.TabIndex = 45;
             // 
-            // linkLabel1
-            // 
-            linkLabel1.ActiveLinkColor = Color.Lime;
-            linkLabel1.Anchor = AnchorStyles.None;
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(220, 485);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(128, 17);
-            linkLabel1.TabIndex = 44;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forgot Password?";
-            // 
             // tbxEmailL
             // 
             tbxEmailL.Anchor = AnchorStyles.None;
@@ -189,7 +174,6 @@
             Controls.Add(label13);
             Controls.Add(label14);
             Controls.Add(tbxPassL);
-            Controls.Add(linkLabel1);
             Controls.Add(tbxEmailL);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
@@ -214,7 +198,6 @@
         private Label label13;
         private Label label14;
         private TextBox tbxPassL;
-        private LinkLabel linkLabel1;
         private TextBox tbxEmailL;
     }
 }

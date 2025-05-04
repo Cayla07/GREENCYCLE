@@ -30,17 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserList));
             cbxBarangay = new ComboBox();
-            tbxUserID = new TextBox();
             label10 = new Label();
             tbxPhoneNum = new TextBox();
             label6 = new Label();
             tbxFullname = new TextBox();
             label4 = new Label();
-            tbxPassword = new TextBox();
-            label3 = new Label();
-            tbxEmail = new TextBox();
-            label2 = new Label();
-            label1 = new Label();
             btnLoadFile = new Button();
             btnConnection = new Button();
             cbxMunicipality = new ComboBox();
@@ -48,9 +42,15 @@
             label8 = new Label();
             label7 = new Label();
             btnClear = new Button();
-            btnSearch = new Button();
             dgvUserList = new DataGridView();
             label5 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            tbxEmail = new TextBox();
+            label3 = new Label();
+            tbxPassword = new TextBox();
+            tbxUserID = new TextBox();
+            btnSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUserList).BeginInit();
             SuspendLayout();
             // 
@@ -64,14 +64,6 @@
             cbxBarangay.Size = new Size(253, 28);
             cbxBarangay.TabIndex = 69;
             cbxBarangay.SelectedIndexChanged += cbxBarangay_SelectedIndexChanged;
-            // 
-            // tbxUserID
-            // 
-            tbxUserID.Location = new Point(105, 89);
-            tbxUserID.Name = "tbxUserID";
-            tbxUserID.Size = new Size(102, 27);
-            tbxUserID.TabIndex = 68;
-            tbxUserID.TextAlign = HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -119,53 +111,6 @@
             label4.Size = new Size(111, 23);
             label4.TabIndex = 61;
             label4.Text = "Fullname:";
-            // 
-            // tbxPassword
-            // 
-            tbxPassword.Location = new Point(126, 182);
-            tbxPassword.Name = "tbxPassword";
-            tbxPassword.Size = new Size(253, 27);
-            tbxPassword.TabIndex = 60;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Cooper Black", 12F);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(14, 186);
-            label3.Name = "label3";
-            label3.Size = new Size(117, 23);
-            label3.TabIndex = 59;
-            label3.Text = "Password:";
-            // 
-            // tbxEmail
-            // 
-            tbxEmail.Location = new Point(87, 149);
-            tbxEmail.Name = "tbxEmail";
-            tbxEmail.Size = new Size(292, 27);
-            tbxEmail.TabIndex = 58;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Cooper Black", 12F);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(14, 153);
-            label2.Name = "label2";
-            label2.Size = new Size(74, 23);
-            label2.TabIndex = 57;
-            label2.Text = "Email:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(14, 91);
-            label1.Name = "label1";
-            label1.Size = new Size(93, 23);
-            label1.TabIndex = 56;
-            label1.Text = "User ID:";
             // 
             // btnLoadFile
             // 
@@ -241,18 +186,6 @@
             btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
             // 
-            // btnSearch
-            // 
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(203, 89);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(31, 27);
-            btnSearch.TabIndex = 76;
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
-            // 
             // dgvUserList
             // 
             dgvUserList.BackgroundColor = Color.LemonChiffon;
@@ -274,6 +207,73 @@
             label5.Size = new Size(111, 23);
             label5.TabIndex = 78;
             label5.Text = "Barangay:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(14, 91);
+            label1.Name = "label1";
+            label1.Size = new Size(93, 23);
+            label1.TabIndex = 56;
+            label1.Text = "User ID:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Cooper Black", 12F);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(14, 153);
+            label2.Name = "label2";
+            label2.Size = new Size(74, 23);
+            label2.TabIndex = 57;
+            label2.Text = "Email:";
+            // 
+            // tbxEmail
+            // 
+            tbxEmail.Location = new Point(87, 149);
+            tbxEmail.Name = "tbxEmail";
+            tbxEmail.Size = new Size(292, 27);
+            tbxEmail.TabIndex = 58;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Cooper Black", 12F);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(14, 186);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 23);
+            label3.TabIndex = 59;
+            label3.Text = "Password:";
+            // 
+            // tbxPassword
+            // 
+            tbxPassword.Location = new Point(126, 182);
+            tbxPassword.Name = "tbxPassword";
+            tbxPassword.Size = new Size(253, 27);
+            tbxPassword.TabIndex = 60;
+            // 
+            // tbxUserID
+            // 
+            tbxUserID.Location = new Point(105, 89);
+            tbxUserID.Name = "tbxUserID";
+            tbxUserID.Size = new Size(102, 27);
+            tbxUserID.TabIndex = 68;
+            tbxUserID.TextAlign = HorizontalAlignment.Center;
+            // 
+            // btnSearch
+            // 
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
+            btnSearch.Location = new Point(203, 89);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(31, 27);
+            btnSearch.TabIndex = 76;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // UserList
             // 
@@ -315,17 +315,11 @@
 
         #endregion
         private ComboBox cbxBarangay;
-        private TextBox tbxUserID;
         private Label label10;
         private TextBox tbxPhoneNum;
         private Label label6;
         private TextBox tbxFullname;
         private Label label4;
-        private TextBox tbxPassword;
-        private Label label3;
-        private TextBox tbxEmail;
-        private Label label2;
-        private Label label1;
         private Button btnLoadFile;
         private Button btnConnection;
         private ComboBox cbxMunicipality;
@@ -333,8 +327,14 @@
         private Label label8;
         private Label label7;
         private Button btnClear;
-        private Button btnSearch;
         private DataGridView dgvUserList;
         private Label label5;
+        private Label label1;
+        private Label label2;
+        private TextBox tbxEmail;
+        private Label label3;
+        private TextBox tbxPassword;
+        private TextBox tbxUserID;
+        private Button btnSearch;
     }
 }

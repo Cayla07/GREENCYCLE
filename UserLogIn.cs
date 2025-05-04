@@ -56,6 +56,7 @@ namespace GREENCYCLE
                 return;
             }
 
+
             string connString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;";
 
             using (OleDbConnection myConn = new OleDbConnection(connString))

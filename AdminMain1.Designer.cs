@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMain1));
             panelMenu = new Panel();
+            btnRewards = new Button();
             btnHome = new Button();
             btnOut = new Button();
-            btnSettings = new Button();
             btnEditRates = new Button();
             btnStatistics = new Button();
             btnUsers = new Button();
@@ -46,9 +46,9 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.Green;
+            panelMenu.Controls.Add(btnRewards);
             panelMenu.Controls.Add(btnHome);
             panelMenu.Controls.Add(btnOut);
-            panelMenu.Controls.Add(btnSettings);
             panelMenu.Controls.Add(btnEditRates);
             panelMenu.Controls.Add(btnStatistics);
             panelMenu.Controls.Add(btnUsers);
@@ -59,6 +59,26 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(299, 765);
             panelMenu.TabIndex = 26;
+            // 
+            // btnRewards
+            // 
+            btnRewards.Anchor = AnchorStyles.Left;
+            btnRewards.BackColor = Color.Transparent;
+            btnRewards.BackgroundImageLayout = ImageLayout.None;
+            btnRewards.FlatStyle = FlatStyle.Flat;
+            btnRewards.Font = new Font("Arial Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRewards.ForeColor = Color.White;
+            btnRewards.Image = (Image)resources.GetObject("btnRewards.Image");
+            btnRewards.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRewards.Location = new Point(0, 437);
+            btnRewards.Name = "btnRewards";
+            btnRewards.Padding = new Padding(10, 0, 0, 0);
+            btnRewards.Size = new Size(307, 65);
+            btnRewards.TabIndex = 30;
+            btnRewards.Text = " EDIT REWARDS";
+            btnRewards.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRewards.UseVisualStyleBackColor = false;
+            btnRewards.Click += btnRewards_Click;
             // 
             // btnHome
             // 
@@ -96,26 +116,6 @@
             btnOut.UseVisualStyleBackColor = false;
             btnOut.Click += btnOut_Click;
             // 
-            // btnSettings
-            // 
-            btnSettings.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSettings.BackColor = Color.Transparent;
-            btnSettings.BackgroundImageLayout = ImageLayout.None;
-            btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSettings.ForeColor = Color.White;
-            btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
-            btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(107, 653);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Padding = new Padding(10, 0, 0, 0);
-            btnSettings.Size = new Size(200, 53);
-            btnSettings.TabIndex = 27;
-            btnSettings.Text = " PROFILE";
-            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSettings.UseVisualStyleBackColor = false;
-            btnSettings.Click += btnSettings_Click;
-            // 
             // btnEditRates
             // 
             btnEditRates.Anchor = AnchorStyles.Left;
@@ -146,7 +146,7 @@
             btnStatistics.ForeColor = Color.White;
             btnStatistics.Image = (Image)resources.GetObject("btnStatistics.Image");
             btnStatistics.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStatistics.Location = new Point(0, 437);
+            btnStatistics.Location = new Point(0, 508);
             btnStatistics.Name = "btnStatistics";
             btnStatistics.Padding = new Padding(10, 0, 0, 0);
             btnStatistics.Size = new Size(307, 65);
@@ -256,7 +256,6 @@
         #endregion
         private Panel panelMenu;
         private Button btnOut;
-        private Button btnSettings;
         private Button btnEditRates;
         private Button btnStatistics;
         private Button btnUsers;
@@ -265,5 +264,6 @@
         private Button btnExit;
         private Panel paneldisplayDB;
         private Button btnHome;
+        private Button btnRewards;
     }
 }

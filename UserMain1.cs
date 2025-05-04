@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,6 +12,7 @@ namespace GREENCYCLE
         private Recycle recycleForm;
         private UserDB userDBForm;
         private History historyForm;
+        private Wallet walletForm;
 
         public int LoggedInAccountID { get; private set; }
         public string Email { get; set; } // ✅ Added Email property
@@ -48,9 +50,7 @@ namespace GREENCYCLE
             btnDashboard.BackColor = Color.Transparent;
             btnRecycle.BackColor = Color.Transparent;
             btnWallet.BackColor = Color.Transparent;
-            btnTransaction.BackColor = Color.Transparent;
             btnHistory.BackColor = Color.Transparent;
-            btnSettings.BackColor = Color.Transparent;
             btnOut.BackColor = Color.Transparent;
         }
 
@@ -83,14 +83,15 @@ namespace GREENCYCLE
 
         private void btnWallet_Click(object sender, EventArgs e)
         {
+         
             HighlightButton(btnWallet);
-            // Wallet form logic
-        }
+            string email = Email;       // e.g., fetched from login session or form property
+            double totalPoints = TotalPoints(email); // e.g., query from database
 
-        private void btnTransaction_Click(object sender, EventArgs e)
-        {
-            HighlightButton(btnTransaction);
-            // Transaction form logic
+            if (walletForm == null || walletForm.IsDisposed)
+                walletForm = new Wallet(this, email, totalPoints);
+
+            LoadFormIntoPanel(walletForm);
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -100,12 +101,6 @@ namespace GREENCYCLE
                 historyForm = new History(this.Email, this);
 
             LoadFormIntoPanel(historyForm);
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            HighlightButton(btnSettings);
-            // Settings form logic
         }
 
         private void btnOut_Click(object sender, EventArgs e)
@@ -124,6 +119,27 @@ namespace GREENCYCLE
         private void btnMin_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private double TotalPoints(string email)
+        {
+            double total = 0;
+            string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb";
+
+            using (var conn = new OleDbConnection(connectionString))
+            {
+                string query = "SELECT SUM(Points) FROM RecycleHistory WHERE Email = @Email";
+                using (var cmd = new OleDbCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                        total = Convert.ToDouble(result);
+                }
+            }
+
+            return total;
         }
 
         private void UserMain1_Load(object sender, EventArgs e)

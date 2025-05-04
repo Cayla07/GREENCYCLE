@@ -17,6 +17,7 @@ namespace GREENCYCLE
         private AdminDB adminDB;
         private EditRates editRates;
         private Statistics statistics;
+        private Rewards rewards;
         public AdminMain1()
         {
             InitializeComponent();
@@ -47,7 +48,7 @@ namespace GREENCYCLE
         private void HighlightButton(Button btn)
         {
             DisableButton(); // Reset all buttons to default
-            btn.BackColor = Color.Lime; 
+            btn.BackColor = Color.Lime;
         }
 
         private void DisableButton()
@@ -56,7 +57,6 @@ namespace GREENCYCLE
             btnUsers.BackColor = Color.Transparent;
             btnEditRates.BackColor = Color.Transparent;
             btnStatistics.BackColor = Color.Transparent;
-            btnSettings.BackColor = Color.Transparent;
             btnOut.BackColor = Color.Transparent;
         }
 
@@ -73,7 +73,7 @@ namespace GREENCYCLE
         {
             HighlightButton(btnDashboard);
             paneldisplayDB.Visible = true;
-            
+
             if (adminDB == null || adminDB.IsDisposed)
                 adminDB = new AdminDB(this);
 
@@ -96,24 +96,29 @@ namespace GREENCYCLE
             HighlightButton(btnEditRates);
             paneldisplayDB.Visible = true;
 
-            if(editRates == null || editRates.IsDisposed)
+            if (editRates == null || editRates.IsDisposed)
                 editRates = new EditRates(this);
 
-            LoadFormIntoPanel(editRates);  
+            LoadFormIntoPanel(editRates);
+        }
+
+        private void btnRewards_Click(object sender, EventArgs e)
+        {
+            HighlightButton(btnRewards);
+            paneldisplayDB.Visible = true;
+
+            if (rewards == null || rewards.IsDisposed)
+                rewards = new Rewards(this);
+            LoadFormIntoPanel(rewards);
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
             HighlightButton(btnStatistics);
             paneldisplayDB.Visible = true;
-            if(statistics == null || statistics.IsDisposed)
+            if (statistics == null || statistics.IsDisposed)
                 statistics = new Statistics(this);
             LoadFormIntoPanel(statistics);
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void btnExit_Click_1(object sender, EventArgs e)
