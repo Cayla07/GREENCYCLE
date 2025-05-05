@@ -85,11 +85,10 @@ namespace GREENCYCLE
         {
          
             HighlightButton(btnWallet);
-            string email = Email;       // e.g., fetched from login session or form property
-            double totalPoints = TotalPoints(email); // e.g., query from database
+             // e.g., query from database
 
             if (walletForm == null || walletForm.IsDisposed)
-                walletForm = new Wallet(this, email, totalPoints);
+                walletForm = new Wallet(this);
 
             LoadFormIntoPanel(walletForm);
         }

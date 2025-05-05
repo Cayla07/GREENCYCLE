@@ -4,6 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace GREENCYCLE
 {
@@ -24,7 +27,7 @@ namespace GREENCYCLE
             Email = email;
             RecycleBag = recycleBag;
             TotalPoints = totalPoints;
-            MaterialPointMultipliers = materialPointMultipliers;
+            MaterialPointMultipliers = materialPointMultipliers ?? new Dictionary<string, double>(); // Initialize if null
 
             InitializeReceipt();
         }
@@ -60,7 +63,7 @@ namespace GREENCYCLE
                     AutoSize = false,
                     Size = new Size(200, 25),
                     Location = new Point(2, 7),
-                    Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
+                    Font = new System.Drawing.Font("Arial Rounded MT", 10, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleLeft
                 };
 
@@ -70,18 +73,18 @@ namespace GREENCYCLE
                     AutoSize = false,
                     Size = new Size(95, 25),
                     Location = new Point(243, 8),
-                    Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
+                    Font = new System.Drawing.Font("Arial Rounded MT", 10, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
-                double points = (double)(item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10));
+                double points = item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10);
                 Label lblPoints = new Label
                 {
                     Text = $"{points:F1}",
                     AutoSize = false,
                     Size = new Size(50, 25),
                     Location = new Point(483, 7),
-                    Font = new Font("Arial Rounded MT", 10, FontStyle.Bold),
+                    Font = new System.Drawing.Font("Arial Rounded MT", 10, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleRight
                 };
 
@@ -100,7 +103,76 @@ namespace GREENCYCLE
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            // Implement PDF generation logic here if needed
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog.Title = "Save Receipt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Document doc = new Document(PageSize.A6, 10, 10, 10, 10);
+                    PdfWriter.GetInstance(doc, new FileStream(saveFileDialog.FileName, FileMode.Create));
+                    doc.Open();
+
+                    // Set fonts
+                    BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                    iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 8, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font boldFont = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.BOLD);
+
+                    // Header - GREENCYCLE
+                    Paragraph header = new Paragraph("GREENCYCLE", boldFont);
+                    header.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(header);
+                    doc.Add(new Paragraph("\n"));
+
+                    // User Information
+                    doc.Add(new Paragraph($"Email: {Email}", normalFont));
+                    doc.Add(new Paragraph($"Date: {DateTime.Now:yyyy-MM-dd HH:mm}", normalFont));
+                    doc.Add(new Paragraph("\n"));
+
+                    // Items Table
+                    PdfPTable table = new PdfPTable(3);
+                    table.WidthPercentage = 100;
+                    table.SetWidths(new float[] { 3f, 1.5f, 1f }); // Adjust column widths
+
+                    // Table Headers
+                    PdfPCell headerCell1 = new PdfPCell(new Phrase("Material", boldFont));
+                    PdfPCell headerCell2 = new PdfPCell(new Phrase("Weight", boldFont));
+                    PdfPCell headerCell3 = new PdfPCell(new Phrase("Point", boldFont));
+                    table.AddCell(headerCell1);
+                    table.AddCell(headerCell2);
+                    table.AddCell(headerCell3);
+                    table.HeaderRows = 1;
+
+                    // Add items from RecycleBag
+                    foreach (var item in RecycleBag)
+                    {
+                        double points = item.Value * (MaterialPointMultipliers.ContainsKey(item.Key) ? MaterialPointMultipliers[item.Key] : 10);
+                        table.AddCell(new Phrase(item.Key, normalFont));
+                        table.AddCell(new Phrase($"{item.Value:F2} kg", normalFont));
+                        table.AddCell(new Phrase($"{points:F1}", normalFont));
+                    }
+
+                    doc.Add(table);
+                    doc.Add(new Paragraph("\n"));
+
+                    // Total Points
+                    Paragraph totalPointsLabel = new Paragraph($"Total Points: {TotalPoints:F1}", boldFont);
+                    totalPointsLabel.Alignment = Element.ALIGN_RIGHT;
+                    doc.Add(totalPointsLabel);
+
+                    doc.Add(new Paragraph("\nThank you for recycling with GreenCycle!", normalFont) { Alignment = Element.ALIGN_CENTER });
+
+                    doc.Close();
+
+                    MessageBox.Show("Receipt generated successfully.", "Success");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to generate receipt: " + ex.Message);
+                }
+            }
         }
 
         private void btnDone_Click(object sender, EventArgs e)

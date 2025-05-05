@@ -30,18 +30,14 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            UsersPlot = new OxyPlot.WindowsForms.PlotView();
-            cbxMunicipality = new ComboBox();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            plotView1 = new OxyPlot.WindowsForms.PlotView();
             panel1 = new Panel();
-            panel2 = new Panel();
-            btnWeek = new Button();
-            btnMonth = new Button();
             btnYear = new Button();
+            btnMonth = new Button();
+            btnWeek = new Button();
+            panel2 = new Panel();
+            cbxMunicipality = new ComboBox();
             tableLayoutPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -68,56 +64,19 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Controls.Add(UsersPlot);
             flowLayoutPanel1.Location = new Point(3, 41);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1123, 312);
             flowLayoutPanel1.TabIndex = 1;
             // 
-            // UsersPlot
-            // 
-            UsersPlot.BackColor = Color.LemonChiffon;
-            UsersPlot.Location = new Point(3, 3);
-            UsersPlot.Name = "UsersPlot";
-            UsersPlot.PanCursor = Cursors.Hand;
-            UsersPlot.Size = new Size(1123, 304);
-            UsersPlot.TabIndex = 0;
-            UsersPlot.ZoomHorizontalCursor = Cursors.SizeWE;
-            UsersPlot.ZoomRectangleCursor = Cursors.SizeNWSE;
-            UsersPlot.ZoomVerticalCursor = Cursors.SizeNS;
-            // 
-            // cbxMunicipality
-            // 
-            cbxMunicipality.FormattingEnabled = true;
-            cbxMunicipality.Location = new Point(0, 3);
-            cbxMunicipality.Name = "cbxMunicipality";
-            cbxMunicipality.Size = new Size(151, 28);
-            cbxMunicipality.TabIndex = 2;
-            cbxMunicipality.Text = "Municipality";
-          //  cbxMunicipality.SelectedIndexChanged += cbxMunicipality_SelectedIndexChanged;
-            // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.Controls.Add(plotView1);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(3, 397);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(1123, 279);
             flowLayoutPanel2.TabIndex = 3;
-            // 
-            // plotView1
-            // 
-            plotView1.BackColor = Color.LemonChiffon;
-            plotView1.Location = new Point(3, 3);
-            plotView1.Name = "plotView1";
-            plotView1.PanCursor = Cursors.Hand;
-            plotView1.Size = new Size(1280, 253);
-            plotView1.TabIndex = 0;
-            plotView1.Text = "plotView1";
-            plotView1.ZoomHorizontalCursor = Cursors.SizeWE;
-            plotView1.ZoomRectangleCursor = Cursors.SizeNWSE;
-            plotView1.ZoomVerticalCursor = Cursors.SizeNS;
             // 
             // panel1
             // 
@@ -130,24 +89,14 @@
             panel1.Size = new Size(1123, 32);
             panel1.TabIndex = 4;
             // 
-            // panel2
+            // btnYear
             // 
-            panel2.Controls.Add(cbxMunicipality);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1123, 32);
-            panel2.TabIndex = 5;
-            // 
-            // btnWeek
-            // 
-            btnWeek.Location = new Point(3, 3);
-            btnWeek.Name = "btnWeek";
-            btnWeek.Size = new Size(94, 29);
-            btnWeek.TabIndex = 0;
-            btnWeek.Text = "Week";
-            btnWeek.UseVisualStyleBackColor = true;
-         //   btnWeek.Click += btnWeek_Click;
+            btnYear.Location = new Point(203, 3);
+            btnYear.Name = "btnYear";
+            btnYear.Size = new Size(94, 29);
+            btnYear.TabIndex = 2;
+            btnYear.Text = "Year";
+            btnYear.UseVisualStyleBackColor = true;
             // 
             // btnMonth
             // 
@@ -157,17 +106,33 @@
             btnMonth.TabIndex = 1;
             btnMonth.Text = "Month";
             btnMonth.UseVisualStyleBackColor = true;
-            //btnMonth.Click += btnMonth_Click;
             // 
-            // btnYear
+            // btnWeek
             // 
-            btnYear.Location = new Point(203, 3);
-            btnYear.Name = "btnYear";
-            btnYear.Size = new Size(94, 29);
-            btnYear.TabIndex = 2;
-            btnYear.Text = "Year";
-            btnYear.UseVisualStyleBackColor = true;
-          //  btnYear.Click += btnYear_Click;
+            btnWeek.Location = new Point(3, 3);
+            btnWeek.Name = "btnWeek";
+            btnWeek.Size = new Size(94, 29);
+            btnWeek.TabIndex = 0;
+            btnWeek.Text = "Week";
+            btnWeek.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(cbxMunicipality);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1123, 32);
+            panel2.TabIndex = 5;
+            // 
+            // cbxMunicipality
+            // 
+            cbxMunicipality.FormattingEnabled = true;
+            cbxMunicipality.Location = new Point(0, 3);
+            cbxMunicipality.Name = "cbxMunicipality";
+            cbxMunicipality.Size = new Size(151, 28);
+            cbxMunicipality.TabIndex = 2;
+            cbxMunicipality.Text = "Municipality";
             // 
             // Statistics
             // 
@@ -182,8 +147,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Load += Statistics_Load;
             tableLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -191,11 +154,11 @@
 
         #endregion
         private TableLayoutPanel tableLayoutPanel1;
-        private OxyPlot.WindowsForms.PlotView UsersPlot;
+       // private OxyPlot.WindowsForms.PlotView UsersPlot;
         private FlowLayoutPanel flowLayoutPanel1;
         private ComboBox cbxMunicipality;
         private FlowLayoutPanel flowLayoutPanel2;
-        private OxyPlot.WindowsForms.PlotView plotView1;
+       // private OxyPlot.WindowsForms.PlotView plotView1;
         private Panel panel1;
         private Button btnWeek;
         private Panel panel2;

@@ -29,38 +29,46 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            UsersPlot = new OxyPlot.WindowsForms.PlotView();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            label1 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(UsersPlot, 0, 1);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5.891016F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.28277F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 41.6666679F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.1590576F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 46.0972023F));
             tableLayoutPanel1.Size = new Size(1129, 679);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // UsersPlot
+            // flowLayoutPanel1
             // 
-            UsersPlot.Anchor = AnchorStyles.None;
-            UsersPlot.BackColor = Color.LightCyan;
-            UsersPlot.Location = new Point(4, 46);
-            UsersPlot.Name = "UsersPlot";
-            UsersPlot.PanCursor = Cursors.Hand;
-            UsersPlot.Size = new Size(555, 342);
-            UsersPlot.TabIndex = 0;
-            UsersPlot.Text = "UsersPlot";
-            UsersPlot.ZoomHorizontalCursor = Cursors.SizeWE;
-            UsersPlot.ZoomRectangleCursor = Cursors.SizeNWSE;
-            UsersPlot.ZoomVerticalCursor = Cursors.SizeNS;
+            flowLayoutPanel1.Anchor = AnchorStyles.None;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(3, 42);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1123, 320);
+            flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Cooper Black", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(422, 3);
+            label1.Name = "label1";
+            label1.Size = new Size(284, 32);
+            label1.TabIndex = 1;
+            label1.Text = "Available Rewards";
             // 
             // UserDB
             // 
@@ -75,12 +83,15 @@
             StartPosition = FormStartPosition.CenterScreen;
             Load += UserDB_Load;
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private OxyPlot.WindowsForms.PlotView UsersPlot;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label1;
+        // private OxyPlot.WindowsForms.PlotView UsersPlot;
     }
 }

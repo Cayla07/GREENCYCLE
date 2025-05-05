@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.OleDb;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GREENCYCLE
 {
     public partial class Statistics : Form
     {
         private AdminMain1 parentForm;
+        private string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\maica eupinado\\Documents\\GreenCycleDatabase.accdb";
+
         public Statistics(AdminMain1 parent)
         {
             InitializeComponent();
@@ -22,6 +20,6 @@ namespace GREENCYCLE
         private void Statistics_Load(object sender, EventArgs e)
         {
 
-        }
+        }   
     }
 }

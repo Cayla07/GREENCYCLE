@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             tlpWallet = new TableLayoutPanel();
-            FLPanelRewards = new FlowLayoutPanel();
             panelWallet = new Panel();
+            btnRedeem = new Button();
             label2 = new Label();
             lblTotal = new Label();
             lblEmail = new Label();
+            FLPanelRewards = new FlowLayoutPanel();
             tlpWallet.SuspendLayout();
             panelWallet.SuspendLayout();
             SuspendLayout();
@@ -52,17 +53,10 @@
             tlpWallet.Size = new Size(1129, 685);
             tlpWallet.TabIndex = 0;
             // 
-            // FLPanelRewards
-            // 
-            FLPanelRewards.Location = new Point(3, 3);
-            FLPanelRewards.Name = "FLPanelRewards";
-            FLPanelRewards.Size = new Size(1123, 336);
-            FLPanelRewards.TabIndex = 0;
-            FLPanelRewards.Paint += FLPanelRewards_Paint;
-            // 
             // panelWallet
             // 
             panelWallet.Anchor = AnchorStyles.None;
+            panelWallet.Controls.Add(btnRedeem);
             panelWallet.Controls.Add(label2);
             panelWallet.Controls.Add(lblTotal);
             panelWallet.Controls.Add(lblEmail);
@@ -70,7 +64,17 @@
             panelWallet.Name = "panelWallet";
             panelWallet.Size = new Size(574, 322);
             panelWallet.TabIndex = 1;
-            panelWallet.Paint += panelWallet_Paint;
+            // 
+            // btnRedeem
+            // 
+            btnRedeem.BackColor = Color.Red;
+            btnRedeem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRedeem.Location = new Point(470, 283);
+            btnRedeem.Name = "btnRedeem";
+            btnRedeem.Size = new Size(101, 36);
+            btnRedeem.TabIndex = 4;
+            btnRedeem.Text = "Redeem";
+            btnRedeem.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -105,6 +109,15 @@
             lblEmail.TabIndex = 1;
             lblEmail.Text = "Email";
             // 
+            // FLPanelRewards
+            // 
+            FLPanelRewards.AutoScroll = true;
+            FLPanelRewards.FlowDirection = FlowDirection.TopDown;
+            FLPanelRewards.Location = new Point(3, 3);
+            FLPanelRewards.Name = "FLPanelRewards";
+            FLPanelRewards.Size = new Size(1123, 336);
+            FLPanelRewards.TabIndex = 0;
+            // 
             // Wallet
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -130,5 +143,6 @@
         private Label lblEmail;
         private Label label2;
         private Label lblTotal;
+        private Button btnRedeem;
     }
 }
