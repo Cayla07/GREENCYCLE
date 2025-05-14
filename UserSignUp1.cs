@@ -42,7 +42,7 @@ namespace GREENCYCLE
             {
                 var nextForm = new UserSignUp(functionalityForm);
                 functionalityForm.LoadFormIntoPanel(nextForm);
-            }// Pass ID to the next form
+            }
         }
 
         private void linkUserLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -160,7 +160,7 @@ namespace GREENCYCLE
                 cmd.Parameters.AddWithValue("?", cbxBarangay.Text);
                 cmd.ExecuteNonQuery();
 
-                // Get the last inserted ID
+               
                 cmd = new OleDbCommand("SELECT @@IDENTITY", conn);
                 userInfoID = Convert.ToInt32(cmd.ExecuteScalar());
             }

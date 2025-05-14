@@ -13,7 +13,7 @@ namespace GREENCYCLE
         private Dictionary<string, double> materialPointMultipliers = new Dictionary<string, double>();
 
         private readonly string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\maica eupinado\Documents\GreenCycleDatabase.accdb;Persist Security Info=False;";
-        private string loggedInEmail; // To store the logged-in user's email
+        private string loggedInEmail; 
 
         public Recycle(UserMain1 parent)
         {
@@ -265,10 +265,8 @@ namespace GREENCYCLE
             }
             if (details.EndsWith(", "))
             {
-                details = details.Substring(0, details.Length - 2); // Remove the trailing ", "
+                details = details.Substring(0, details.Length - 2); 
             }
-
-            // Save to history BEFORE clearing the recycle bag
             Receipt receiptForm = new Receipt(fullName, email, recycleBag, totalPoints, materialPointMultipliers);
 
             Overlay.ShowOverlay(this, receiptForm, null);
@@ -301,7 +299,6 @@ namespace GREENCYCLE
             }
         }
 
-        // Your material buttons remain unchanged
         private void btnPlastics_Click(object sender, EventArgs e)
         {
             PBInfo pbInfoForm = new PBInfo("Plastic Bottles", this);

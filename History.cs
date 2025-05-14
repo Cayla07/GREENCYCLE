@@ -35,7 +35,6 @@ namespace GREENCYCLE
 
                     dgvHistory.DataSource = historyTable;
 
-                    // Optional: Customize column headers
                     if (dgvHistory.Columns.Contains("SubmissionDate"))
                         dgvHistory.Columns["SubmissionDate"].HeaderText = "Submission Date";
                     if (dgvHistory.Columns.Contains("TotalPoints"))

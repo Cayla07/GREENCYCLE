@@ -15,7 +15,7 @@ namespace GREENCYCLE
         private Wallet walletForm;
 
         public int LoggedInAccountID { get; private set; }
-        public string Email { get; set; } // ✅ Added Email property
+        public string Email { get; set; } 
         public string FullName { get; set; }
         public UserMain1(int AccountID)
         {
@@ -85,7 +85,6 @@ namespace GREENCYCLE
         {
          
             HighlightButton(btnWallet);
-             // e.g., query from database
 
             if (walletForm == null || walletForm.IsDisposed)
                 walletForm = new Wallet(this);

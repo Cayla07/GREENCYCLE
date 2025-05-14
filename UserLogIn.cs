@@ -65,7 +65,6 @@ namespace GREENCYCLE
                 {
                     myConn.Open();
 
-                    // Modified query to select accountID and Email
                     string loginQuery = "SELECT AccountID, Email FROM UserAccounts WHERE Email = @Email AND [Password] = @Password";
                     using (OleDbCommand cmd = new OleDbCommand(loginQuery, myConn))
                     {
@@ -80,9 +79,9 @@ namespace GREENCYCLE
                                 string loggedInEmail = reader["Email"].ToString();
 
                                 MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                UserMain1 userDashboard = new UserMain1(loggedInAccountID); // Pass accountID
-                                userDashboard.Email = loggedInEmail; // Set the Email property
-                                                                     // You might want to fetch and set FullName here as well
+                                UserMain1 userDashboard = new UserMain1(loggedInAccountID); 
+                                userDashboard.Email = loggedInEmail; 
+                                                                     
                                 userDashboard.Show();
                                 mainForm?.Close();
                                 this.Hide();

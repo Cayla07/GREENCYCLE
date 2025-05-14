@@ -17,7 +17,6 @@ namespace GREENCYCLE
 
         private void PBInfo_Load(object sender, EventArgs e)
         {
-            // These should ideally be assigned in InitializeComponent() or constructor, not Load event.
             btnBack.Click += BtnBack_Click;
             btnProceed.Click += BtnProceed_Click;
         }

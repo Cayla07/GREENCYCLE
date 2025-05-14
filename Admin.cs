@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,7 +57,7 @@ namespace GREENCYCLE
 
                 if (this.ParentForm is Main0 main0)
                 {
-                    main0.Close(); // Close `Main0`
+                    main0.Close(); 
                 }
 
                 this.Hide();

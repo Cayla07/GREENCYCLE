@@ -51,7 +51,6 @@ namespace GREENCYCLE
         {
             Application.Exit();
         }
-
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

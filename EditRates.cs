@@ -75,7 +75,7 @@ namespace GREENCYCLE
             myConn.Close();
 
             MessageBox.Show("Record updated successfully!");
-            LoadMaterialPoints(); // Refresh DataGridView
+            LoadMaterialPoints(); 
             ClearFields();
         }
 
@@ -101,13 +101,13 @@ namespace GREENCYCLE
                 myConn.Close();
 
                 MessageBox.Show("Record deleted successfully!");
-                LoadMaterialPoints(); // Refresh DataGridView
+                LoadMaterialPoints(); 
             }
         }
 
         private void dgvEditRates_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Make sure click is not header
+            if (e.RowIndex >= 0) 
             {
                 indexRow = e.RowIndex;
                 DataGridViewRow row = dgvEditRates.Rows[indexRow];
@@ -151,7 +151,7 @@ namespace GREENCYCLE
                         adapter.Fill(ds, "MaterialSearch");
 
                         dgvEditRates.DataSource = ds.Tables["MaterialSearch"];
-                        dgvEditRates.Columns["MaterialID"].Visible = false; // Optional: hide ID
+                        dgvEditRates.Columns["MaterialID"].Visible = false; 
                     }
                 }
             }

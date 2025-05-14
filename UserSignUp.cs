@@ -19,7 +19,7 @@ namespace GREENCYCLE
         DataSet? ds;
         int indexRow;
 
-        private Main0 mainForm; // Reference to Main0
+        private Main0 mainForm; 
 
         public UserSignUp(Main0 mainForm)
         {
@@ -77,7 +77,6 @@ namespace GREENCYCLE
                 {
                     myConn.Open();
 
-                    // 1️⃣ Check if email already exists
                     string checkQuery = "SELECT COUNT(*) FROM UserAccounts WHERE Email = @Email";
                     using (OleDbCommand checkCmd = new OleDbCommand(checkQuery, myConn))
                     {
@@ -91,12 +90,11 @@ namespace GREENCYCLE
                         }
                     }
 
-                    // 2️⃣ Insert new user if email is unique
                     string insertQuery = "INSERT INTO UserAccounts (Email, [Password]) VALUES (@Email, @Password)";
                     using (OleDbCommand insertCmd = new OleDbCommand(insertQuery, myConn))
                     {
                         insertCmd.Parameters.AddWithValue("@Email", email);
-                        insertCmd.Parameters.AddWithValue("@Password", password); // ⚠ Password should be hashed for security
+                        insertCmd.Parameters.AddWithValue("@Password", password); 
 
                         int result = insertCmd.ExecuteNonQuery();
                         if (result > 0)
@@ -105,7 +103,7 @@ namespace GREENCYCLE
 
                             if (this.ParentForm is Main0 main0)
                             {
-                                main0.LoadFormIntoPanel(new UserLogIn(main0)); // Redirect to login
+                                main0.LoadFormIntoPanel(new UserLogIn(main0)); 
                             }
 
                             this.Hide();

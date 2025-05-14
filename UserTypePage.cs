@@ -41,7 +41,7 @@ namespace GREENCYCLE
                 else if (selectedUserType == "Admin")
                 {
                     main0.Show();
-                    main0.LoadFormIntoPanel(new Admin()); // Load Admin in panel
+                    main0.LoadFormIntoPanel(new Admin()); 
                 }
                 else
                 {

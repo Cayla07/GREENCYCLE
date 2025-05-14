@@ -21,8 +21,8 @@ namespace GREENCYCLE
         public AdminMain1()
         {
             InitializeComponent();
-            HighlightButton(btnDashboard); // Default highlight
-            adminDB = new AdminDB(this);   // Load default form
+            HighlightButton(btnDashboard); 
+            adminDB = new AdminDB(this);   
             LoadFormIntoPanel(adminDB);
         }
 
@@ -47,7 +47,7 @@ namespace GREENCYCLE
 
         private void HighlightButton(Button btn)
         {
-            DisableButton(); // Reset all buttons to default
+            DisableButton(); 
             btn.BackColor = Color.Lime;
         }
 
@@ -56,6 +56,7 @@ namespace GREENCYCLE
             btnDashboard.BackColor = Color.Transparent;
             btnUsers.BackColor = Color.Transparent;
             btnEditRates.BackColor = Color.Transparent;
+            btnRewards.BackColor = Color.Transparent;
             btnStatistics.BackColor = Color.Transparent;
             btnOut.BackColor = Color.Transparent;
         }

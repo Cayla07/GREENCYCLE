@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +12,7 @@ namespace GREENCYCLE
 {
     public partial class Main0 : Form
     {
-        private Form activeForm = null; // Keeps track of the currently displayed form
+        private Form activeForm = null; 
         public Main0()
         {
             InitializeComponent();
@@ -34,7 +33,7 @@ namespace GREENCYCLE
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
-            panelUser.Controls.Clear();  // Ensure only one form is loaded
+            panelUser.Controls.Clear();  
             panelUser.Controls.Add(childForm);
             childForm.Show();
 
